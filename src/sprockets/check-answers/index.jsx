@@ -10,8 +10,8 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import Sprocket from 'shinkansen-sprockets/sprockets'
-import Title from 'shinkansen-sprockets/components/title/check-answers'
-import Group from 'shinkansen-sprockets/components/group/check-answers'
+import Title from './title/index.jsx'
+import Group from './group/index.jsx'
 
 export default class CheckAnswersSprocket extends Sprocket {
   getClassName () {
@@ -37,7 +37,6 @@ export default class CheckAnswersSprocket extends Sprocket {
     return (
       <Title
         title={title}
-        ref={this.setTitle}
       />
     )
   }
@@ -50,7 +49,6 @@ export default class CheckAnswersSprocket extends Sprocket {
     return (
       <Group
         checkAnswers={checkAnswers}
-        ref={this.setGroup}
       />
     )
   }

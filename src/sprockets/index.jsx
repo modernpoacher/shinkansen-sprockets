@@ -15,12 +15,6 @@ function onChange () {
 }
 
 export default class Sprocket extends Component {
-  getTitle = () => this.title
-  getGroup = () => this.group
-
-  setTitle = (title) => !!(this.title = title) || delete this.title
-  setGroup = (group) => !!(this.group = group) || delete this.group
-
   getClassName () {
     return 'sprocket'
   }
@@ -45,7 +39,6 @@ export default class Sprocket extends Component {
     return (
       <Title
         title={title}
-        ref={this.setTitle}
       />
     )
   }
@@ -53,13 +46,14 @@ export default class Sprocket extends Component {
   renderGroup () {
     const {
       onChange,
+      groupRef,
       children
     } = this.props
 
     return (
       <Group
         onChange={onChange}
-        ref={this.setGroup}>
+        groupRef={groupRef}>
         {this.renderTitle()}
         {children}
       </Group>
@@ -85,7 +79,10 @@ Sprocket.propTypes = {
     PropTypes.arrayOf(
       PropTypes.node
     )
-  ])
+  ]),
+  groupRef: PropTypes.shape({
+    current: PropTypes.shape().isRequired
+  })
 }
 
 Sprocket.defaultProps = {

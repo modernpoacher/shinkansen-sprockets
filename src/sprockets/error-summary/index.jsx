@@ -10,8 +10,8 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import Sprocket from 'shinkansen-sprockets/sprockets'
-import Title from 'shinkansen-sprockets/components/title/error-summary'
-import Group from 'shinkansen-sprockets/components/group/error-summary'
+import Title from './title/index.jsx'
+import Group from './group/index.jsx'
 
 export default class ErrorSummarySprocket extends Sprocket {
   getClassName () {
@@ -37,7 +37,6 @@ export default class ErrorSummarySprocket extends Sprocket {
     return (
       <Title
         title={title}
-        ref={this.setTitle}
       />
     )
   }
@@ -50,8 +49,7 @@ export default class ErrorSummarySprocket extends Sprocket {
     return (
       <Group
         errorSummary={errorSummary}
-        ref={this.setGroup}>
-      </Group>
+      />
     )
   }
 

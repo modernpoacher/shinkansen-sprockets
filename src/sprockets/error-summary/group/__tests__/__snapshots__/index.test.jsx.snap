@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shinkansen-sprockets/sprockets/error-summary/group <Group /> With additional props renders 1`] = `
+<ul
+  className="MOCK CLASSNAME"
+>
+  <li
+    className="error"
+  >
+    <a
+      href="#"
+    >
+      <span
+        className="text-content"
+      >
+        Unknown
+      </span>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`shinkansen-sprockets/sprockets/error-summary/group <Group /> With required props renders 1`] = `null`;

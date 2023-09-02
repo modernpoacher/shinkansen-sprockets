@@ -8,9 +8,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class Group extends Component {
-  getDOMNode = () => this.domNode
-  setDOMNode = (domNode) => !!(this.domNode = domNode) || delete this.domNode
-
   getClassName () {
     return 'group'
   }
@@ -29,6 +26,7 @@ export default class Group extends Component {
   render () {
     const {
       onChange,
+      groupRef,
       children
     } = this.props
 
@@ -36,7 +34,7 @@ export default class Group extends Component {
       <fieldset
         onChange={onChange}
         className={this.getClassName()}
-        ref={this.setDOMNode}>
+        ref={groupRef}>
         {children}
       </fieldset>
     )
@@ -50,5 +48,8 @@ Group.propTypes = {
     PropTypes.arrayOf(
       PropTypes.node
     )
-  ])
+  ]),
+  groupRef: PropTypes.shape({
+    current: PropTypes.shape().isRequired
+  })
 }

@@ -10,18 +10,12 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import Sprocket from 'shinkansen-sprockets/sprockets'
-import Title from 'shinkansen-sprockets/components/title/fieldset'
-import Description from 'shinkansen-sprockets/components/description/fieldset'
-import ErrorMessage from 'shinkansen-sprockets/components/error-message/fieldset'
-import Group from 'shinkansen-sprockets/components/group/fieldset'
+import Title from './title/index.jsx'
+import Description from './description/index.jsx'
+import ErrorMessage from './error-message/index.jsx'
+import Group from './group/index.jsx'
 
 export default class FieldsetSprocket extends Sprocket {
-  getDescription = () => this.description
-  getErrorMessage = () => this.errorMessage
-
-  setDescription = (description) => !!(this.description = description) || delete this.description
-  setErrorMessage = (errorMessage) => !!(this.errorMessage = errorMessage) || delete this.errorMessage
-
   getClassName () {
     const {
       errorMessage
@@ -50,7 +44,6 @@ export default class FieldsetSprocket extends Sprocket {
     return (
       <Title
         title={title}
-        ref={this.setTitle}
       />
     )
   }
@@ -63,7 +56,6 @@ export default class FieldsetSprocket extends Sprocket {
     return (
       <Description
         description={description}
-        ref={this.setDescription}
       />
     )
   }
@@ -76,7 +68,6 @@ export default class FieldsetSprocket extends Sprocket {
     return (
       <ErrorMessage
         errorMessage={errorMessage}
-        ref={this.setErrorMessage}
       />
     )
   }
@@ -89,8 +80,7 @@ export default class FieldsetSprocket extends Sprocket {
 
     return (
       <Group
-        onChange={onChange}
-        ref={this.setGroup}>
+        onChange={onChange}>
         {this.renderTitle()}
         {this.renderDescription()}
         {this.renderErrorMessage()}
