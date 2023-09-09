@@ -161,8 +161,9 @@ export default {
   ]
 }
 
-export const AllAnswers = () => (
-  <CheckAnswersSprocket
+export function AllAnswers () {
+  return (
+    <CheckAnswersSprocket
     title='All Answers'
     checkAnswers={[
       STRING_STRING,
@@ -310,18 +311,21 @@ export const AllAnswers = () => (
       NULL_NULL_ALL_OF
     ]}
   />
-)
+  )
+}
 
 AllAnswers.parameters = {
   controls: { disabled: true, hideNoControlsWarning: true }
 }
 
-export const NoAnswers = () => (
-  <CheckAnswersSprocket
+export function NoAnswers () {
+  return (
+    <CheckAnswersSprocket
     title='No Answers'
     checkAnswers={[]}
   />
-)
+  )
+}
 
 NoAnswers.parameters = {
   controls: { disabled: true, hideNoControlsWarning: true }

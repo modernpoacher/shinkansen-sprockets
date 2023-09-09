@@ -30,13 +30,11 @@ export default {
   }
 }
 
-export const Fieldset = (args) => (
-  <FieldsetSprocket
-    {...args}
-  />
-)
-
-Fieldset.args = {
-  title: 'Title',
-  description: 'Description'
+export function Fieldset () {
+  return (
+    <FieldsetSprocket
+      title='Title'
+      description='Description'
+    />
+  )
 }

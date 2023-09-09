@@ -11,7 +11,7 @@ jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 jest.mock('../title/index.jsx')
 jest.mock('../group/index.jsx')
 
-describe('shinkansen-sprockets/sprockets/fieldset', () => {
+describe('shinkansen-sprockets/sprockets/error-summary', () => {
   describe('<Sprocket />', () => {
     describe('With required props', () => {
       const component = (
@@ -37,20 +37,6 @@ describe('shinkansen-sprockets/sprockets/fieldset', () => {
         })
       })
 
-      describe('`renderDescription`', () => {
-        it('is defined', () => {
-          return expect(Sprocket.prototype.renderDescription)
-            .toBeDefined()
-        })
-      })
-
-      describe('`renderErrorMessage`', () => {
-        it('is defined', () => {
-          return expect(Sprocket.prototype.renderErrorMessage)
-            .toBeDefined()
-        })
-      })
-
       describe('`renderGroup`', () => {
         it('is defined', () => {
           return expect(Sprocket.prototype.renderGroup)
@@ -64,7 +50,6 @@ describe('shinkansen-sprockets/sprockets/fieldset', () => {
         const component = (
           <Sprocket
             title='MOCK TITLE'
-            onChange={jest.fn()}
           />
         )
 
@@ -93,7 +78,7 @@ describe('shinkansen-sprockets/sprockets/fieldset', () => {
 
       it('invokes `classnames`', () => {
         return expect(classnames)
-          .toBeCalledWith('MOCK GETCLASSNAME', { error: false }, 'fieldset')
+          .toBeCalledWith('MOCK GETCLASSNAME', 'error-summary')
       })
 
       it('returns the classname', () => {

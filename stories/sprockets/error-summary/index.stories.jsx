@@ -123,29 +123,35 @@ export default {
   }
 }
 
-export const Default = (args) => (
-  <ErrorSummarySprocket
+export function Default (args) {
+  return (
+    <ErrorSummarySprocket
     {...args}
   />
-)
+  )
+}
 
-export const AllErrors = () => (
-  <ErrorSummarySprocket
+export function AllErrors () {
+  return (
+    <ErrorSummarySprocket
     title='All Errors'
     errorSummary={Object.values(ERROR).map(([e]) => e)}
   />
-)
+  )
+}
 
 AllErrors.parameters = {
   controls: { disabled: true, hideNoControlsWarning: true }
 }
 
-export const NoErrors = () => (
-  <ErrorSummarySprocket
+export function NoErrors () {
+  return (
+    <ErrorSummarySprocket
     title='No Errors'
     errorSummary={[]}
   />
-)
+  )
+}
 
 NoErrors.parameters = {
   controls: { disabled: true, hideNoControlsWarning: true }

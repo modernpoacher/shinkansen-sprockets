@@ -8,7 +8,7 @@ import {
 
 import TextContent from 'shinkansen-sprockets/components/common/text-content'
 
-import VisuallyHiddenText from './visually-hidden-text.cjs'
+import VisuallyHiddenText from 'shinkansen-sprockets/components/common/visually-hidden-text'
 
 const log = debug('shinkansen-sprockets/sprockets/check-answers/group/change-answer')
 
