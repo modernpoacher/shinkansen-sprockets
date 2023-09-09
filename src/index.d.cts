@@ -1,7 +1,7 @@
 declare namespace SprocketsTypes {
   export type OnChangeType = () => void
 
-  export type AnswerDefinitionType = {
+  export interface AnswerDefinitionType {
     answer: {
       title: string
       value: string | string[]
@@ -13,41 +13,39 @@ declare namespace SprocketsTypes {
     }
   }
 
-  export type ErrorDefinitionType = {
-    type: string,
-    uri: string,
+  export interface ErrorDefinitionType {
+    type: string
+    uri: string
     params: {
       expectedType: string
     }
   }
 
-  export type ComponentsType = {}
-
-  export type FieldChangeType = {
-    text: string,
+  export interface FieldChangeType {
+    text: string
     href: string
   }
 
-  export type FieldErrorType = {
-    text: string,
+  export interface FieldErrorType {
+    text: string
     href: string
   }
 }
 
 declare module 'shinkansen-sprockets/components/common/text-content' {
-  import React from 'react'
+  import type React from 'react'
 
-  export type TextContentProps = {
+  export interface TextContentProps {
     textContent: string
   }
 
-  export default function TextContent(props: TextContentProps): React.JSX.Element
+  export default function TextContent (props: TextContentProps): React.JSX.Element
 }
 
 declare module 'shinkansen-sprockets/components/description' {
   import React from 'react'
 
-  export type DescriptionProps = {
+  export interface DescriptionProps {
     description: string
   }
 
@@ -57,7 +55,7 @@ declare module 'shinkansen-sprockets/components/description' {
 declare module 'shinkansen-sprockets/components/error-message' {
   import React from 'react'
 
-  export type ErrorMessageProps = {
+  export interface ErrorMessageProps {
     errorMessage: string
   }
 
@@ -67,7 +65,7 @@ declare module 'shinkansen-sprockets/components/error-message' {
 declare module 'shinkansen-sprockets/components/title' {
   import React from 'react'
 
-  export type TitleProps = {
+  export interface TitleProps {
     title: string
   }
 
@@ -77,9 +75,9 @@ declare module 'shinkansen-sprockets/components/title' {
 declare module 'shinkansen-sprockets/components/group' {
   import React from 'react'
 
-  export type GroupProps = {
-    onChange: SprocketsTypes.OnChangeType,
-    groupRef: object,
+  export interface GroupProps {
+    onChange: SprocketsTypes.OnChangeType
+    groupRef: object
     children: React.JSX.Element | React.JSX.Element[]
   }
 
@@ -155,10 +153,10 @@ declare module 'shinkansen-sprockets/sprockets/fieldset' {
 declare module 'shinkansen-sprockets/sprockets' {
   import React from 'react'
 
-  export type SprocketProps = {
-    title: string,
-    onChange: SprocketsTypes.OnChangeType,
-    groupRef: object,
+  export interface SprocketProps {
+    title: string
+    onChange: SprocketsTypes.OnChangeType
+    groupRef: object
     children: React.JSX.Element | React.JSX.Element[]
   }
 
@@ -178,7 +176,7 @@ declare module 'shinkansen-sprockets/transformers/error-summary' {
 }
 
 declare module 'shinkansen-sprockets/transformers/common' {
-  export function getKey(href: string, text: string, index: number): string
+  export function getKey (href: string, text: string, index: number): string
 }
 
 declare module 'shinkansen-sprockets' {
