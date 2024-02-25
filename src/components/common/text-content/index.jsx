@@ -12,11 +12,15 @@ import PropTypes from 'prop-types'
  * @returns {React.JSX.Element}
  */
 export default function TextContent ({ textContent }) {
-  return (
-    <span className='text-content'>
-      {textContent}
-    </span>
-  )
+  if (textContent) {
+    return (
+      <span className='text-content'>
+        {textContent}
+      </span>
+    )
+  }
+
+  return null
 }
 
 TextContent.propTypes = {

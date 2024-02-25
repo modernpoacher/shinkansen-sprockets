@@ -5,7 +5,7 @@ export default function VisuallyHiddenText ({ visuallyHiddenText }) {
   if (visuallyHiddenText) {
     return (
       <span className='visually-hidden-text'>
-        {visuallyHiddenText.toLowerCase()}
+        {visuallyHiddenText}
       </span>
     )
   }
@@ -14,9 +14,5 @@ export default function VisuallyHiddenText ({ visuallyHiddenText }) {
 }
 
 VisuallyHiddenText.propTypes = {
-  visuallyHiddenText: PropTypes.string
-}
-
-VisuallyHiddenText.defaultProps = {
-  visuallyHiddenText: ''
+  visuallyHiddenText: PropTypes.string.isRequired
 }

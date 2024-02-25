@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shinkansen-sprockets/components/common/visually-hidden-text <Component /> With required props renders 1`] = `
+<span
+  className="visually-hidden-text"
+>
+  MOCK VISUALLY HIDDEN TEXT
+</span>
+`;
