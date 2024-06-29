@@ -1,17 +1,76 @@
-import React from 'react'
+import React, { Component as mockComponent } from 'react'
 import renderer from 'react-test-renderer'
 
 import classnames from 'classnames'
 
 import Super from 'shinkansen-sprockets/sprockets'
-import Sprocket from '../index.jsx'
+import Sprocket from 'shinkansen-sprockets/sprockets/check-answers'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 
-jest.mock('../title/index.jsx')
-jest.mock('../group/index.jsx')
+jest.mock('shinkansen-sprockets/sprockets/check-answers/title')
+jest.mock('shinkansen-sprockets/sprockets/check-answers/group', () => {
+  class MockCog extends mockComponent {
+    state = {}
 
-describe('shinkansen-sprockets/sprockets/table', () => {
+    render () {
+      return 'MOCK CHECK ANSWERS GROUP'
+    }
+  }
+
+  return {
+    __esModule: true,
+    CheckCog: class CheckCog extends MockCog { },
+    default: MockCog
+  }
+})
+
+const MOCK_CHECK_ANSWERS = [
+  {
+    type: 'STRING',
+    params: {
+      answer: { title: 'MOCK STRING TITLE', value: 'MOCK STRING VALUE' },
+      changeAnswer: { href: 'MOCK STRING CHANGE HREF', text: 'MOCK STRING CHANGE TEXT', visuallyHiddenText: 'MOCK STRING VISUALLY HIDDEN TEXT' }
+    }
+  },
+  {
+    type: 'NUMBER',
+    params: {
+      answer: { title: 'MOCK NUMBER TITLE', value: 'MOCK NUMBER VALUE' },
+      changeAnswer: { href: 'MOCK NUMBER CHANGE HREF', text: 'MOCK NUMBER CHANGE TEXT', visuallyHiddenText: 'MOCK NUMBER VISUALLY HIDDEN TEXT' }
+    }
+  },
+  {
+    type: 'BOOLEAN',
+    params: {
+      answer: { title: 'MOCK BOOLEAN TITLE', value: 'MOCK BOOLEAN VALUE' },
+      changeAnswer: { href: 'MOCK BOOLEAN CHANGE HREF', text: 'MOCK BOOLEAN CHANGE TEXT', visuallyHiddenText: 'MOCK BOOLEAN VISUALLY HIDDEN TEXT' }
+    }
+  },
+  {
+    type: 'OBJECT',
+    params: {
+      answer: { title: 'MOCK OBJECT TITLE', value: 'MOCK OBJECT VALUE' },
+      changeAnswer: { href: 'MOCK OBJECT CHANGE HREF', text: 'MOCK OBJECT CHANGE TEXT', visuallyHiddenText: 'MOCK OBJECT VISUALLY HIDDEN TEXT' }
+    }
+  },
+  {
+    type: 'ARRAY',
+    params: {
+      answer: { title: 'MOCK ARRAY TITLE', value: 'MOCK ARRAY VALUE' },
+      changeAnswer: { href: 'MOCK ARRAY CHANGE HREF', text: 'MOCK ARRAY CHANGE TEXT', visuallyHiddenText: 'MOCK ARRAY VISUALLY HIDDEN TEXT' }
+    }
+  },
+  {
+    type: 'NULL',
+    params: {
+      answer: { title: 'MOCK NULL TITLE', value: 'MOCK NULL VALUE' },
+      changeAnswer: { href: 'MOCK NULL CHANGE HREF', text: 'MOCK NULL CHANGE TEXT', visuallyHiddenText: 'MOCK NULL VISUALLY HIDDEN TEXT' }
+    }
+  }
+]
+
+describe('shinkansen-sprockets/sprockets/check-answers', () => {
   describe('<Sprocket />', () => {
     describe('With required props', () => {
       const component = (
@@ -50,6 +109,7 @@ describe('shinkansen-sprockets/sprockets/table', () => {
         const component = (
           <Sprocket
             title='MOCK TITLE'
+            checkAnswers={MOCK_CHECK_ANSWERS}
           />
         )
 

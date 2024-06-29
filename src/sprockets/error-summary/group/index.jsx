@@ -50,7 +50,9 @@ export default class ErrorSummaryGroup extends Group {
   /**
    * @type {GroupState}
    */
-  state = {}
+  state = {
+    errorSummary: {}
+  }
 
   getClassName () {
     return classnames(super.getClassName(), 'error-summary')

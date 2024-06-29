@@ -48,7 +48,9 @@ export default class CheckAnswersGroup extends Group {
   /**
    * @type {GroupState}
    */
-  state = {}
+  state = {
+    checkAnswers: []
+  }
 
   getClassName () {
     return classnames(super.getClassName(), 'check-answers')

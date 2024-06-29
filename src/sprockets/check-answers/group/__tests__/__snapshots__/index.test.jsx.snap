@@ -32,6 +32,20 @@ exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With addit
     MOCK ANSWER VALUE
     MOCK CHANGE ANSWER
   </div>
+  <div
+    className="answer"
+  >
+    MOCK ANSWER TITLE
+    MOCK ANSWER VALUE
+    MOCK CHANGE ANSWER
+  </div>
+  <div
+    className="answer"
+  >
+    MOCK ANSWER TITLE
+    MOCK ANSWER VALUE
+    MOCK CHANGE ANSWER
+  </div>
 </dl>
 `;
 
@@ -81,6 +95,20 @@ exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With addit
 <dl
   className="MOCK CLASSNAME"
 >
+  <div
+    className="answer"
+  >
+    MOCK ANSWER TITLE
+    MOCK ANSWER VALUE
+    MOCK CHANGE ANSWER
+  </div>
+  <div
+    className="answer"
+  >
+    MOCK ANSWER TITLE
+    MOCK ANSWER VALUE
+    MOCK CHANGE ANSWER
+  </div>
   <div
     className="answer"
   >

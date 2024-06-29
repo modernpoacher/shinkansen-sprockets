@@ -22,9 +22,9 @@ export default class CheckAnswersSprocket extends Sprocket {
    * @param {SprocketProps} props
    * @returns {boolean}
    */
-  shouldComponentUpdate (props) {
+  shouldComponentUpdate (props, state) {
     return (
-      super.shouldComponentUpdate(props) ||
+      super.shouldComponentUpdate(props, state) ||
       (props.checkAnswers !== this.props.checkAnswers)
     )
   }

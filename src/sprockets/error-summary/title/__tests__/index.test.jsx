@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import Super from 'shinkansen-sprockets/components/title'
-import Title from '../index.jsx'
+import Title from 'shinkansen-sprockets/sprockets/error-summary/title'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 

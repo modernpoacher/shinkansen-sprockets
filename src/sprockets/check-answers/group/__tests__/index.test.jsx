@@ -4,13 +4,66 @@ import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import Super from 'shinkansen-sprockets/components/group'
-import Group from '../index.jsx'
+import Group from 'shinkansen-sprockets/sprockets/check-answers/group'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 
-jest.mock('../answer-title.jsx', () => () => 'MOCK ANSWER TITLE')
-jest.mock('../answer-value.jsx', () => () => 'MOCK ANSWER VALUE')
-jest.mock('../change-answer.jsx', () => () => 'MOCK CHANGE ANSWER')
+jest.mock('shinkansen-sprockets/sprockets/check-answers/group/answer-title', () => () => 'MOCK ANSWER TITLE')
+jest.mock('shinkansen-sprockets/sprockets/check-answers/group/answer-value', () => () => 'MOCK ANSWER VALUE')
+jest.mock('shinkansen-sprockets/sprockets/check-answers/group/change-answer', () => () => 'MOCK CHANGE ANSWER')
+
+const MOCK_STRING_ANSWER = {
+  type: 'STRING',
+  params: {
+    answer: { title: 'MOCK STRING TITLE', value: 'MOCK STRING VALUE' },
+    changeAnswer: { href: 'MOCK STRING CHANGE HREF', text: 'MOCK STRING CHANGE TEXT', visuallyHiddenText: 'MOCK STRING VISUALLY HIDDEN TEXT' }
+  }
+}
+
+const MOCK_NUMBER_ANSWER = {
+  type: 'NUMBER',
+  params: {
+    answer: { title: 'MOCK NUMBER TITLE', value: 'MOCK NUMBER VALUE' },
+    changeAnswer: { href: 'MOCK NUMBER CHANGE HREF', text: 'MOCK NUMBER CHANGE TEXT', visuallyHiddenText: 'MOCK NUMBER VISUALLY HIDDEN TEXT' }
+  }
+}
+
+const MOCK_BOOLEAN_ANSWER = {
+  type: 'BOOLEAN',
+  params: {
+    answer: { title: 'MOCK BOOLEAN TITLE', value: 'MOCK BOOLEAN VALUE' },
+    changeAnswer: { href: 'MOCK BOOLEAN CHANGE HREF', text: 'MOCK BOOLEAN CHANGE TEXT', visuallyHiddenText: 'MOCK BOOLEAN VISUALLY HIDDEN TEXT' }
+  }
+}
+
+const MOCK_NULL_ANSWER = {
+  type: 'NULL',
+  params: {
+    answer: { title: 'MOCK NULL TITLE', value: 'MOCK NULL VALUE' },
+    changeAnswer: { href: 'MOCK NULL CHANGE HREF', text: 'MOCK NULL CHANGE TEXT', visuallyHiddenText: 'MOCK NULL VISUALLY HIDDEN TEXT' }
+  }
+}
+
+const MOCK_CHECK_ANSWERS = [
+  MOCK_STRING_ANSWER,
+  MOCK_NUMBER_ANSWER,
+  {
+    type: 'OBJECT',
+    params: {
+      answer: { title: 'MOCK OBJECT TITLE', value: 'MOCK OBJECT VALUE' },
+      changeAnswer: { href: 'MOCK OBJECT CHANGE HREF', text: 'MOCK OBJECT CHANGE TEXT', visuallyHiddenText: 'MOCK OBJECT VISUALLY HIDDEN TEXT' }
+    }
+  },
+  {
+    type: 'ARRAY',
+    params: {
+      answer: { title: 'MOCK ARRAY TITLE', value: 'MOCK ARRAY VALUE' },
+      changeAnswer: { href: 'MOCK ARRAY CHANGE HREF', text: 'MOCK ARRAY CHANGE TEXT', visuallyHiddenText: 'MOCK ARRAY VISUALLY HIDDEN TEXT' }
+    }
+  },
+  MOCK_BOOLEAN_ANSWER,
+  MOCK_NULL_ANSWER
+]
 
 describe('shinkansen-sprockets/sprockets/check-answers/group', () => {
   describe('<Group />', () => {
@@ -38,7 +91,7 @@ describe('shinkansen-sprockets/sprockets/check-answers/group', () => {
           <Group
             onChange={jest.fn()}
             checkAnswers={[
-              { type: 'STRING', params: { answer: {}, changeAnswer: {} } }
+              MOCK_STRING_ANSWER
             ]}
           />
         )
@@ -52,7 +105,7 @@ describe('shinkansen-sprockets/sprockets/check-answers/group', () => {
           <Group
             onChange={jest.fn()}
             checkAnswers={[
-              { type: 'NUMBER', params: { answer: {}, changeAnswer: {} } }
+              MOCK_NUMBER_ANSWER
             ]}
           />
         )
@@ -65,12 +118,7 @@ describe('shinkansen-sprockets/sprockets/check-answers/group', () => {
         const component = (
           <Group
             onChange={jest.fn()}
-            checkAnswers={[
-              { type: 'STRING', params: { answer: {}, changeAnswer: {} } },
-              { type: 'NUMBER', params: { answer: {}, changeAnswer: {} } },
-              { type: 'BOOLEAN', params: { answer: {}, changeAnswer: {} } },
-              { type: 'NULL', params: { answer: {}, changeAnswer: {} } }
-            ]}
+            checkAnswers={MOCK_CHECK_ANSWERS}
           />
         )
 
@@ -82,12 +130,7 @@ describe('shinkansen-sprockets/sprockets/check-answers/group', () => {
         const component = (
           <Group
             onChange={jest.fn()}
-            checkAnswers={[
-              { type: 'STRING', params: { answer: {}, changeAnswer: {} } },
-              { type: 'NUMBER', params: { answer: {}, changeAnswer: {} } },
-              { type: 'BOOLEAN', params: { answer: {}, changeAnswer: {} } },
-              { type: 'NULL', params: { answer: {}, changeAnswer: {} } }
-            ]}
+            checkAnswers={MOCK_CHECK_ANSWERS}
           />
         )
 
@@ -100,7 +143,7 @@ describe('shinkansen-sprockets/sprockets/check-answers/group', () => {
           <Group
             onChange={jest.fn()}
             checkAnswers={[
-              { type: 'BOOLEAN', params: { answer: {}, changeAnswer: {} } }
+              MOCK_BOOLEAN_ANSWER
             ]}
           />
         )
@@ -114,7 +157,7 @@ describe('shinkansen-sprockets/sprockets/check-answers/group', () => {
           <Group
             onChange={jest.fn()}
             checkAnswers={[
-              { type: 'NULL', params: { answer: {}, changeAnswer: {} } }
+              MOCK_NULL_ANSWER
             ]}
           />
         )

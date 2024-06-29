@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shinkansen-sprockets/sprockets/table <Sprocket /> With additional props renders 1`] = `null`;
+exports[`shinkansen-sprockets/sprockets/check-answers <Sprocket /> With additional props renders 1`] = `
+<div
+  className="MOCK CLASSNAME"
+>
+  MOCK CHECK ANSWERS GROUP
+</div>
+`;
 
-exports[`shinkansen-sprockets/sprockets/table <Sprocket /> With required props renders 1`] = `null`;
+exports[`shinkansen-sprockets/sprockets/check-answers <Sprocket /> With required props renders 1`] = `null`;

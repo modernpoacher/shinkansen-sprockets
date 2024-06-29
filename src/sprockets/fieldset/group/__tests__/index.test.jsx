@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import Super from 'shinkansen-sprockets/components/group'
-import Group from '../index.jsx'
+import Group from 'shinkansen-sprockets/sprockets/fieldset/group'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 

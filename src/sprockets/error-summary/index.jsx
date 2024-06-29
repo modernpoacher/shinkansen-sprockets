@@ -22,9 +22,9 @@ export default class ErrorSummarySprocket extends Sprocket {
    * @param {SprocketProps} props
    * @returns {boolean}
    */
-  shouldComponentUpdate (props) {
+  shouldComponentUpdate (props, state) {
     return (
-      super.shouldComponentUpdate(props) ||
+      super.shouldComponentUpdate(props, state) ||
       (props.errorSummary !== this.props.errorSummary)
     )
   }

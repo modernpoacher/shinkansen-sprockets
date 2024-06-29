@@ -4,12 +4,12 @@ import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import Super from 'shinkansen-sprockets/sprockets'
-import Sprocket from '../index.jsx'
+import Sprocket from 'shinkansen-sprockets/sprockets/fieldset'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 
-jest.mock('../title/index.jsx')
-jest.mock('../group/index.jsx')
+jest.mock('shinkansen-sprockets/sprockets/fieldset/title')
+jest.mock('shinkansen-sprockets/sprockets/fieldset/group')
 
 describe('shinkansen-sprockets/sprockets/fieldset', () => {
   describe('<Sprocket />', () => {

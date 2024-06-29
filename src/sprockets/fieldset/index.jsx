@@ -28,9 +28,9 @@ export default class FieldsetSprocket extends Sprocket {
    * @param {SprocketProps} props
    * @returns {boolean}
    */
-  shouldComponentUpdate (props) {
+  shouldComponentUpdate (props, state) {
     return (
-      super.shouldComponentUpdate(props) ||
+      super.shouldComponentUpdate(props, state) ||
       (props.description !== this.props.description) ||
       (props.errorMessage !== this.props.errorMessage)
     )

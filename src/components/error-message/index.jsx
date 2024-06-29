@@ -11,7 +11,9 @@ import transform from 'shinkansen-sprockets/transformers/error-message'
 import TextContent from 'shinkansen-sprockets/components/common/text-content'
 
 export default class ErrorMessage extends Component {
-  state = {}
+  state = {
+    errorMessage: {}
+  }
 
   hasTextContent () {
     const { errorMessage } = this.props
