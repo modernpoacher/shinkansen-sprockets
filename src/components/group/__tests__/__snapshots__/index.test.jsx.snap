@@ -10,5 +10,6 @@ exports[`shinkansen-sprockets/components/group <Group /> With additional props r
 exports[`shinkansen-sprockets/components/group <Group /> With required props renders 1`] = `
 <fieldset
   className="group"
+  onChange={[Function]}
 />
 `;

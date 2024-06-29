@@ -7,12 +7,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import {
+  DEFAULT_HANDLE_CHANGE
+} from 'shinkansen-sprockets/common'
+
 import Title from 'shinkansen-sprockets/components/title'
 import Group from 'shinkansen-sprockets/components/group'
-
-function onChange () {
-  /* */
-}
 
 export default class Sprocket extends Component {
   getClassName () {
@@ -45,7 +45,7 @@ export default class Sprocket extends Component {
 
   renderGroup () {
     const {
-      onChange,
+      onChange = DEFAULT_HANDLE_CHANGE,
       groupRef,
       children
     } = this.props
@@ -86,5 +86,5 @@ Sprocket.propTypes = {
 }
 
 Sprocket.defaultProps = {
-  onChange
+  onChange: DEFAULT_HANDLE_CHANGE
 }

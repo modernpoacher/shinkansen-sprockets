@@ -10,5 +10,6 @@ exports[`shinkansen-sprockets/sprockets/fieldset/group <Group /> With additional
 exports[`shinkansen-sprockets/sprockets/fieldset/group <Group /> With required props renders 1`] = `
 <fieldset
   className="MOCK CLASSNAME"
+  onChange={[Function]}
 />
 `;
