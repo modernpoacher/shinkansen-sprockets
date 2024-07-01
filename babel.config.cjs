@@ -47,6 +47,7 @@ const plugins = [
         /**
          *  Storybook
          */
+        'shinkansen-sprockets/common': './src/common/index.mjs',
         'shinkansen-sprockets/sprockets/check-answers/group/answer-item': './src/sprockets/check-answers/group/answer-item.jsx',
         'shinkansen-sprockets/sprockets/check-answers/group/answer-title': './src/sprockets/check-answers/group/answer-title.jsx',
         'shinkansen-sprockets/sprockets/check-answers/group/answer-value': './src/sprockets/check-answers/group/answer-value.jsx',

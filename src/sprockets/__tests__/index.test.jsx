@@ -104,12 +104,12 @@ describe('shinkansen-sprockets/sprockets', () => {
     })
 
     describe('`shouldComponentUpdate()`', () => {
-      const MOCK_ONCHANGE = jest.fn()
+      const MOCK_ON_CHANGE = jest.fn()
 
       const component = (
         <Sprocket
           title='MOCK TITLE'
-          onChange={MOCK_ONCHANGE}
+          onChange={MOCK_ON_CHANGE}
         />
       )
 
@@ -136,7 +136,7 @@ describe('shinkansen-sprockets/sprockets', () => {
         it('returns false', () => {
           return expect(instance.shouldComponentUpdate({ // instance.props
             title: 'MOCK TITLE',
-            onChange: MOCK_ONCHANGE
+            onChange: MOCK_ON_CHANGE
           }))
             .toBe(false)
         })
@@ -144,12 +144,12 @@ describe('shinkansen-sprockets/sprockets', () => {
     })
 
     xdescribe('`renderTitle()`', () => {
-      const MOCK_ONCHANGE = jest.fn()
+      const MOCK_ON_CHANGE = jest.fn()
 
       const component = (
         <Sprocket
           title='MOCK TITLE'
-          onChange={MOCK_ONCHANGE}
+          onChange={MOCK_ON_CHANGE}
         />
       )
 
@@ -175,12 +175,12 @@ describe('shinkansen-sprockets/sprockets', () => {
     })
 
     describe('`renderGroup()`', () => {
-      const MOCK_ONCHANGE = jest.fn()
+      const MOCK_ON_CHANGE = jest.fn()
 
       const component = (
         <Sprocket
           title='MOCK TITLE'
-          onChange={MOCK_ONCHANGE}
+          onChange={MOCK_ON_CHANGE}
         />
       )
 
@@ -200,7 +200,7 @@ describe('shinkansen-sprockets/sprockets', () => {
       it('renders `<Group />`', () => {
         return expect(Group)
           .toBeCalledWith({
-            onChange: MOCK_ONCHANGE,
+            onChange: MOCK_ON_CHANGE,
             children: expect.any(Array)
           }, {})
       })
