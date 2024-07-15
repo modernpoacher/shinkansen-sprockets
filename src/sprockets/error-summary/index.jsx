@@ -13,6 +13,8 @@ import Sprocket from 'shinkansen-sprockets/sprockets'
 import Title from './title/index.jsx'
 import Group from './group/index.jsx'
 
+const DEFAULT_ERROR_SUMMARY = []
+
 export default class ErrorSummarySprocket extends Sprocket {
   getClassName () {
     return classnames(super.getClassName(), 'error-summary')
@@ -43,7 +45,7 @@ export default class ErrorSummarySprocket extends Sprocket {
 
   renderGroup () {
     const {
-      errorSummary
+      errorSummary = DEFAULT_ERROR_SUMMARY
     } = this.props
 
     return (
@@ -55,7 +57,7 @@ export default class ErrorSummarySprocket extends Sprocket {
 
   render () {
     const {
-      errorSummary
+      errorSummary = DEFAULT_ERROR_SUMMARY
     } = this.props
 
     if (errorSummary.length) {
@@ -76,9 +78,4 @@ export default class ErrorSummarySprocket extends Sprocket {
 ErrorSummarySprocket.propTypes = {
   ...Sprocket.propTypes,
   errorSummary: PropTypes.arrayOf(PropTypes.shape())
-}
-
-ErrorSummarySprocket.defaultProps = {
-  ...Sprocket.defaultProps,
-  errorSummary: []
 }

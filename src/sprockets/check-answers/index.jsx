@@ -13,6 +13,8 @@ import Sprocket from 'shinkansen-sprockets/sprockets'
 import Title from './title/index.jsx'
 import Group from './group/index.jsx'
 
+const DEFAULT_CHECK_ANSWERS = []
+
 export default class CheckAnswersSprocket extends Sprocket {
   getClassName () {
     return classnames(super.getClassName(), 'check-answers')
@@ -43,7 +45,7 @@ export default class CheckAnswersSprocket extends Sprocket {
 
   renderGroup () {
     const {
-      checkAnswers
+      checkAnswers = DEFAULT_CHECK_ANSWERS
     } = this.props
 
     return (
@@ -55,7 +57,7 @@ export default class CheckAnswersSprocket extends Sprocket {
 
   render () {
     const {
-      checkAnswers
+      checkAnswers = DEFAULT_CHECK_ANSWERS
     } = this.props
 
     if (checkAnswers.length) {
@@ -74,9 +76,4 @@ export default class CheckAnswersSprocket extends Sprocket {
 CheckAnswersSprocket.propTypes = {
   ...Sprocket.propTypes,
   checkAnswers: PropTypes.arrayOf(PropTypes.shape())
-}
-
-CheckAnswersSprocket.defaultProps = {
-  ...Sprocket.defaultProps,
-  checkAnswers: []
 }

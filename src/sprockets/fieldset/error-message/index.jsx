@@ -14,7 +14,3 @@ export default class FieldsetErrorMessage extends ErrorMessage {
 FieldsetErrorMessage.propTypes = {
   ...ErrorMessage.propTypes
 }
-
-FieldsetErrorMessage.defaultProps = {
-  ...ErrorMessage.defaultProps
-}

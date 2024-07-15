@@ -27,6 +27,8 @@ import AnswerTitle from './answer-title.cjs'
 import AnswerValue from './answer-value.cjs'
 import ChangeAnswer from './change-answer.cjs'
 
+const DEFAULT_CHECK_ANSWERS = []
+
 const log = debug('shinkansen-sprockets/components/group/check-answers')
 
 /* eslint-disable-next-line react/prop-types */
@@ -49,7 +51,7 @@ export default class CheckAnswersGroup extends Group {
    * @type {GroupState}
    */
   state = {
-    checkAnswers: []
+    checkAnswers: DEFAULT_CHECK_ANSWERS
   }
 
   getClassName () {
@@ -78,11 +80,11 @@ export default class CheckAnswersGroup extends Group {
    */
   shouldComponentUpdate (props, state) {
     const {
-      checkAnswers: c
+      checkAnswers: c = DEFAULT_CHECK_ANSWERS
     } = state
 
     const {
-      checkAnswers: C
+      checkAnswers: C = DEFAULT_CHECK_ANSWERS
     } = this.state
 
     return (c !== C)
@@ -90,7 +92,7 @@ export default class CheckAnswersGroup extends Group {
 
   render () {
     const {
-      checkAnswers
+      checkAnswers = DEFAULT_CHECK_ANSWERS
     } = this.props
 
     if (checkAnswers.length) {
@@ -110,9 +112,4 @@ export default class CheckAnswersGroup extends Group {
 CheckAnswersGroup.propTypes = {
   ...Group.propTypes,
   checkAnswers: PropTypes.arrayOf(PropTypes.shape())
-}
-
-CheckAnswersGroup.defaultProps = {
-  ...Group.defaultProps,
-  checkAnswers: []
 }

@@ -27,7 +27,3 @@ export default class CheckAnswersTitle extends Title {
 CheckAnswersTitle.propTypes = {
   ...Title.propTypes
 }
-
-CheckAnswersTitle.defaultProps = {
-  ...Title.defaultProps
-}

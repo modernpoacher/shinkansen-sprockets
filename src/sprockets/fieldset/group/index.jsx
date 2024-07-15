@@ -14,7 +14,3 @@ export default class FieldsetGroup extends Group {
 FieldsetGroup.propTypes = {
   ...Group.propTypes
 }
-
-FieldsetGroup.defaultProps = {
-  ...Group.defaultProps
-}

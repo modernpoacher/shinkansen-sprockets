@@ -27,7 +27,3 @@ export default class ErrorSummaryTitle extends Title {
 ErrorSummaryTitle.propTypes = {
   ...Title.propTypes
 }
-
-ErrorSummaryTitle.defaultProps = {
-  ...Title.defaultProps
-}

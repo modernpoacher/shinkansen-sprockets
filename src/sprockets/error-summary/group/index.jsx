@@ -26,6 +26,8 @@ import {
 
 import TextContent from 'shinkansen-sprockets/components/common/text-content'
 
+const DEFAULT_ERROR_SUMMARY = []
+
 const log = debug('shinkansen-sprockets/sprockets/error-summary/group')
 
 /* eslint-disable-next-line react/prop-types */
@@ -51,7 +53,7 @@ export default class ErrorSummaryGroup extends Group {
    * @type {GroupState}
    */
   state = {
-    errorSummary: {}
+    errorSummary: DEFAULT_ERROR_SUMMARY
   }
 
   getClassName () {
@@ -80,11 +82,11 @@ export default class ErrorSummaryGroup extends Group {
    */
   shouldComponentUpdate (props, state) {
     const {
-      errorSummary: e
+      errorSummary: e = DEFAULT_ERROR_SUMMARY
     } = state
 
     const {
-      errorSummary: E
+      errorSummary: E = DEFAULT_ERROR_SUMMARY
     } = this.state
 
     return (e !== E)
@@ -93,7 +95,7 @@ export default class ErrorSummaryGroup extends Group {
   render () {
     const {
       groupRef,
-      errorSummary
+      errorSummary = DEFAULT_ERROR_SUMMARY
     } = this.props
 
     if (errorSummary.length) {
@@ -113,9 +115,4 @@ export default class ErrorSummaryGroup extends Group {
 ErrorSummaryGroup.propTypes = {
   ...Group.propTypes,
   errorSummary: PropTypes.arrayOf(PropTypes.shape())
-}
-
-ErrorSummaryGroup.defaultProps = {
-  ...Group.defaultProps,
-  errorSummary: []
 }

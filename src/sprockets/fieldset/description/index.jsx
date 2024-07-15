@@ -14,7 +14,3 @@ export default class FieldsetDescription extends Description {
 FieldsetDescription.propTypes = {
   ...Description.propTypes
 }
-
-FieldsetDescription.defaultProps = {
-  ...Description.defaultProps
-}

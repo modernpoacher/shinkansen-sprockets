@@ -104,7 +104,3 @@ FieldsetSprocket.propTypes = {
     uri: PropTypes.string.isRequired
   })
 }
-
-FieldsetSprocket.defaultProps = {
-  ...Sprocket.defaultProps
-}

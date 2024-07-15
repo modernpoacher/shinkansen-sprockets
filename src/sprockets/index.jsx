@@ -84,7 +84,3 @@ Sprocket.propTypes = {
     current: PropTypes.shape().isRequired
   })
 }
-
-Sprocket.defaultProps = {
-  onChange: DEFAULT_HANDLE_CHANGE
-}

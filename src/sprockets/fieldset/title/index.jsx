@@ -13,7 +13,3 @@ export default class FieldsetTitle extends Title {
 FieldsetTitle.propTypes = {
   ...Title.propTypes
 }
-
-FieldsetTitle.defaultProps = {
-  ...Title.defaultProps
-}
