@@ -94,11 +94,14 @@ export default class ErrorSummaryGroup extends Group {
 
   render () {
     const {
-      groupRef,
       errorSummary = DEFAULT_ERROR_SUMMARY
     } = this.props
 
     if (errorSummary.length) {
+      const {
+        groupRef
+      } = this.props
+
       return (
         <ul
           className={this.getClassName()}

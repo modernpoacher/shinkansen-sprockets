@@ -123,20 +123,12 @@ export default {
   }
 }
 
-export function Default (args) {
-  return (
-    <ErrorSummarySprocket
-    {...args}
-  />
-  )
-}
-
 export function AllErrors () {
   return (
     <ErrorSummarySprocket
-    title='All Errors'
-    errorSummary={Object.values(ERROR).map(([e]) => e)}
-  />
+      title='All Errors'
+      errorSummary={Object.values(ERROR).map(([e]) => e)}
+    />
   )
 }
 
@@ -147,9 +139,8 @@ AllErrors.parameters = {
 export function NoErrors () {
   return (
     <ErrorSummarySprocket
-    title='No Errors'
-    errorSummary={[]}
-  />
+      title='No Errors'
+    />
   )
 }
 

@@ -23,7 +23,7 @@ export default class Title extends Component {
     return 'title'
   }
 
-  shouldComponentUpdate (props) {
+  shouldComponentUpdate (props, state) {
     return (
       (props.title !== this.props.title)
     )

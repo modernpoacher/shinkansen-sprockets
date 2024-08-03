@@ -20,7 +20,7 @@ export default class Group extends Component {
    * @param {GroupProps} props
    * @returns {boolean}
    */
-  shouldComponentUpdate (props) {
+  shouldComponentUpdate (props, state) {
     return (
       (props.onChange !== this.props.onChange) ||
       (props.children !== this.props.children)

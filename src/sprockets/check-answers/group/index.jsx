@@ -96,10 +96,14 @@ export default class CheckAnswersGroup extends Group {
     } = this.props
 
     if (checkAnswers.length) {
+      const {
+        groupRef
+      } = this.props
+
       return (
         <dl
           className={this.getClassName()}
-          ref={this.setDOMNode}>
+          ref={groupRef}>
           {checkAnswers.map(render)}
         </dl>
       )

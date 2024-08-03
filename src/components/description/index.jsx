@@ -12,7 +12,7 @@ export default class Description extends Component {
     return 'description'
   }
 
-  shouldComponentUpdate (props) {
+  shouldComponentUpdate (props, state) {
     return (
       (props.description !== this.props.description)
     )

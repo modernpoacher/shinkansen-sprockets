@@ -2,6 +2,7 @@ import React from 'react'
 
 import FieldsetSprocket from 'shinkansen-sprockets/sprockets/fieldset'
 import errors from '#stories/errors'
+import ERROR_UNKNOWN from '#stories/definitions/fieldset/error-unknown.json'
 
 export default {
   title: 'Stories/Sprockets/Fieldset',
@@ -30,7 +31,17 @@ export default {
   }
 }
 
-export function Fieldset () {
+export function OneError () {
+  return (
+    <FieldsetSprocket
+      title='Title'
+      description='Description'
+      errorMessage={ERROR_UNKNOWN}
+    />
+  )
+}
+
+export function NoErrors () {
   return (
     <FieldsetSprocket
       title='Title'
