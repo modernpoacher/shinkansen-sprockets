@@ -45,7 +45,7 @@ const plugins = [
     'module-resolver', {
       alias: {
         /**
-         *  Storybook
+         *  Jest & Storybook
          */
         'shinkansen-sprockets/common': './src/common/index.mjs',
         'shinkansen-sprockets/sprockets/check-answers/group/answer-item': './src/sprockets/check-answers/group/answer-item.jsx',
