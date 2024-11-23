@@ -15,7 +15,7 @@ import {
   storybookPath
 } from '#build/paths'
 
-const log = debug('@modernpoacher/sprockets/build/transform')
+const log = debug('shinkansen-sprockets/build/transform')
 
 log('`sprockets` is awake')
 
