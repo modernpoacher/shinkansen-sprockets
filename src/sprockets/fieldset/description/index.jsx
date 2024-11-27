@@ -3,7 +3,7 @@
  */
 
 import classnames from 'classnames'
-import Description from 'shinkansen-sprockets/components/description'
+import Description from '#sprockets/components/description'
 
 export default class FieldsetDescription extends Description {
   getClassName () {

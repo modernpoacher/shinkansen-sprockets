@@ -3,14 +3,14 @@ import renderer from 'react-test-renderer'
 
 import classnames from 'classnames'
 
-import Super from 'shinkansen-sprockets/components/group'
-import Group from 'shinkansen-sprockets/sprockets/check-answers/group'
+import Super from '#sprockets/components/group'
+import Group from '#sprockets/sprockets/check-answers/group'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 
-jest.mock('shinkansen-sprockets/sprockets/check-answers/group/answer-title', () => () => 'MOCK ANSWER TITLE')
-jest.mock('shinkansen-sprockets/sprockets/check-answers/group/answer-value', () => () => 'MOCK ANSWER VALUE')
-jest.mock('shinkansen-sprockets/sprockets/check-answers/group/change-answer', () => () => 'MOCK CHANGE ANSWER')
+jest.mock('#sprockets/sprockets/check-answers/group/answer-title', () => () => 'MOCK ANSWER TITLE')
+jest.mock('#sprockets/sprockets/check-answers/group/answer-value', () => () => 'MOCK ANSWER VALUE')
+jest.mock('#sprockets/sprockets/check-answers/group/change-answer', () => () => 'MOCK CHANGE ANSWER')
 
 const MOCK_STRING_ANSWER = {
   type: 'STRING',
@@ -65,7 +65,7 @@ const MOCK_CHECK_ANSWERS = [
   MOCK_NULL_ANSWER
 ]
 
-describe('shinkansen-sprockets/sprockets/check-answers/group', () => {
+describe('#sprockets/sprockets/check-answers/group', () => {
   describe('<Group />', () => {
     describe('With required props', () => {
       const component = (

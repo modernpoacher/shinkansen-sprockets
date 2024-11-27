@@ -3,7 +3,7 @@ import {
   MemoryRouter
 } from 'react-router-dom'
 
-import ErrorSummarySprocket from 'shinkansen-sprockets/sprockets/error-summary'
+import ErrorSummarySprocket from '#sprockets/sprockets/error-summary'
 
 import ERROR_MAX_ITEMS from '#stories/definitions/error-summary/error-max-items.json'
 import ERROR_MIN_ITEMS from '#stories/definitions/error-summary/error-min-items.json'

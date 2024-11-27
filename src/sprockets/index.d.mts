@@ -1,4 +1,4 @@
-declare module 'shinkansen-sprockets/sprockets' {
+declare module '#sprockets/sprockets' {
   import React from 'react'
 
   export interface SprocketProps {
@@ -9,4 +9,9 @@ declare module 'shinkansen-sprockets/sprockets' {
   }
 
   export default class Sprocket extends React.Component<SprocketProps> {}
+}
+
+declare module 'shinkansen-sprockets/sprockets' {
+  export { default } from '#sprockets/sprockets'
+  export * from '#sprockets/sprockets'
 }

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import {
   DEFAULT_HANDLE_CHANGE
-} from 'shinkansen-sprockets/common'
+} from '#sprockets/common'
 
 export default class Group extends Component {
   getClassName () {

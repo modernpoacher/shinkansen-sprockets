@@ -3,7 +3,7 @@
  */
 
 import classnames from 'classnames'
-import Group from 'shinkansen-sprockets/components/group'
+import Group from '#sprockets/components/group'
 
 export default class FieldsetGroup extends Group {
   getClassName () {

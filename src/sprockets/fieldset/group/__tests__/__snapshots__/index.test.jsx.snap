@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shinkansen-sprockets/sprockets/fieldset/group <Group /> With additional props renders 1`] = `
+exports[`#sprockets/sprockets/fieldset/group <Group /> With additional props renders 1`] = `
 <fieldset
   className="MOCK CLASSNAME"
   onChange={[MockFunction]}
 />
 `;
 
-exports[`shinkansen-sprockets/sprockets/fieldset/group <Group /> With required props renders 1`] = `
+exports[`#sprockets/sprockets/fieldset/group <Group /> With required props renders 1`] = `
 <fieldset
   className="MOCK CLASSNAME"
   onChange={[Function]}

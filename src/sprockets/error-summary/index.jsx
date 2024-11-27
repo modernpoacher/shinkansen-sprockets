@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import classnames from 'classnames'
 
-import Sprocket from 'shinkansen-sprockets/sprockets'
+import Sprocket from '#sprockets/sprockets'
 import Title from './title/index.jsx'
 import Group from './group/index.jsx'
 

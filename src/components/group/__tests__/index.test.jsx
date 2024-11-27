@@ -1,9 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Group from 'shinkansen-sprockets/components/group'
+import Group from '#sprockets/components/group'
 
-describe('shinkansen-sprockets/components/group', () => {
+describe('#sprockets/components/group', () => {
   describe('<Group />', () => {
     describe('With required props', () => {
       const component = (

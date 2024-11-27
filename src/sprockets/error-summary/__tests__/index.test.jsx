@@ -3,15 +3,15 @@ import renderer from 'react-test-renderer'
 
 import classnames from 'classnames'
 
-import Super from 'shinkansen-sprockets/sprockets'
-import Sprocket from 'shinkansen-sprockets/sprockets/error-summary'
+import Super from '#sprockets/sprockets'
+import Sprocket from '#sprockets/sprockets/error-summary'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 
-jest.mock('shinkansen-sprockets/sprockets/error-summary/title')
-jest.mock('shinkansen-sprockets/sprockets/error-summary/group')
+jest.mock('#sprockets/sprockets/error-summary/title')
+jest.mock('#sprockets/sprockets/error-summary/group')
 
-describe('shinkansen-sprockets/sprockets/error-summary', () => {
+describe('#sprockets/sprockets/error-summary', () => {
   describe('<Sprocket />', () => {
     describe('With required props', () => {
       const component = (

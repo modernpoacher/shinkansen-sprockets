@@ -17,11 +17,11 @@ import debug from 'debug'
 import equal from 'fast-deep-equal'
 import classnames from 'classnames'
 
-import Group from 'shinkansen-sprockets/components/group'
+import Group from '#sprockets/components/group'
 
 import {
   getKey
-} from 'shinkansen-sprockets/transformers/common'
+} from '#sprockets/transformers/common'
 
 import AnswerTitle from './answer-title.cjs'
 import AnswerValue from './answer-value.cjs'

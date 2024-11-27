@@ -3,13 +3,13 @@ import renderer from 'react-test-renderer'
 
 import classnames from 'classnames'
 
-import Super from 'shinkansen-sprockets/sprockets'
-import Sprocket from 'shinkansen-sprockets/sprockets/check-answers'
+import Super from '#sprockets/sprockets'
+import Sprocket from '#sprockets/sprockets/check-answers'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 
-jest.mock('shinkansen-sprockets/sprockets/check-answers/title')
-jest.mock('shinkansen-sprockets/sprockets/check-answers/group', () => {
+jest.mock('#sprockets/sprockets/check-answers/title')
+jest.mock('#sprockets/sprockets/check-answers/group', () => {
   class MockCog extends mockComponent {
     state = {}
 
@@ -70,7 +70,7 @@ const MOCK_CHECK_ANSWERS = [
   }
 ]
 
-describe('shinkansen-sprockets/sprockets/check-answers', () => {
+describe('#sprockets/sprockets/check-answers', () => {
   describe('<Sprocket />', () => {
     describe('With required props', () => {
       const component = (

@@ -2,7 +2,7 @@
  * FieldsetTitle component
  */
 import classnames from 'classnames'
-import Title from 'shinkansen-sprockets/components/title'
+import Title from '#sprockets/components/title'
 
 export default class FieldsetTitle extends Title {
   getClassName () {

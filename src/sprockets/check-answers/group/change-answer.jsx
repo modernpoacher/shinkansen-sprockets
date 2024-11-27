@@ -6,9 +6,9 @@ import {
   Link
 } from 'react-router-dom'
 
-import TextContent from 'shinkansen-sprockets/components/common/text-content'
+import TextContent from '#sprockets/components/common/text-content'
 
-import VisuallyHiddenText from 'shinkansen-sprockets/components/common/visually-hidden-text'
+import VisuallyHiddenText from '#sprockets/components/common/visually-hidden-text'
 
 const log = debug('shinkansen-sprockets/sprockets/check-answers/group/change-answer')
 

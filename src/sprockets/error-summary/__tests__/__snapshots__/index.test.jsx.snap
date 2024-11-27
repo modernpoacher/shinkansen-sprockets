@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shinkansen-sprockets/sprockets/error-summary <Sprocket /> With additional props renders 1`] = `null`;
+exports[`#sprockets/sprockets/error-summary <Sprocket /> With additional props renders 1`] = `null`;
 
-exports[`shinkansen-sprockets/sprockets/error-summary <Sprocket /> With required props renders 1`] = `null`;
+exports[`#sprockets/sprockets/error-summary <Sprocket /> With required props renders 1`] = `null`;

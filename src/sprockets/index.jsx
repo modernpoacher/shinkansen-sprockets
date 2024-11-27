@@ -9,10 +9,10 @@ import PropTypes from 'prop-types'
 
 import {
   DEFAULT_HANDLE_CHANGE
-} from 'shinkansen-sprockets/common'
+} from '#sprockets/common'
 
-import Title from 'shinkansen-sprockets/components/title'
-import Group from 'shinkansen-sprockets/components/group'
+import Title from '#sprockets/components/title'
+import Group from '#sprockets/components/group'
 
 export default class Sprocket extends Component {
   getClassName () {

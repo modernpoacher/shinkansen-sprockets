@@ -63,14 +63,12 @@
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "autoprefixer": "^10.4.20",
-    "babel-plugin-module-resolver": "^5.0.2",
     "clean-webpack-plugin": "^4.0.0",
     "core-js": "^3.39.0",
     "cross-env": "^7.0.3",
     "eslint": "8.57.1",
     "eslint-config-love": "47.0.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-import-resolver-babel-module": "^5.3.2",
     "eslint-plugin-react": "^7.37.2",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
@@ -96,7 +94,15 @@
     "webpack-cli": "^5.1.4"
   },
   "imports": {
-    "#build/paths": "./build/paths.mjs"
+    "#build/paths": "./build/paths.mjs",
+    "#sprockets/common": "./src/common/index.mjs",
+    "#sprockets/components/*": "./src/components/*/index.jsx",
+    "#sprockets/sprockets": "./src/sprockets/index.jsx",
+    "#sprockets/sprockets/*": "./src/sprockets/*/index.jsx",
+    "#sprockets/sprockets/check-answers/group/*": "./src/sprockets/check-answers/group/*.jsx",
+    "#sprockets/sprockets/error-summary/group/*": "./src/sprockets/error-summary/group/*.jsx",
+    "#sprockets/transformers/*": "./src/transformers/*/index.mjs",
+    "#stories/*": "./stories/*/index.stories.jsx"
   },
   "exports": {
     ".": {
@@ -104,29 +110,11 @@
       "import": "./src/index.mjs"
     },
     "./common": "./src/common/index.mjs",
-    "./components/common/text-content": "./src/components/common/text-content/index.cjs",
-    "./components/common/visually-hidden-text": "./src/components/common/visually-hidden-text/index.cjs",
-    "./components/description": "./src/components/description/index.cjs",
-    "./components/error-message": "./src/components/error-message/index.cjs",
-    "./components/group": "./src/components/group/index.cjs",
-    "./components/title": "./src/components/title/index.cjs",
+    "./components/*": "./src/components/*/index.cjs",
     "./sprockets": "./src/sprockets/index.cjs",
-    "./sprockets/check-answers": "./src/sprockets/check-answers/index.cjs",
-    "./sprockets/check-answers/group": "./src/sprockets/check-answers/group/index.cjs",
+    "./sprockets/*": "./src/sprockets/*/index.cjs",
     "./sprockets/check-answers/group/*": "./src/sprockets/check-answers/group/*.cjs",
-    "./sprockets/check-answers/title": "./src/sprockets/check-answers/title/index.cjs",
-    "./sprockets/error-summary": "./src/sprockets/error-summary/index.cjs",
-    "./sprockets/error-summary/group": "./src/sprockets/error-summary/group/index.cjs",
     "./sprockets/error-summary/group/*": "./src/sprockets/error-summary/group/*.cjs",
-    "./sprockets/error-summary/title": "./src/sprockets/error-summary/title/index.cjs",
-    "./sprockets/fieldset": "./src/sprockets/fieldset/index.cjs",
-    "./sprockets/fieldset/description": "./src/sprockets/fieldset/description/index.cjs",
-    "./sprockets/fieldset/error-message": "./src/sprockets/fieldset/error-message/index.cjs",
-    "./sprockets/fieldset/group": "./src/sprockets/fieldset/group/index.cjs",
-    "./sprockets/fieldset/title": "./src/sprockets/fieldset/title/index.cjs",
-    "./transformers/check-answers": "./src/transformers/check-answers/index.mjs",
-    "./transformers/common": "./src/transformers/common/index.mjs",
-    "./transformers/error-message": "./src/transformers/error-message/index.mjs",
-    "./transformers/error-summary": "./src/transformers/error-summary/index.mjs"
+    "./transformers/*": "./src/transformers/*/index.mjs"
   }
 }

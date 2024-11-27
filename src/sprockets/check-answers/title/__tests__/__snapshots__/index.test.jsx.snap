@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shinkansen-sprockets/sprockets/check-answers/title <Title /> With additional props renders 1`] = `
+exports[`#sprockets/sprockets/check-answers/title <Title /> With additional props renders 1`] = `
 <h2
   className="MOCK CLASSNAME"
 >
@@ -8,4 +8,4 @@ exports[`shinkansen-sprockets/sprockets/check-answers/title <Title /> With addit
 </h2>
 `;
 
-exports[`shinkansen-sprockets/sprockets/check-answers/title <Title /> With required props renders 1`] = `null`;
+exports[`#sprockets/sprockets/check-answers/title <Title /> With required props renders 1`] = `null`;

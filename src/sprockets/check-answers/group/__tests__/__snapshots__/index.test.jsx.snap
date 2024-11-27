@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`array\` answers 1`] = `
+exports[`#sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`array\` answers 1`] = `
 <dl
   className="MOCK CLASSNAME"
 >
@@ -49,7 +49,7 @@ exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With addit
 </dl>
 `;
 
-exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`boolean\` answers 1`] = `
+exports[`#sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`boolean\` answers 1`] = `
 <dl
   className="MOCK CLASSNAME"
 >
@@ -63,7 +63,7 @@ exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With addit
 </dl>
 `;
 
-exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`null\` answers 1`] = `
+exports[`#sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`null\` answers 1`] = `
 <dl
   className="MOCK CLASSNAME"
 >
@@ -77,7 +77,7 @@ exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With addit
 </dl>
 `;
 
-exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`number\` answers 1`] = `
+exports[`#sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`number\` answers 1`] = `
 <dl
   className="MOCK CLASSNAME"
 >
@@ -91,7 +91,7 @@ exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With addit
 </dl>
 `;
 
-exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`object\` answers 1`] = `
+exports[`#sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`object\` answers 1`] = `
 <dl
   className="MOCK CLASSNAME"
 >
@@ -140,7 +140,7 @@ exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With addit
 </dl>
 `;
 
-exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`string\` answers 1`] = `
+exports[`#sprockets/sprockets/check-answers/group <Group /> With additional props renders type \`string\` answers 1`] = `
 <dl
   className="MOCK CLASSNAME"
 >
@@ -154,4 +154,4 @@ exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With addit
 </dl>
 `;
 
-exports[`shinkansen-sprockets/sprockets/check-answers/group <Group /> With required props renders 1`] = `null`;
+exports[`#sprockets/sprockets/check-answers/group <Group /> With required props renders 1`] = `null`;

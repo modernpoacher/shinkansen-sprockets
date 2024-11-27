@@ -17,14 +17,14 @@ import debug from 'debug'
 import equal from 'fast-deep-equal'
 import classnames from 'classnames'
 
-import Group from 'shinkansen-sprockets/components/group'
+import Group from '#sprockets/components/group'
 
-import transform from 'shinkansen-sprockets/transformers/error-summary'
+import transform from '#sprockets/transformers/error-summary'
 import {
   getKey
-} from 'shinkansen-sprockets/transformers/common'
+} from '#sprockets/transformers/common'
 
-import TextContent from 'shinkansen-sprockets/components/common/text-content'
+import TextContent from '#sprockets/components/common/text-content'
 
 const DEFAULT_ERROR_SUMMARY = []
 

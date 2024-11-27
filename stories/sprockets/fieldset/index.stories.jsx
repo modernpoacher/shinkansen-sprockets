@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FieldsetSprocket from 'shinkansen-sprockets/sprockets/fieldset'
+import FieldsetSprocket from '#sprockets/sprockets/fieldset'
 import errors from '#stories/errors'
 import ERROR_UNKNOWN from '#stories/definitions/fieldset/error-unknown.json'
 

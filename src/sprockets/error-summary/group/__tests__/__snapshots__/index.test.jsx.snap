@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shinkansen-sprockets/sprockets/error-summary/group <Group /> With additional props renders 1`] = `
+exports[`#sprockets/sprockets/error-summary/group <Group /> With additional props renders 1`] = `
 <ul
   className="MOCK CLASSNAME"
 >
@@ -20,4 +20,4 @@ exports[`shinkansen-sprockets/sprockets/error-summary/group <Group /> With addit
 </ul>
 `;
 
-exports[`shinkansen-sprockets/sprockets/error-summary/group <Group /> With required props renders 1`] = `null`;
+exports[`#sprockets/sprockets/error-summary/group <Group /> With required props renders 1`] = `null`;

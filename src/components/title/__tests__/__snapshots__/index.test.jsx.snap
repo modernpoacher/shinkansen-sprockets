@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shinkansen-sprockets/components/title <Title /> With additional props renders 1`] = `
+exports[`#sprockets/components/title <Title /> With additional props renders 1`] = `
 <legend
   className="title"
 >
@@ -8,4 +8,4 @@ exports[`shinkansen-sprockets/components/title <Title /> With additional props r
 </legend>
 `;
 
-exports[`shinkansen-sprockets/components/title <Title /> With required props renders 1`] = `null`;
+exports[`#sprockets/components/title <Title /> With required props renders 1`] = `null`;

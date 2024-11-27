@@ -6,9 +6,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import equal from 'fast-deep-equal'
 
-import transform from 'shinkansen-sprockets/transformers/error-message'
+import transform from '#sprockets/transformers/error-message'
 
-import TextContent from 'shinkansen-sprockets/components/common/text-content'
+import TextContent from '#sprockets/components/common/text-content'
 
 export default class ErrorMessage extends Component {
   state = {

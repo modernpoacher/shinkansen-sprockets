@@ -3,12 +3,12 @@ import renderer from 'react-test-renderer'
 
 import classnames from 'classnames'
 
-import Super from 'shinkansen-sprockets/components/group'
-import Group from 'shinkansen-sprockets/sprockets/error-summary/group'
+import Super from '#sprockets/components/group'
+import Group from '#sprockets/sprockets/error-summary/group'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 
-describe('shinkansen-sprockets/sprockets/error-summary/group', () => {
+describe('#sprockets/sprockets/error-summary/group', () => {
   describe('<Group />', () => {
     describe('With required props', () => {
       const component = (
