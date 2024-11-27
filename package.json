@@ -102,7 +102,9 @@
     "#sprockets/sprockets/check-answers/group/*": "./src/sprockets/check-answers/group/*.jsx",
     "#sprockets/sprockets/error-summary/group/*": "./src/sprockets/error-summary/group/*.jsx",
     "#sprockets/transformers/*": "./src/transformers/*/index.mjs",
-    "#stories/*": "./stories/*/index.stories.jsx"
+    "#stories/definitions/*": "./stories/definitions/*.json",
+    "#stories/errors": "./stories/errors.mjs",
+    "#stories/sprockets/*": "./stories/sprockets/*/index.stories.jsx"
   },
   "exports": {
     ".": {
