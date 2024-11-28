@@ -13,23 +13,32 @@
       "#sprockets/common": [
         "src/common/index.mjs"
       ],
+      "#sprockets/components/*": [
+        "src/components/*/index.jsx"
+      ],
+      "#sprockets/sprockets": [
+        "src/sprockets/index.jsx"
+      ],
+      "#sprockets/sprockets/*": [
+        "src/sprockets/*/index.jsx"
+      ],
       "#sprockets/sprockets/check-answers/group/*": [
         "src/sprockets/check-answers/group/*.jsx"
       ],
       "#sprockets/sprockets/error-summary/group/*": [
         "src/sprockets/error-summary/group/*.jsx"
       ],
-      "#sprockets/sprockets/*": [
-        "src/sprockets/*/index.jsx"
+      "#sprockets/transformers/*": [
+        "src/transformers/*/index.mjs"
       ],
-      "#sprockets/sprockets": [
-        "src/sprockets/index.jsx"
+      "#stories/definitions/*": [
+        "stories/definitions/*.json"
       ],
-      "#sprockets/components/*": [
-        "src/components/*/index.jsx"
+      "#stories/errors": [
+        "stories/errors.mjs"
       ],
-      "#sprockets/transformers/common": [
-        "src/transformers/common/index.mjs"
+      "#stories/sprockets/*": [
+        "stories/sprockets/*/index.stories.jsx"
       ]
     }
   },

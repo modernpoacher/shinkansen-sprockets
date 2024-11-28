@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
   MemoryRouter
 } from 'react-router-dom'
@@ -79,14 +80,14 @@ export default {
   ],
   args: {
     title: 'Error Summary',
-    errorSummary: 'ERROR_UNKNOWN'
+    errorSummary: 'ERROR_MAX_ITEMS'
   },
   argTypes: {
     errorSummary: {
       options: Object.keys(ERROR),
       mapping: ERROR,
       control: {
-        type: 'radio',
+        type: 'check',
         labels: {
           ERROR_MAX_ITEMS: 'Error - Max Items',
           ERROR_MIN_ITEMS: 'Error - Min Items',
@@ -123,27 +124,15 @@ export default {
   }
 }
 
-export function AllErrors () {
+export function Default ({ errorSummary = [], ...args }) {
   return (
     <ErrorSummarySprocket
-      title='All Errors'
-      errorSummary={Object.values(ERROR).map(([e]) => e)}
+      {...args}
+      errorSummary={errorSummary.flat()}
     />
   )
 }
 
-AllErrors.parameters = {
-  controls: { disabled: true, hideNoControlsWarning: true }
-}
-
-export function NoErrors () {
-  return (
-    <ErrorSummarySprocket
-      title='No Errors'
-    />
-  )
-}
-
-NoErrors.parameters = {
-  controls: { disabled: true, hideNoControlsWarning: true }
+Default.propTypes = {
+  errorSummary: PropTypes.array
 }

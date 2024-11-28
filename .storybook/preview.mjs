@@ -8,6 +8,29 @@ export default {
         color: /(background|color)$/i,
         date: /Date$/
       }
+    },
+    options: {
+      storySort: {
+        order: [
+          'Stories',
+          [
+            'Sprockets',
+            [
+              'Check Answers',
+              [
+                'String',
+                'Number',
+                'Array',
+                'Object',
+                'Boolean',
+                'Null'
+              ],
+              'Error Summary',
+              'Fieldset'
+            ]
+          ]
+        ]
+      }
     }
   }
 }

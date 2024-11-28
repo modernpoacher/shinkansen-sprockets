@@ -1,12 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import FieldsetSprocket from '#sprockets/sprockets/fieldset'
 import errors from '#stories/errors'
-import ERROR_UNKNOWN from '#stories/definitions/fieldset/error-unknown'
 
 export default {
   title: 'Stories/Sprockets/Fieldset',
   component: FieldsetSprocket,
+  args: {
+    title: 'Fieldset',
+    description: 'Description',
+    errorMessage: 'string'
+  },
   argTypes: {
     errorMessage: {
       options: Object.keys(errors),
@@ -22,30 +27,28 @@ export default {
           null: 'Null'
         }
       }
-    },
-    children: {
-      control: {
-        type: null
-      }
     }
   }
 }
 
-export function OneError () {
+export function Default (args) {
   return (
     <FieldsetSprocket
-      title='Title'
-      description='Description'
-      errorMessage={ERROR_UNKNOWN}
+      {...args}
+      errorMessage={undefined}
     />
   )
 }
 
-export function NoErrors () {
+export function WithError ({ errorMessage = {}, ...args }) {
   return (
     <FieldsetSprocket
-      title='Title'
-      description='Description'
+      {...args}
+      errorMessage={errorMessage}
     />
   )
+}
+
+WithError.propTypes = {
+  errorMessage: PropTypes.shape()
 }
