@@ -31,7 +31,7 @@
       "#sprockets/transformers/common": [
         "src/transformers/common/index.mjs"
       ]
-  }
+    }
   },
   "include": [
     "src/**/*"
