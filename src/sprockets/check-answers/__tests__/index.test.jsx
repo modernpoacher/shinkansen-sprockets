@@ -11,8 +11,6 @@ jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
 jest.mock('#sprockets/sprockets/check-answers/title')
 jest.mock('#sprockets/sprockets/check-answers/group', () => {
   class MockCog extends mockComponent {
-    state = {}
-
     render () {
       return 'MOCK CHECK ANSWERS GROUP'
     }
