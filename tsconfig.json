@@ -10,6 +10,9 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
+      "#sprockets": [
+        "src/index.mjs"
+      ],
       "#sprockets/common": [
         "src/common/index.mjs"
       ],

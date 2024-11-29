@@ -95,6 +95,7 @@
   },
   "imports": {
     "#build/paths": "./build/paths.mjs",
+    "#sprockets": "./src/index.mjs",
     "#sprockets/common": "./src/common/index.mjs",
     "#sprockets/components/*": "./src/components/*/index.jsx",
     "#sprockets/sprockets": "./src/sprockets/index.jsx",
