@@ -1,7 +1,7 @@
 declare module '#sprockets/sprockets/check-answers' {
   import Sprocket from '#sprockets/sprockets'
 
-  export default class ErrorSummarySprocket extends Sprocket {}
+  export default class CheckAnswersSprocket extends Sprocket {}
 }
 
 declare module 'shinkansen-sprockets/sprockets/check-answers' {
