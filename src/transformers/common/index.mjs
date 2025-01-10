@@ -21,6 +21,6 @@ export function getKey (href, text, index) {
       .replace(/[^\w\-\d]/g, CHAR32).trim()
       .replace(/\s\s+/g, CHAR32)
       .replace(/\-\-+/g, CHAR45) // eslint-disable-line
-      .replace(/[\s\s|\-\-|\s\-|\-\s]+/g, CHAR45) // eslint-disable-line
+      .replace(/[\s\s|\-\-|\s\-|\-\s]+/g, CHAR45)
   )
 }
