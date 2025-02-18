@@ -1,15 +1,16 @@
 /**
- * TextContent component
- *
- * @typedef {import('shinkansen-sprockets/components/common/text-content').TextContentProps} TextContentProps
+ *  @typedef {SprocketsTypes.Components.Common.TextContent.TextContentProps} TextContentProps
  */
 
+/**
+ * TextContent component
+ */
 import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * @param {TextContentProps}
- * @returns {React.JSX.Element | null}
+ *  @param {TextContentProps} props
+ *  @returns {React.JSX.Element | null}
  */
 export default function TextContent ({ textContent }) {
   if (textContent) {
@@ -24,5 +25,5 @@ export default function TextContent ({ textContent }) {
 }
 
 TextContent.propTypes = {
-  textContent: PropTypes.string.isRequired
+  textContent: PropTypes.string
 }

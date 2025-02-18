@@ -61,7 +61,6 @@ describe('#sprockets/sprockets', () => {
         const component = (
           <Sprocket
             title='MOCK TITLE'
-            onChange={jest.fn()}
           />
         )
 
@@ -104,12 +103,9 @@ describe('#sprockets/sprockets', () => {
     })
 
     describe('`shouldComponentUpdate()`', () => {
-      const MOCK_ON_CHANGE = jest.fn()
-
       const component = (
         <Sprocket
           title='MOCK TITLE'
-          onChange={MOCK_ON_CHANGE}
         />
       )
 
@@ -125,8 +121,7 @@ describe('#sprockets/sprockets', () => {
       describe('`props` have changed', () => {
         it('returns true', () => {
           return expect(instance.shouldComponentUpdate({
-            title: 'MOCK CHANGE LEGEND',
-            onChange: jest.fn()
+            title: 'MOCK CHANGE LEGEND'
           }))
             .toBe(true)
         })
@@ -135,8 +130,7 @@ describe('#sprockets/sprockets', () => {
       describe('`props` have not changed', () => {
         it('returns false', () => {
           return expect(instance.shouldComponentUpdate({ // instance.props
-            title: 'MOCK TITLE',
-            onChange: MOCK_ON_CHANGE
+            title: 'MOCK TITLE'
           }))
             .toBe(false)
         })
@@ -144,12 +138,9 @@ describe('#sprockets/sprockets', () => {
     })
 
     xdescribe('`renderTitle()`', () => {
-      const MOCK_ON_CHANGE = jest.fn()
-
       const component = (
         <Sprocket
           title='MOCK TITLE'
-          onChange={MOCK_ON_CHANGE}
         />
       )
 
@@ -175,12 +166,9 @@ describe('#sprockets/sprockets', () => {
     })
 
     describe('`renderGroup()`', () => {
-      const MOCK_ON_CHANGE = jest.fn()
-
       const component = (
         <Sprocket
           title='MOCK TITLE'
-          onChange={MOCK_ON_CHANGE}
         />
       )
 
@@ -200,7 +188,6 @@ describe('#sprockets/sprockets', () => {
       it('renders `<Group />`', () => {
         return expect(Group)
           .toBeCalledWith({
-            onChange: MOCK_ON_CHANGE,
             children: expect.any(Array)
           }, {})
       })

@@ -1,9 +1,11 @@
 /**
- * ErrorSummarySprocket component
- *
- * @typedef {import('shinkansen-sprockets/sprockets').SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Sprockets.Sprocket.SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Sprockets.Sprocket.ErrorSummary.ErrorSummaryProps} ErrorSummaryProps
  */
 
+/**
+ * ErrorSummarySprocket component
+ */
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -15,19 +17,27 @@ import Group from './group/index.jsx'
 
 const DEFAULT_ERROR_SUMMARY = []
 
+/**
+ *  @extends {Sprocket<SprocketProps & ErrorSummaryProps>}
+ */
 export default class ErrorSummarySprocket extends Sprocket {
   getClassName () {
     return classnames(super.getClassName(), 'error-summary')
   }
 
   /**
-   * @param {SprocketProps} props
-   * @returns {boolean}
+   *  @param {ErrorSummaryProps} props
+   *  @returns {boolean}
    */
-  shouldComponentUpdate (props, state) {
+  shouldComponentUpdate (props) {
+    const {
+      errorSummary,
+      ...superProps
+    } = props
+
     return (
-      super.shouldComponentUpdate(props, state) ||
-      (props.errorSummary !== this.props.errorSummary)
+      super.shouldComponentUpdate(superProps) ||
+      (errorSummary !== this.props.errorSummary)
     )
   }
 
@@ -77,5 +87,5 @@ export default class ErrorSummarySprocket extends Sprocket {
 
 ErrorSummarySprocket.propTypes = {
   ...Sprocket.propTypes,
-  errorSummary: PropTypes.arrayOf(PropTypes.shape())
+  errorSummary: PropTypes.arrayOf(PropTypes.shape({}))
 }

@@ -89,7 +89,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
       it('renders type `string` answers', () => {
         const component = (
           <Group
-            onChange={jest.fn()}
             checkAnswers={[
               MOCK_STRING_ANSWER
             ]}
@@ -103,7 +102,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
       it('renders type `number` answers', () => {
         const component = (
           <Group
-            onChange={jest.fn()}
             checkAnswers={[
               MOCK_NUMBER_ANSWER
             ]}
@@ -117,7 +115,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
       it('renders type `object` answers', () => {
         const component = (
           <Group
-            onChange={jest.fn()}
             checkAnswers={MOCK_CHECK_ANSWERS}
           />
         )
@@ -129,7 +126,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
       it('renders type `array` answers', () => {
         const component = (
           <Group
-            onChange={jest.fn()}
             checkAnswers={MOCK_CHECK_ANSWERS}
           />
         )
@@ -141,7 +137,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
       it('renders type `boolean` answers', () => {
         const component = (
           <Group
-            onChange={jest.fn()}
             checkAnswers={[
               MOCK_BOOLEAN_ANSWER
             ]}
@@ -155,7 +150,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
       it('renders type `null` answers', () => {
         const component = (
           <Group
-            onChange={jest.fn()}
             checkAnswers={[
               MOCK_NULL_ANSWER
             ]}

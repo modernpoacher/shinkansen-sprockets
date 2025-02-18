@@ -1,7 +1,10 @@
 /**
- * Description component
+ *  @typedef {SprocketsTypes.Components.Description.DescriptionProps} DescriptionProps
  */
 
+/**
+ * Description component
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
@@ -12,14 +15,20 @@ export default class Description extends Component {
     return 'description'
   }
 
-  shouldComponentUpdate (props, state) {
+  /**
+   *  @param {DescriptionProps} props
+   *  @returns {boolean}
+   */
+  shouldComponentUpdate (props) {
     return (
       (props.description !== this.props.description)
     )
   }
 
   render () {
-    const { description } = this.props
+    const {
+      description
+    } = this.props
 
     if (description) {
       return (

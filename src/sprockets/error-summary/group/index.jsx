@@ -1,21 +1,21 @@
 /**
- * ErrorSummaryGroup component
- *
- * @typedef {import('shinkansen-sprockets/components/group').GroupProps} GroupProps
- *
- * Group state
- *
- * @typedef {Object} GroupState
- * @property {{}} [errorSummary]
+ *  @typedef {SprocketsTypes.ErrorDefinitionType} ErrorDefinitionType
+ *  @typedef {SprocketsTypes.Components.Group.GroupProps} GroupProps
+ *  @typedef {SprocketsTypes.Components.Group.GroupState} GroupState
+ *  @typedef {SprocketsTypes.Components.Group.ErrorSummary.ErrorSummaryProps} ErrorSummaryProps
+ *  @typedef {SprocketsTypes.Components.Group.ErrorSummary.ErrorSummaryState} ErrorSummaryState
  */
 
+/**
+ * ErrorSummaryGroup component
+ */
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import debug from 'debug'
-
 import equal from 'fast-deep-equal'
 import classnames from 'classnames'
+
+import debug from 'debug'
 
 import Group from '#sprockets/components/group'
 
@@ -26,11 +26,18 @@ import {
 
 import TextContent from '#sprockets/components/common/text-content'
 
+/**
+ *  @type {ErrorDefinitionType[]}
+ */
 const DEFAULT_ERROR_SUMMARY = []
 
 const log = debug('shinkansen-sprockets/sprockets/error-summary/group')
 
-/* eslint-disable-next-line react/prop-types */
+/**
+ * @param {ErrorDefinitionType} error
+ * @param {number} index
+ * @returns {React.JSX.Element}
+ */
 function render (error, index) {
   log('render')
 
@@ -48,13 +55,14 @@ function render (error, index) {
   )
 }
 
+/**
+ *  @extends {Group<GroupProps & ErrorSummaryProps, GroupState & ErrorSummaryState>}
+ */
 export default class ErrorSummaryGroup extends Group {
   /**
-   * @type {GroupState}
+   *  @type {ErrorSummaryState}
    */
-  state = {
-    errorSummary: DEFAULT_ERROR_SUMMARY
-  }
+  state = {}
 
   getClassName () {
     return classnames(super.getClassName(), 'error-summary')
@@ -63,9 +71,9 @@ export default class ErrorSummaryGroup extends Group {
   /**
    * Compare latest 'props' with 'state' for changes to 'errorSummary'
    *
-   * @param {GroupProps} props   Latest props
-   * @param {GroupState} state   Current state
-   * @returns {GroupState}
+   *  @param {ErrorSummaryProps} props   Latest props
+   *  @param {ErrorSummaryState} state   Current state
+   *  @returns {ErrorSummaryState}
    */
   static getDerivedStateFromProps ({ errorSummary }, { errorSummary: E }) {
     return {
@@ -76,9 +84,9 @@ export default class ErrorSummaryGroup extends Group {
   /**
    * Compare latest 'props' with 'state' for changes to 'errorSummary'
    *
-   * @param {GroupProps} props   Latest props
-   * @param {GroupState} state   Current state
-   * @returns {boolean}
+   *  @param {ErrorSummaryProps} props   Latest props
+   *  @param {ErrorSummaryState} state   Current state
+   *  @returns {boolean}
    */
   shouldComponentUpdate (props, state) {
     const {
@@ -89,7 +97,7 @@ export default class ErrorSummaryGroup extends Group {
       errorSummary: E = DEFAULT_ERROR_SUMMARY
     } = this.state
 
-    return (e !== E)
+    return !equal(e, E)
   }
 
   render () {
@@ -117,5 +125,5 @@ export default class ErrorSummaryGroup extends Group {
 
 ErrorSummaryGroup.propTypes = {
   ...Group.propTypes,
-  errorSummary: PropTypes.arrayOf(PropTypes.shape())
+  errorSummary: PropTypes.arrayOf(PropTypes.shape({}))
 }

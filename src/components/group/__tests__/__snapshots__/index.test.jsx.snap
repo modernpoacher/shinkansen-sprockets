@@ -3,13 +3,13 @@
 exports[`#sprockets/components/group <Group /> With additional props renders 1`] = `
 <fieldset
   className="group"
-  onChange={[MockFunction]}
-/>
+>
+  MOCK CHILDREN
+</fieldset>
 `;
 
 exports[`#sprockets/components/group <Group /> With required props renders 1`] = `
 <fieldset
   className="group"
-  onChange={[Function]}
 />
 `;

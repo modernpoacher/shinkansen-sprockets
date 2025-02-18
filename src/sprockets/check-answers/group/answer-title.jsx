@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * @param {SprocketsTypes.AnswerDefinitionType}
- * @returns {React.JSX.Element}
+ *  @param {{ answer: { title: string } }} answer
+ *  @returns {React.JSX.Element}
  */
 export default function AnswerTitle ({ answer: { title } }) {
   return (

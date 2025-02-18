@@ -1,7 +1,12 @@
 /**
- * ErrorMessage component
+ *  @typedef {SprocketsTypes.ErrorDefinitionType} ErrorDefinitionType
+ *  @typedef {SprocketsTypes.Components.ErrorMessage.ErrorMessageProps} ErrorMessageProps
+ *  @typedef {SprocketsTypes.Components.ErrorMessage.ErrorMessageState} ErrorMessageState
  */
 
+/**
+ * ErrorMessage component
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import equal from 'fast-deep-equal'
@@ -11,12 +16,15 @@ import transform from '#sprockets/transformers/error-message'
 import TextContent from '#sprockets/components/common/text-content'
 
 export default class ErrorMessage extends Component {
-  state = {
-    errorMessage: {}
-  }
+  /**
+   *  @type {ErrorMessageState}
+   */
+  state = {}
 
   hasTextContent () {
-    const { errorMessage } = this.props
+    const {
+      errorMessage
+    } = this.props
 
     const {
       text
@@ -26,7 +34,10 @@ export default class ErrorMessage extends Component {
   }
 
   getTextContent () {
-    const { errorMessage } = this.props
+    const {
+      errorMessage
+    } = this.props
+
     const {
       text
     } = transform(errorMessage)
@@ -41,9 +52,9 @@ export default class ErrorMessage extends Component {
   /**
    *  Merge latest `props` to `state`
    *
-   *  @param {{errorMessage?: SprocketsTypes.ErrorDefinitionType}} props   Latest props
-   *  @param {{errorMessage?: SprocketsTypes.ErrorDefinitionType}} state   Latest state
-   *  @returns {{errorMessage: SprocketsTypes.ErrorDefinitionType | void}}
+   *  @param {ErrorMessageProps} props   Latest props
+   *  @param {ErrorMessageState} state   Current state
+   *  @returns {ErrorMessageState}
    */
   static getDerivedStateFromProps ({ errorMessage }, { errorMessage: E }) {
     return {
@@ -54,8 +65,8 @@ export default class ErrorMessage extends Component {
   /**
    *  Compare current and latest `state` for changes to `errorMessage`
    *
-   *  @param {{errorMessage?: SprocketsTypes.ErrorDefinitionType}} props   Latest props
-   *  @param {{errorMessage?: SprocketsTypes.ErrorDefinitionType}} state   Latest state
+   *  @param {ErrorMessageProps} props   Latest props
+   *  @param {ErrorMessageState} state   Latest state
    *  @returns {boolean}
    */
   shouldComponentUpdate (props, state) {
@@ -67,7 +78,7 @@ export default class ErrorMessage extends Component {
       errorMessage: E
     } = this.state
 
-    return (e !== E)
+    return !equal(E, e)
   }
 
   renderTextContent () {
@@ -75,7 +86,9 @@ export default class ErrorMessage extends Component {
       const textContent = this.getTextContent()
 
       return (
-        <TextContent textContent={textContent} />
+        <TextContent
+          textContent={textContent}
+        />
       )
     }
 
@@ -83,7 +96,9 @@ export default class ErrorMessage extends Component {
   }
 
   render () {
-    const { errorMessage } = this.props
+    const {
+      errorMessage
+    } = this.props
 
     if (errorMessage) {
       return (
@@ -100,7 +115,7 @@ export default class ErrorMessage extends Component {
 ErrorMessage.propTypes = {
   errorMessage: PropTypes.shape({
     type: PropTypes.string.isRequired,
-    params: PropTypes.shape().isRequired,
+    params: PropTypes.shape({}).isRequired,
     uri: PropTypes.string.isRequired
   })
 }

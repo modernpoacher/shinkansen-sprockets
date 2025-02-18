@@ -32,7 +32,6 @@ describe('#sprockets/sprockets/error-summary/group', () => {
       it('renders', () => {
         const component = (
           <Group
-            onChange={jest.fn()}
             errorSummary={[{ type: 'UNKNOWN', params: {} }]}
           />
         )

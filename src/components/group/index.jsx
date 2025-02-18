@@ -1,15 +1,12 @@
 /**
- * Group component
- *
- * @typedef {import('shinkansen-sprockets/components/group').GroupProps} GroupProps
+ *  @typedef {SprocketsTypes.Components.Group.GroupProps} GroupProps
  */
 
+/**
+ * Group component
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
-import {
-  DEFAULT_HANDLE_CHANGE
-} from '#sprockets/common'
 
 export default class Group extends Component {
   getClassName () {
@@ -17,26 +14,23 @@ export default class Group extends Component {
   }
 
   /**
-   * @param {GroupProps} props
-   * @returns {boolean}
+   *  @param {GroupProps} props
+   *  @returns {boolean}
    */
-  shouldComponentUpdate (props, state) {
+  shouldComponentUpdate (props) {
     return (
-      (props.onChange !== this.props.onChange) ||
       (props.children !== this.props.children)
     )
   }
 
   render () {
     const {
-      onChange = DEFAULT_HANDLE_CHANGE,
       groupRef,
       children
     } = this.props
 
     return (
       <fieldset
-        onChange={onChange}
         className={this.getClassName()}
         ref={groupRef}>
         {children}
@@ -46,7 +40,6 @@ export default class Group extends Component {
 }
 
 Group.propTypes = {
-  onChange: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(
@@ -54,6 +47,6 @@ Group.propTypes = {
     )
   ]),
   groupRef: PropTypes.shape({
-    current: PropTypes.shape().isRequired
+    current: PropTypes.shape({}).isRequired
   })
 }

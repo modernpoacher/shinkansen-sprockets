@@ -37,7 +37,6 @@ describe('#sprockets/sprockets/error-summary/title', () => {
         const component = (
           <Title
             title='MOCK TITLE'
-            onChange={jest.fn()}
           />
         )
 

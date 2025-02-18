@@ -1,21 +1,20 @@
 /**
- * CheckAnswersGroup component
- *
- * @typedef {import('shinkansen-sprockets/components/group').GroupProps} GroupProps
- *
- * Group state
- *
- * @typedef {Object} GroupState
- * @property {{}} [checkAnswers]
+ *  @typedef {SprocketsTypes.AnswerDefinitionType} AnswerDefinitionType
+ *  @typedef {SprocketsTypes.Components.Group.GroupProps} GroupProps
+ *  @typedef {SprocketsTypes.Components.Group.GroupState} GroupState
+ *  @typedef {SprocketsTypes.Components.Group.CheckAnswers.CheckAnswersProps} CheckAnswersProps
+ *  @typedef {SprocketsTypes.Components.Group.CheckAnswers.CheckAnswersState} CheckAnswersState
  */
 
+/**
+ * CheckAnswersGroup component
+ */
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import debug from 'debug'
-
 import equal from 'fast-deep-equal'
 import classnames from 'classnames'
+
+import debug from 'debug'
 
 import Group from '#sprockets/components/group'
 
@@ -23,22 +22,35 @@ import {
   getKey
 } from '#sprockets/transformers/common'
 
-import AnswerTitle from './answer-title.cjs'
-import AnswerValue from './answer-value.cjs'
-import ChangeAnswer from './change-answer.cjs'
+import AnswerTitle from './answer-title.jsx'
+import AnswerValue from './answer-value.jsx'
+import ChangeAnswer from './change-answer.jsx'
 
+/**
+ *  @type {AnswerDefinitionType[]}
+ */
 const DEFAULT_CHECK_ANSWERS = []
 
 const log = debug('shinkansen-sprockets/components/group/check-answers')
 
-/* eslint-disable-next-line react/prop-types */
+/**
+ * @param {AnswerDefinitionType} answer
+ * @param {number} index
+ * @returns {React.JSX.Element}
+ */
 function render ({ params: { answer, changeAnswer: { href, text, ...changeAnswer } } }, index) {
   log('render')
 
   return (
     <div key={getKey(href, text, index)} className='answer'>
-      <AnswerTitle answer={answer} />
-      <AnswerValue answer={answer} />
+      <AnswerTitle
+        answer={answer}
+      />
+
+      <AnswerValue
+        answer={answer}
+      />
+
       <ChangeAnswer
         changeAnswer={{ ...changeAnswer, href, text }}
       />
@@ -46,13 +58,14 @@ function render ({ params: { answer, changeAnswer: { href, text, ...changeAnswer
   )
 }
 
+/**
+ *  @extends {Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+ */
 export default class CheckAnswersGroup extends Group {
   /**
-   * @type {GroupState}
+   *  @type {CheckAnswersState}
    */
-  state = {
-    checkAnswers: DEFAULT_CHECK_ANSWERS
-  }
+  state = {}
 
   getClassName () {
     return classnames(super.getClassName(), 'check-answers')
@@ -61,9 +74,9 @@ export default class CheckAnswersGroup extends Group {
   /**
    *  Compare latest 'props' with 'state' for changes to 'checkAnswers'
    *
-   * @param {GroupProps} props   Latest props
-   * @param {GroupState} state   Current state
-   * @returns {{checkAnswers: {}}}
+   *  @param {CheckAnswersProps} props   Latest props
+   *  @param {CheckAnswersState} state   Current state
+   *  @returns {CheckAnswersState}
    */
   static getDerivedStateFromProps ({ checkAnswers }, { checkAnswers: C }) {
     return {
@@ -74,9 +87,9 @@ export default class CheckAnswersGroup extends Group {
   /**
    * Compare latest 'props' with 'state' for changes to 'checkAnswers'
    *
-   * @param {GroupProps} props   Latest props
-   * @param {GroupState} state   Current state
-   * @returns {boolean}
+   *  @param {CheckAnswersProps} props   Latest props
+   *  @param {CheckAnswersState} state   Current state
+   *  @returns {boolean}
    */
   shouldComponentUpdate (props, state) {
     const {
@@ -94,6 +107,8 @@ export default class CheckAnswersGroup extends Group {
     const {
       checkAnswers = DEFAULT_CHECK_ANSWERS
     } = this.props
+
+    console.log('checkAnswers', checkAnswers)
 
     if (checkAnswers.length) {
       const {
@@ -115,5 +130,5 @@ export default class CheckAnswersGroup extends Group {
 
 CheckAnswersGroup.propTypes = {
   ...Group.propTypes,
-  checkAnswers: PropTypes.arrayOf(PropTypes.shape())
+  checkAnswers: PropTypes.arrayOf(PropTypes.shape({}))
 }

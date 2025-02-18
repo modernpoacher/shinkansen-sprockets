@@ -10,4 +10,5 @@ const log = debug('shinkansen-sprockets/sprockets/check-answers/group/answer-val
 
 log('`shinkansen` is awake')
 
+// @ts-ignore
 module.exports = require('./answer-value.jsx')

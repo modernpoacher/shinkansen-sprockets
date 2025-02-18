@@ -31,9 +31,9 @@ describe('#sprockets/sprockets/fieldset/group', () => {
     describe('With additional props', () => {
       it('renders', () => {
         const component = (
-          <Group
-            onChange={jest.fn()}
-          />
+          <Group>
+            MOCK CHILDREN
+          </Group>
         )
 
         return expect(renderer.create(component).toJSON())

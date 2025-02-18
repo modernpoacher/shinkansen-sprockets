@@ -1,9 +1,11 @@
 /**
- * FieldsetSprocket component
- *
- * @typedef {import('shinkansen-sprockets/sprockets').SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Sprockets.Sprocket.SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Sprockets.Sprocket.Fieldset.FieldsetProps} FieldsetProps
  */
 
+/**
+ * FieldsetSprocket component
+ */
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -11,15 +13,14 @@ import classnames from 'classnames'
 
 import Sprocket from '#sprockets/sprockets'
 
-import {
-  DEFAULT_HANDLE_CHANGE
-} from '#sprockets/common'
-
 import Title from './title/index.jsx'
 import Description from './description/index.jsx'
 import ErrorMessage from './error-message/index.jsx'
 import Group from './group/index.jsx'
 
+/**
+ *  @extends {Sprocket<SprocketProps & FieldsetProps>}
+ */
 export default class FieldsetSprocket extends Sprocket {
   getClassName () {
     const {
@@ -30,14 +31,20 @@ export default class FieldsetSprocket extends Sprocket {
   }
 
   /**
-   * @param {SprocketProps} props
-   * @returns {boolean}
+   *  @param {FieldsetProps} props
+   *  @returns {boolean}
    */
-  shouldComponentUpdate (props, state) {
+  shouldComponentUpdate (props) {
+    const {
+      description,
+      errorMessage,
+      ...superProps
+    } = props
+
     return (
-      super.shouldComponentUpdate(props, state) ||
-      (props.description !== this.props.description) ||
-      (props.errorMessage !== this.props.errorMessage)
+      super.shouldComponentUpdate(superProps) ||
+      (description !== this.props.description) ||
+      (errorMessage !== this.props.errorMessage)
     )
   }
 
@@ -79,13 +86,11 @@ export default class FieldsetSprocket extends Sprocket {
 
   renderGroup () {
     const {
-      onChange = DEFAULT_HANDLE_CHANGE,
       children
     } = this.props
 
     return (
-      <Group
-        onChange={onChange}>
+      <Group>
         {this.renderTitle()}
         {this.renderDescription()}
         {this.renderErrorMessage()}
@@ -100,7 +105,7 @@ FieldsetSprocket.propTypes = {
   description: PropTypes.string,
   errorMessage: PropTypes.shape({
     type: PropTypes.string.isRequired,
-    params: PropTypes.shape().isRequired,
+    params: PropTypes.shape({}).isRequired,
     uri: PropTypes.string.isRequired
   })
 }

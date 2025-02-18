@@ -1,4 +1,8 @@
 /**
+ *  @typedef {SprocketsTypes.Components.Title.TitleProps} TitleProps
+ */
+
+/**
  * Title component
  */
 import React, { Component } from 'react'
@@ -8,13 +12,17 @@ import TextContent from '#sprockets/components/common/text-content'
 
 export default class Title extends Component {
   hasTextContent () {
-    const { title } = this.props
+    const {
+      title
+    } = this.props
 
     return !!title
   }
 
   getTextContent () {
-    const { title } = this.props
+    const {
+      title
+    } = this.props
 
     return title
   }
@@ -23,7 +31,11 @@ export default class Title extends Component {
     return 'title'
   }
 
-  shouldComponentUpdate (props, state) {
+  /**
+   *  @param {TitleProps} props
+   *  @returns {boolean}
+   */
+  shouldComponentUpdate (props) {
     return (
       (props.title !== this.props.title)
     )
@@ -34,7 +46,9 @@ export default class Title extends Component {
       const textContent = this.getTextContent()
 
       return (
-        <TextContent textContent={textContent} />
+        <TextContent
+          textContent={textContent}
+        />
       )
     }
 

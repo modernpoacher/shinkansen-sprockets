@@ -37,7 +37,6 @@ describe('#sprockets/sprockets/fieldset/title', () => {
         const component = (
           <Title
             title='MOCK TITLE'
-            onChange={jest.fn()}
           />
         )
 

@@ -2,22 +2,39 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * @param {string | string[]}
- * @returns {string | string[]}
+ *  @param {number} n
+ *  @returns {(
+ *    a: Array<string | React.JSX.Element>,
+ *    v: string,
+ *    i: number
+ *  ) => Array<string | React.JSX.Element>}
+ */
+function getReduce (n) {
+  /**
+   *  @param {Array<string | React.JSX.Element>} a
+   *  @param {string} v
+   *  @param {number} i
+   *  @returns {Array<string | React.JSX.Element>}
+   */
+  return function reduce (a, v, i) {
+    const s = String(v)
+
+    return (i !== n)
+      ? a.concat(s).concat(<br key={i} />)
+      : a.concat(s)
+  }
+}
+
+/**
+ *  @param {string | string[]} value
+ *  @returns {string | Array<string | React.JSX.Element>}
  */
 function getAnswerValue (value) {
   if (Array.isArray(value)) {
     const n = value.length - 1
 
     return (
-      value
-        .reduce((a, v, i) => {
-          const s = String(v)
-
-          return (i !== n)
-            ? a.concat(s).concat(<br key={i} />)
-            : a.concat(s)
-        }, [])
+      value.reduce(getReduce(n), [])
     )
   }
 
@@ -25,8 +42,8 @@ function getAnswerValue (value) {
 }
 
 /**
- * @param {SprocketsTypes.AnswerDefinitionType}
- * @returns {React.JSX.Element}
+ *  @param {{ answer: { value: string | string[] } }} answer
+ *  @returns {React.JSX.Element}
  */
 export default function AnswerValue ({ answer: { value } }) {
   return (

@@ -1,13 +1,33 @@
+// @ts-nocheck
+
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Group from '#sprockets/components/group'
+import ErrorMessage from '#sprockets/components/error-message'
 
-describe('#sprockets/components/group', () => {
-  describe('<Group />', () => {
+jest.useFakeTimers()
+
+const MOCK_ERROR_MESSAGE = {
+  type: 'UNKNOWN',
+  params: {
+    expectedType: 'string'
+  },
+  uri: '#/'
+}
+
+const MOCK_CHANGE_ERROR_MESSAGE = {
+  type: 'UNKNOWN',
+  params: {
+    expectedType: 'number'
+  },
+  uri: '#/'
+}
+
+describe('#sprockets/components/error-message', () => {
+  describe('<ErrorMessage />', () => {
     describe('With required props', () => {
       const component = (
-        <Group />
+        <ErrorMessage />
       )
 
       it('renders', () => {
@@ -17,14 +37,14 @@ describe('#sprockets/components/group', () => {
 
       describe('`getClassName`', () => {
         it('is defined', () => {
-          return expect(Group.prototype.getClassName)
+          return expect(ErrorMessage.prototype.getClassName)
             .toBeDefined()
         })
       })
 
       describe('`shouldComponentUpdate`', () => {
         it('is defined', () => {
-          return expect(Group.prototype.shouldComponentUpdate)
+          return expect(ErrorMessage.prototype.shouldComponentUpdate)
             .toBeDefined()
         })
       })
@@ -33,9 +53,9 @@ describe('#sprockets/components/group', () => {
     describe('With additional props', () => {
       it('renders', () => {
         const component = (
-          <Group>
-            MOCK CHILDREN
-          </Group>
+          <ErrorMessage
+            errorMessage={MOCK_ERROR_MESSAGE}
+          />
         )
 
         return expect(renderer.create(component).toJSON())
@@ -46,7 +66,7 @@ describe('#sprockets/components/group', () => {
     describe('`getClassName()`', () => {
       it('returns the classname', () => {
         const component = (
-          <Group />
+          <ErrorMessage />
         )
 
         const instance = (
@@ -55,17 +75,20 @@ describe('#sprockets/components/group', () => {
         )
 
         return expect(instance.getClassName())
-          .toBe('group')
+          .toBe('error-message')
       })
     })
 
     describe('`shouldComponentUpdate()`', () => {
       const component = (
-        <Group>
-          MOCK CHILDREN
-        </Group>
+        <ErrorMessage
+          errorMessage={MOCK_ERROR_MESSAGE}
+        />
       )
 
+      /**
+       *  @type {void | null | renderer.ReactTestInstance}
+       */
       let instance
 
       beforeEach(() => {
@@ -78,7 +101,9 @@ describe('#sprockets/components/group', () => {
       describe('`props` have changed', () => {
         it('returns true', () => {
           return expect(instance.shouldComponentUpdate({
-            children: null
+            errorMessage: MOCK_CHANGE_ERROR_MESSAGE
+          }, {
+            errorMessage: MOCK_CHANGE_ERROR_MESSAGE
           }))
             .toBe(true)
         })
@@ -87,7 +112,9 @@ describe('#sprockets/components/group', () => {
       describe('`props` have not changed', () => {
         it('returns false', () => {
           return expect(instance.shouldComponentUpdate({ // instance.props
-            children: 'MOCK CHILDREN'
+            errorMessage: MOCK_ERROR_MESSAGE
+          }, {
+            errorMessage: MOCK_ERROR_MESSAGE
           }))
             .toBe(false)
         })

@@ -8,10 +8,10 @@ const log = debug('shinkansen-sprockets/transformers/common')
 log('`shinkansen` is awake')
 
 /**
- * @param {string} href
- * @param {string} text
- * @param {number} index
- * @returns {string}
+ *  @param {string} href
+ *  @param {string} text
+ *  @param {number} index
+ *  @returns {string}
  */
 export function getKey (href, text, index) {
   return (

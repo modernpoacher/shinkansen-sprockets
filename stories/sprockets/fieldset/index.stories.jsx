@@ -50,5 +50,5 @@ export function WithError ({ errorMessage = {}, ...args }) {
 }
 
 WithError.propTypes = {
-  errorMessage: PropTypes.shape()
+  errorMessage: PropTypes.shape({})
 }

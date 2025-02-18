@@ -10,4 +10,5 @@ const log = debug('shinkansen-sprockets/sprockets/check-answers/group/change-ans
 
 log('`shinkansen` is awake')
 
+// @ts-ignore
 module.exports = require('./change-answer.jsx')

@@ -1,15 +1,16 @@
 /**
- * VisuallyHiddenText component
- *
- * @typedef {import('shinkansen-sprockets/components/common/visually-hidden-text').VisuallyHiddenTextProps} VisuallyHiddenTextProps
+ *  @typedef {SprocketsTypes.Components.Common.VisuallyHiddenText.VisuallyHiddenTextProps} VisuallyHiddenTextProps
  */
 
+/**
+ * VisuallyHiddenText component
+ */
 import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * @param {VisuallyHiddenTextProps}
- * @returns {React.JSX.Element | null}
+ *  @param {VisuallyHiddenTextProps} props
+ *  @returns {React.JSX.Element | null}
  */
 export default function VisuallyHiddenText ({ visuallyHiddenText }) {
   if (visuallyHiddenText) {
@@ -24,5 +25,5 @@ export default function VisuallyHiddenText ({ visuallyHiddenText }) {
 }
 
 VisuallyHiddenText.propTypes = {
-  visuallyHiddenText: PropTypes.string.isRequired
+  visuallyHiddenText: PropTypes.string
 }

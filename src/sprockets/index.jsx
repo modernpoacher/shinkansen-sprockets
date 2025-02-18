@@ -1,15 +1,12 @@
 /**
- * Sprocket component
- *
- * @typedef {import('shinkansen-sprockets/sprockets').SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Sprockets.Sprocket.SprocketProps} SprocketProps
  */
 
+/**
+ * Sprocket component
+ */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
-import {
-  DEFAULT_HANDLE_CHANGE
-} from '#sprockets/common'
 
 import Title from '#sprockets/components/title'
 import Group from '#sprockets/components/group'
@@ -20,14 +17,13 @@ export default class Sprocket extends Component {
   }
 
   /**
-   * @param {SprocketProps} props
-   * @returns {boolean}
+   *  @param {SprocketProps} props
+   *  @returns {boolean}
    */
-  shouldComponentUpdate (props, state) {
+  shouldComponentUpdate (props) {
     return (
       (props.children !== this.props.children) ||
-      (props.title !== this.props.title) ||
-      (props.onChange !== this.props.onChange)
+      (props.title !== this.props.title)
     )
   }
 
@@ -45,14 +41,12 @@ export default class Sprocket extends Component {
 
   renderGroup () {
     const {
-      onChange = DEFAULT_HANDLE_CHANGE,
       groupRef,
       children
     } = this.props
 
     return (
       <Group
-        onChange={onChange}
         groupRef={groupRef}>
         {this.renderTitle()}
         {children}
@@ -73,7 +67,6 @@ export default class Sprocket extends Component {
 
 Sprocket.propTypes = {
   title: PropTypes.string,
-  onChange: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(
@@ -81,6 +74,6 @@ Sprocket.propTypes = {
     )
   ]),
   groupRef: PropTypes.shape({
-    current: PropTypes.shape().isRequired
+    current: PropTypes.shape({}).isRequired
   })
 }

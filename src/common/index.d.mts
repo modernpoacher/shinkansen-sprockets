@@ -1,7 +1,5 @@
 declare module '#sprockets/common' {
-  export function DEFAULT_HANDLE_CHANGE (): void
-
-  export function DEFAULT_HANDLE_CLICK (): void
+  export {}
 }
 
 declare module 'shinkansen-sprockets/common' {

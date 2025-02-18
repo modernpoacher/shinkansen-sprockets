@@ -1,11 +1,18 @@
 /**
- * ErrorSummaryTitle component
+ *  @typedef {SprocketsTypes.Components.Title.TitleProps} TitleProps
+ *  @typedef {SprocketsTypes.Components.Title.ErrorSummary.ErrorSummaryProps} ErrorSummaryProps
  */
 
+/**
+ * ErrorSummaryTitle component
+ */
 import React from 'react'
 import classnames from 'classnames'
 import Title from '#sprockets/components/title'
 
+/**
+ *  @extends {Title<TitleProps & ErrorSummaryProps>}
+ */
 export default class ErrorSummaryTitle extends Title {
   getClassName () {
     return classnames(super.getClassName(), 'error-summary')
@@ -22,8 +29,4 @@ export default class ErrorSummaryTitle extends Title {
 
     return null
   }
-}
-
-ErrorSummaryTitle.propTypes = {
-  ...Title.propTypes
 }

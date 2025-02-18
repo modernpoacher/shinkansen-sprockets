@@ -5,5 +5,13 @@ declare module '#sprockets' {
 }
 
 declare module 'shinkansen-sprockets' {
+  export type AnswerDefinitionType = SprocketsTypes.AnswerDefinitionType
+
+  export type FieldChangeType = SprocketsTypes.FieldChangeType
+
+  export type ErrorDefinitionType = SprocketsTypes.ErrorDefinitionType
+
+  export type FieldErrorType = SprocketsTypes.FieldErrorType
+
   export * from '#sprockets'
 }

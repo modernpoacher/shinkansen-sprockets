@@ -1,9 +1,12 @@
 /**
- * CheckAnswersSprocket component
- *
- * @typedef {import('shinkansen-sprockets/sprockets').SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.AnswerDefinitionType} AnswerDefinitionType
+ *  @typedef {SprocketsTypes.Sprockets.Sprocket.SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Sprockets.Sprocket.CheckAnswers.CheckAnswersProps} CheckAnswersProps
  */
 
+/**
+ * CheckAnswersSprocket component
+ */
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -13,21 +16,34 @@ import Sprocket from '#sprockets/sprockets'
 import Title from './title/index.jsx'
 import Group from './group/index.jsx'
 
+/**
+ *  @type {AnswerDefinitionType[]}
+ */
 const DEFAULT_CHECK_ANSWERS = []
 
+/**
+ *  @extends {Sprocket<SprocketProps & CheckAnswersProps>}
+ */
 export default class CheckAnswersSprocket extends Sprocket {
   getClassName () {
     return classnames(super.getClassName(), 'check-answers')
   }
 
   /**
-   * @param {SprocketProps} props
-   * @returns {boolean}
+   *  @param {CheckAnswersProps} props
+   *  @returns {boolean}
    */
-  shouldComponentUpdate (props, state) {
+  shouldComponentUpdate (props) {
+    const {
+      checkAnswers,
+      ...superProps
+    } = props
+
+    console.log('checkAnswers', checkAnswers)
+
     return (
-      super.shouldComponentUpdate(props, state) ||
-      (props.checkAnswers !== this.props.checkAnswers)
+      super.shouldComponentUpdate(superProps) ||
+      (checkAnswers !== this.props.checkAnswers)
     )
   }
 
@@ -75,5 +91,5 @@ export default class CheckAnswersSprocket extends Sprocket {
 
 CheckAnswersSprocket.propTypes = {
   ...Sprocket.propTypes,
-  checkAnswers: PropTypes.arrayOf(PropTypes.shape())
+  checkAnswers: PropTypes.arrayOf(PropTypes.shape({}))
 }

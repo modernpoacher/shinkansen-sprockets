@@ -12,6 +12,10 @@ import VisuallyHiddenText from '#sprockets/components/common/visually-hidden-tex
 
 const log = debug('shinkansen-sprockets/sprockets/check-answers/group/change-answer')
 
+/**
+ * @param {{ textContent?: string, visuallyHiddenText: string }} props
+ * @returns {React.JSX.Element | null}
+ */
 function TextContentWithVisuallyHiddenText ({ textContent, visuallyHiddenText }) {
   return (
     <>
@@ -23,10 +27,14 @@ function TextContentWithVisuallyHiddenText ({ textContent, visuallyHiddenText })
 }
 
 TextContentWithVisuallyHiddenText.propTypes = {
-  textContent: PropTypes.string.isRequired,
-  visuallyHiddenText: PropTypes.string.isRequired
+  textContent: PropTypes.string,
+  visuallyHiddenText: PropTypes.string
 }
 
+/**
+ * @param {{ textContent?: string, visuallyHiddenText?: string }} props
+ * @returns {React.JSX.Element | null}
+ */
 function LinkText ({ textContent, visuallyHiddenText }) {
   if (textContent) {
     return (
@@ -35,16 +43,18 @@ function LinkText ({ textContent, visuallyHiddenText }) {
         : <TextContent textContent={textContent} />
     )
   }
+
+  return null
 }
 
 LinkText.propTypes = {
-  textContent: PropTypes.string.isRequired,
-  visuallyHiddenText: PropTypes.string.isRequired
+  textContent: PropTypes.string,
+  visuallyHiddenText: PropTypes.string
 }
 
 /**
- * @param {SprocketsTypes.AnswerDefinitionType}
- * @returns {React.JSX.Element}
+ *  @param {{ changeAnswer: { href: string, text: string, visuallyHiddenText?: string } }}  answer
+ *  @returns {React.JSX.Element}
  */
 export default function ChangeAnswer ({ changeAnswer: { href, text, visuallyHiddenText } }) {
   log('ChangeAnswer')
@@ -62,6 +72,6 @@ ChangeAnswer.propTypes = {
   changeAnswer: PropTypes.shape({
     href: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    visuallyHiddenText: PropTypes.string.isRequired
+    visuallyHiddenText: PropTypes.string
   }).isRequired
 }
