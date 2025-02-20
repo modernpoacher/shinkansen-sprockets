@@ -39,8 +39,6 @@ export default class CheckAnswersSprocket extends Sprocket {
       ...superProps
     } = props
 
-    console.log('checkAnswers', checkAnswers)
-
     return (
       super.shouldComponentUpdate(superProps) ||
       (checkAnswers !== this.props.checkAnswers)

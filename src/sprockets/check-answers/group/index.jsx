@@ -108,8 +108,6 @@ export default class CheckAnswersGroup extends Group {
       checkAnswers = DEFAULT_CHECK_ANSWERS
     } = this.props
 
-    console.log('checkAnswers', checkAnswers)
-
     if (checkAnswers.length) {
       const {
         groupRef
