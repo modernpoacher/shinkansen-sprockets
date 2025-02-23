@@ -3,7 +3,7 @@ import type React from 'react'
 declare global {
   namespace SprocketsTypes {
     export interface AnswerDefinitionType {
-      type: string,
+      type: string
       params: {
         answer: {
           title: string
