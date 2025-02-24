@@ -9,42 +9,7 @@
     "strict": true,
     "isolatedModules": true,
     "baseUrl": ".",
-    "jsx": "react",
-    "paths": {
-      "#sprockets": [
-        "src/index.mjs"
-      ],
-      "#sprockets/common": [
-        "src/common/index.mjs"
-      ],
-      "#sprockets/components/*": [
-        "src/components/*/index.jsx"
-      ],
-      "#sprockets/sprockets": [
-        "src/sprockets/index.jsx"
-      ],
-      "#sprockets/sprockets/*": [
-        "src/sprockets/*/index.jsx"
-      ],
-      "#sprockets/sprockets/check-answers/group/*": [
-        "src/sprockets/check-answers/group/*.jsx"
-      ],
-      "#sprockets/sprockets/error-summary/group/*": [
-        "src/sprockets/error-summary/group/*.jsx"
-      ],
-      "#sprockets/transformers/*": [
-        "src/transformers/*/index.mjs"
-      ],
-      "#stories/definitions/*": [
-        "stories/definitions/*.json"
-      ],
-      "#stories/errors": [
-        "stories/errors.mjs"
-      ],
-      "#stories/sprockets/*": [
-        "stories/sprockets/*/index.stories.jsx"
-      ]
-    }
+    "jsx": "react"
   },
   "include": [
     ".",
