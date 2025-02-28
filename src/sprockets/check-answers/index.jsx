@@ -13,8 +13,8 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import Sprocket from '#sprockets/sprockets'
-import Title from './title/index.jsx'
-import Group from './group/index.jsx'
+import Title from '#sprockets/sprockets/check-answers/title'
+import Group from '#sprockets/sprockets/check-answers/group'
 
 /**
  *  @type {AnswerDefinitionType[]}

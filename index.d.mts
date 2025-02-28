@@ -136,7 +136,10 @@ declare global {
         }
 
         export namespace Fieldset {
-          export type FieldsetProps = SprocketProps
+          export interface FieldsetProps extends SprocketProps {
+            description?: string
+            errorMessage?: ErrorDefinitionType[]
+          }
         }
       }
     }

@@ -1,4 +1,5 @@
 /**
+ *  @typedef {SprocketsTypes.ErrorDefinitionType} ErrorDefinitionType
  *  @typedef {SprocketsTypes.Sprockets.Sprocket.SprocketProps} SprocketProps
  *  @typedef {SprocketsTypes.Sprockets.Sprocket.ErrorSummary.ErrorSummaryProps} ErrorSummaryProps
  */
@@ -12,9 +13,12 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import Sprocket from '#sprockets/sprockets'
-import Title from './title/index.jsx'
-import Group from './group/index.jsx'
+import Title from '#sprockets/sprockets/error-summary/title'
+import Group from '#sprockets/sprockets/error-summary/group'
 
+/**
+ *  @type {ErrorDefinitionType[]}
+ */
 const DEFAULT_ERROR_SUMMARY = []
 
 /**
@@ -74,7 +78,7 @@ export default class ErrorSummarySprocket extends Sprocket {
       const className = this.getClassName()
 
       return (
-        <div tabIndex='-1' className={className}>
+        <div tabIndex={-1} className={className}>
           {this.renderTitle()}
           {this.renderGroup()}
         </div>

@@ -22,9 +22,9 @@ import {
   getKey
 } from '#sprockets/transformers/common'
 
-import AnswerTitle from './answer-title.jsx'
-import AnswerValue from './answer-value.jsx'
-import ChangeAnswer from './change-answer.jsx'
+import AnswerTitle from '#sprockets/sprockets/check-answers/group/answer-title'
+import AnswerValue from '#sprockets/sprockets/check-answers/group/answer-value'
+import ChangeAnswer from '#sprockets/sprockets/check-answers/group/change-answer'
 
 /**
  *  @type {AnswerDefinitionType[]}

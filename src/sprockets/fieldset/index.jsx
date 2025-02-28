@@ -13,10 +13,10 @@ import classnames from 'classnames'
 
 import Sprocket from '#sprockets/sprockets'
 
-import Title from './title/index.jsx'
-import Description from './description/index.jsx'
-import ErrorMessage from './error-message/index.jsx'
-import Group from './group/index.jsx'
+import Title from '#sprockets/sprockets/fieldset/title'
+import Description from '#sprockets/sprockets/fieldset/description'
+import ErrorMessage from '#sprockets/sprockets/fieldset/error-message'
+import Group from '#sprockets/sprockets/fieldset/group'
 
 /**
  *  @extends {Sprocket<SprocketProps & FieldsetProps>}

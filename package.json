@@ -101,13 +101,19 @@
   },
   "imports": {
     "#build/paths": "./build/paths.mjs",
-    "#sprockets": "./src/index.mjs",
+    "#sprockets": {
+      "require": "./src/index.cjs",
+      "import": "./src/index.mjs"
+    },
     "#sprockets/common": "./src/common/index.mjs",
-    "#sprockets/components/*": "./src/components/*/index.jsx",
-    "#sprockets/sprockets": "./src/sprockets/index.jsx",
-    "#sprockets/sprockets/*": "./src/sprockets/*/index.jsx",
-    "#sprockets/sprockets/check-answers/group/*": "./src/sprockets/check-answers/group/*.jsx",
-    "#sprockets/sprockets/error-summary/group/*": "./src/sprockets/error-summary/group/*.jsx",
+    "#sprockets/components/*": {
+      "require": "./src/components/*/index.cjs",
+      "import": "./src/components/*/index.cjs"
+    },
+    "#sprockets/sprockets": "./src/sprockets/index.cjs",
+    "#sprockets/sprockets/*": "./src/sprockets/*/index.cjs",
+    "#sprockets/sprockets/check-answers/group/*": "./src/sprockets/check-answers/group/*.cjs",
+    "#sprockets/sprockets/error-summary/group/*": "./src/sprockets/error-summary/group/*.cjs",
     "#sprockets/transformers/*": "./src/transformers/*/index.mjs",
     "#stories/definitions/*": "./stories/definitions/*.json",
     "#stories/errors": "./stories/errors.mjs",
