@@ -10,9 +10,9 @@
     "Karakuri",
     "React"
   ],
-  "main": "./src/index.cjs",
+  "main": "./src/index.mjs",
   "type": "module",
-  "types": "./src/index.d.mts",
+  "types": "./index.d.mts",
   "author": {
     "name": "Jonathan Perry for Modern Poacher Limited",
     "email": "modernpoacher@modernpoacher.com",
