@@ -1,3 +1,7 @@
+/**
+ *  @typedef {SprocketsTypes.Sprockets.Sprocket.Fieldset.FieldsetProps} FieldsetProps
+ */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -31,24 +35,40 @@ export default {
   }
 }
 
-export function Default (args) {
+/**
+ * @param {FieldsetProps} props
+ * @returns {React.JSX.Element}
+ */
+export function Default (props) {
   return (
-    <FieldsetSprocket
-      {...args}
-      errorMessage={undefined}
-    />
+    <form>
+      <FieldsetSprocket
+        {...props}
+        errorMessage={undefined}
+      />
+    </form>
   )
 }
 
-export function WithError ({ errorMessage = {}, ...args }) {
+/**
+ * @param {FieldsetProps} props
+ * @returns {React.JSX.Element}
+ */
+export function WithError ({ errorMessage, ...props }) {
   return (
-    <FieldsetSprocket
-      {...args}
-      errorMessage={errorMessage}
-    />
+    <form>
+      <FieldsetSprocket
+        {...props}
+        errorMessage={errorMessage}
+      />
+    </form>
   )
 }
 
 WithError.propTypes = {
-  errorMessage: PropTypes.shape({})
+  errorMessage: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    params: PropTypes.shape({}).isRequired,
+    uri: PropTypes.string.isRequired
+  })
 }
