@@ -2,6 +2,12 @@ import type React from 'react'
 
 declare global {
   namespace SprocketsTypes {
+    interface AnswerChangeAnswerType {
+      href: string
+      text: string
+      visuallyHiddenText?: string
+    }
+
     export interface AnswerDefinitionType {
       type: string
       params: {
@@ -9,11 +15,7 @@ declare global {
           title: string
           value: string | string[]
         }
-        changeAnswer: {
-          text: string
-          href: string
-          visuallyHiddenText?: string
-        }
+        changeAnswer: AnswerChangeAnswerType
       }
     }
 

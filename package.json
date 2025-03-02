@@ -105,11 +105,16 @@
       "import": "./src/index.mjs"
     },
     "#sprockets/common": "./src/common/index.mjs",
+    "#sprockets/components": {
+      "require": "./src/components/index.cjs",
+      "import": "./src/components/index.mjs"
+    },
     "#sprockets/components/*": "./src/components/*/index.cjs",
     "#sprockets/sprockets": "./src/sprockets/index.cjs",
     "#sprockets/sprockets/*": "./src/sprockets/*/index.cjs",
     "#sprockets/sprockets/check-answers/group/*": "./src/sprockets/check-answers/group/*.cjs",
     "#sprockets/sprockets/error-summary/group/*": "./src/sprockets/error-summary/group/*.cjs",
+    "#sprockets/transformers": "./src/transformers/index.mjs",
     "#sprockets/transformers/*": "./src/transformers/*/index.mjs",
     "#stories/definitions/*": "./stories/definitions/*.json",
     "#stories/errors": "./stories/errors.mjs",
