@@ -6,7 +6,7 @@
     "checkJs": true,
     "noEmit": true,
     "strict": true,
-    "isolatedModules": true,
+    "resolveJsonModule": true,
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
@@ -14,15 +14,12 @@
         "src/index.cjs",
         "src/index.mjs"
       ],
-      "#sprockets/common": [
-        "src/common/index.mjs"
-      ],
       "#sprockets/components": [
-        "./src/components/index.cjs",
-        "./src/components/index.mjs"
+        "src/components/index.cjs",
+        "src/components/index.mjs"
       ],
       "#sprockets/components/*": [
-        "./src/components/*/index.cjs"
+        "src/components/*/index.cjs"
       ],
       "#sprockets/sprockets": [
         "src/sprockets/index.cjs"
@@ -35,6 +32,16 @@
       ],
       "#sprockets/sprockets/error-summary/group/*": [
         "src/sprockets/error-summary/group/*.cjs"
+      ],
+      "#sprockets/super/components": [
+        "src/super/components/index.cjs",
+        "src/super/components/index.mjs"
+      ],
+      "#sprockets/super/components/*": [
+        "src/super/components/*/index.cjs"
+      ],
+      "#sprockets/super/sprockets": [
+        "src/super/sprockets/index.cjs"
       ],
       "#sprockets/transformers": [
         "src/transformers/index.mjs"

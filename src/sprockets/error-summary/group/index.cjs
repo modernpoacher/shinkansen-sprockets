@@ -11,7 +11,10 @@ const log = debug('shinkansen-sprockets/sprockets/error-summary/group')
 log('`shinkansen` is awake')
 
 const {
-  default: component // @ts-ignore
+  default: Group // @ts-expect-error
 } = require('./index.jsx')
 
-module.exports = component
+/**
+ *  Exports only default
+ */
+module.exports = Group

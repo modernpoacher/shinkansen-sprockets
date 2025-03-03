@@ -1,3 +1,7 @@
+/**
+ *  @typedef {SprocketsTypes.Sprockets.CheckAnswers.CheckAnswersProps} CheckAnswersProps
+ */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -6,11 +10,24 @@ import {
 
 import CheckAnswersSprocket from '#sprockets/sprockets/check-answers'
 
-import BOOLEAN_BOOLEAN from '#stories/definitions/check-answers/boolean-boolean'
-import BOOLEAN_BOOLEAN_ENUM from '#stories/definitions/check-answers/boolean-boolean-enum'
-import BOOLEAN_BOOLEAN_ANY_OF from '#stories/definitions/check-answers/boolean-boolean-any-of'
-import BOOLEAN_BOOLEAN_ONE_OF from '#stories/definitions/check-answers/boolean-boolean-one-of'
-import BOOLEAN_BOOLEAN_ALL_OF from '#stories/definitions/check-answers/boolean-boolean-all-of'
+import {
+  BOOLEAN_BOOLEAN,
+  BOOLEAN_BOOLEAN_ENUM,
+  BOOLEAN_BOOLEAN_ANY_OF,
+  BOOLEAN_BOOLEAN_ONE_OF,
+  BOOLEAN_BOOLEAN_ALL_OF
+} from './definitions.mjs'
+
+/**
+ *  @type {Array<(Story: () => React.JSX.Element) => React.JSX.Element>}
+ */
+const decorators = [
+  (Story) => (
+    <MemoryRouter>
+      <Story />
+    </MemoryRouter>
+  )
+]
 
 const BOOLEAN = {
   BOOLEAN_BOOLEAN: [BOOLEAN_BOOLEAN],
@@ -23,13 +40,7 @@ const BOOLEAN = {
 export default {
   title: 'Stories/Sprockets/Check Answers/Boolean',
   component: CheckAnswersSprocket,
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    )
-  ],
+  decorators,
   args: {
     title: 'Check Answers',
     checkAnswers: 'BOOLEAN_BOOLEAN'
@@ -52,6 +63,10 @@ export default {
   }
 }
 
+/**
+ * @param {CheckAnswersProps} props
+ * @returns {React.JSX.Element}
+ */
 export function Default ({ checkAnswers = [], ...args }) {
   return (
     <CheckAnswersSprocket

@@ -1,7 +1,7 @@
 declare module '#sprockets/sprockets/check-answers' {
   import Sprocket from '#sprockets/sprockets'
 
-  export type CheckAnswersProps = SprocketsTypes.Sprockets.Sprocket.CheckAnswers.CheckAnswersProps
+  export type CheckAnswersProps = SprocketsTypes.Sprockets.CheckAnswers.CheckAnswersProps
 
   export default class CheckAnswersSprocket<P extends CheckAnswersProps> extends Sprocket<P> {}
 }

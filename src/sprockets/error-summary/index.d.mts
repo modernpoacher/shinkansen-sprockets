@@ -1,7 +1,7 @@
 declare module '#sprockets/sprockets/error-summary' {
   import Sprocket from '#sprockets/sprockets'
 
-  export type ErrorSummaryProps = SprocketsTypes.Sprockets.Sprocket.ErrorSummary.ErrorSummaryProps
+  export type ErrorSummaryProps = SprocketsTypes.Sprockets.ErrorSummary.ErrorSummaryProps
 
   export default class ErrorSummarySprocket<P extends ErrorSummaryProps> extends Sprocket<P> {}
 }

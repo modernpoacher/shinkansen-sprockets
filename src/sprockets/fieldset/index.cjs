@@ -11,7 +11,10 @@ const log = debug('shinkansen-sprockets/sprockets/fieldset')
 log('`shinkansen` is awake')
 
 const {
-  default: component // @ts-ignore
+  default: Fieldset // @ts-expect-error
 } = require('./index.jsx')
 
-module.exports = component
+/**
+ *  Exports only default
+ */
+module.exports = Fieldset

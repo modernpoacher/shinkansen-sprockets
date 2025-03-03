@@ -1,3 +1,7 @@
+/**
+ *  @typedef {SprocketsTypes.Sprockets.ErrorSummary.ErrorSummaryProps} ErrorSummaryProps
+ */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -6,35 +10,48 @@ import {
 
 import ErrorSummarySprocket from '#sprockets/sprockets/error-summary'
 
-import ERROR_MAX_ITEMS from '#stories/definitions/error-summary/error-max-items'
-import ERROR_MIN_ITEMS from '#stories/definitions/error-summary/error-min-items'
-import ERROR_MAX_LENGTH from '#stories/definitions/error-summary/error-max-length'
-import ERROR_MIN_LENGTH from '#stories/definitions/error-summary/error-min-length'
-import ERROR_MAX_PROPERTIES from '#stories/definitions/error-summary/error-max-properties'
-import ERROR_MIN_PROPERTIES from '#stories/definitions/error-summary/error-min-properties'
-import ERROR_ADDITIONAL_ITEMS from '#stories/definitions/error-summary/error-additional-items'
-import ERROR_MAXIMUM from '#stories/definitions/error-summary/error-maximum'
-import ERROR_MINIMUM from '#stories/definitions/error-summary/error-minimum'
-import ERROR_FORMAT from '#stories/definitions/error-summary/error-format'
-import ERROR_ADDITIONAL_PROPERTIES from '#stories/definitions/error-summary/error-additional-properties'
-import ERROR_DEPENDENCIES from '#stories/definitions/error-summary/error-dependencies'
-import ERROR_UNIQUE_ITEMS from '#stories/definitions/error-summary/error-unique-items'
-import ERROR_PROPERTY_REQUIRED from '#stories/definitions/error-summary/error-property-required'
-import ERROR_PROPERTY_NAMES from '#stories/definitions/error-summary/error-property-names'
-import ERROR_PATTERN_REQUIRED from '#stories/definitions/error-summary/error-pattern-required'
-import ERROR_TYPE_INVALID_EXPECTED_TYPE_STRING from '#stories/definitions/error-summary/error-type-invalid-expected-type-string'
-import ERROR_TYPE_INVALID_EXPECTED_TYPE_NUMBER from '#stories/definitions/error-summary/error-type-invalid-expected-type-number'
-import ERROR_TYPE_INVALID_EXPECTED_TYPE_OBJECT from '#stories/definitions/error-summary/error-type-invalid-expected-type-object'
-import ERROR_TYPE_INVALID_EXPECTED_TYPE_ARRAY from '#stories/definitions/error-summary/error-type-invalid-expected-type-array'
-import ERROR_TYPE_INVALID_EXPECTED_TYPE_BOOLEAN from '#stories/definitions/error-summary/error-type-invalid-expected-type-boolean'
-import ERROR_TYPE_INVALID_EXPECTED_TYPE_NULL from '#stories/definitions/error-summary/error-type-invalid-expected-type-null'
-import ERROR_MULTIPLE_OF from '#stories/definitions/error-summary/error-multiple-of'
-import ERROR_PATTERN from '#stories/definitions/error-summary/error-pattern'
-import ERROR_CONST from '#stories/definitions/error-summary/error-const'
-import ERROR_ENUM from '#stories/definitions/error-summary/error-enum'
-import ERROR_$REF from '#stories/definitions/error-summary/error-$ref'
-import ERROR_ONE_OF from '#stories/definitions/error-summary/error-one-of'
-import ERROR_UNKNOWN from '#stories/definitions/error-summary/error-unknown'
+import {
+  ERROR_MAX_ITEMS,
+  ERROR_MIN_ITEMS,
+  ERROR_MAX_LENGTH,
+  ERROR_MIN_LENGTH,
+  ERROR_MAX_PROPERTIES,
+  ERROR_MIN_PROPERTIES,
+  ERROR_ADDITIONAL_ITEMS,
+  ERROR_MAXIMUM,
+  ERROR_MINIMUM,
+  ERROR_FORMAT,
+  ERROR_ADDITIONAL_PROPERTIES,
+  ERROR_DEPENDENCIES,
+  ERROR_UNIQUE_ITEMS,
+  ERROR_PROPERTY_REQUIRED,
+  ERROR_PROPERTY_NAMES,
+  ERROR_PATTERN_REQUIRED,
+  ERROR_TYPE_INVALID_EXPECTED_TYPE_STRING,
+  ERROR_TYPE_INVALID_EXPECTED_TYPE_NUMBER,
+  ERROR_TYPE_INVALID_EXPECTED_TYPE_OBJECT,
+  ERROR_TYPE_INVALID_EXPECTED_TYPE_ARRAY,
+  ERROR_TYPE_INVALID_EXPECTED_TYPE_BOOLEAN,
+  ERROR_TYPE_INVALID_EXPECTED_TYPE_NULL,
+  ERROR_MULTIPLE_OF,
+  ERROR_PATTERN,
+  ERROR_CONST,
+  ERROR_ENUM,
+  ERROR_$REF,
+  ERROR_ONE_OF,
+  ERROR_UNKNOWN
+} from './definitions.mjs'
+
+/**
+ *  @type {Array<(Story: () => React.JSX.Element) => React.JSX.Element>}
+ */
+const decorators = [
+  (Story) => (
+    <MemoryRouter>
+      <Story />
+    </MemoryRouter>
+  )
+]
 
 const ERROR = {
   ERROR_MAX_ITEMS: [ERROR_MAX_ITEMS],
@@ -71,13 +88,7 @@ const ERROR = {
 export default {
   title: 'Stories/Sprockets/Error Summary',
   component: ErrorSummarySprocket,
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    )
-  ],
+  decorators,
   args: {
     title: 'Error Summary',
     errorSummary: 'ERROR_MAX_ITEMS'
@@ -124,6 +135,10 @@ export default {
   }
 }
 
+/**
+ * @param {ErrorSummaryProps} props
+ * @returns {React.JSX.Element}
+ */
 export function Default ({ errorSummary = [], ...args }) {
   return (
     <ErrorSummarySprocket

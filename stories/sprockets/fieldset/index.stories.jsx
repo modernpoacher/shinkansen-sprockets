@@ -1,5 +1,5 @@
 /**
- *  @typedef {SprocketsTypes.Sprockets.Sprocket.Fieldset.FieldsetProps} FieldsetProps
+ *  @typedef {SprocketsTypes.Sprockets.Fieldset.FieldsetProps} FieldsetProps
  */
 
 import React from 'react'

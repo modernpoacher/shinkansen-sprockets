@@ -11,7 +11,10 @@ const log = debug('shinkansen-sprockets/sprockets/error-summary')
 log('`shinkansen` is awake')
 
 const {
-  default: component // @ts-ignore
+  default: ErrorSummary // @ts-expect-error
 } = require('./index.jsx')
 
-module.exports = component
+/**
+ *  Exports only default
+ */
+module.exports = ErrorSummary

@@ -1,5 +1,5 @@
 declare module '#sprockets/sprockets/fieldset/description' {
-  import Description from '#sprockets/components/description'
+  import Description from '#sprockets/super/components/description'
 
   export default class FieldsetDescription extends Description {}
 }

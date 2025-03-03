@@ -1,13 +1,13 @@
 /**
  *  @typedef {SprocketsTypes.AnswerDefinitionType} AnswerDefinitionType
- *  @typedef {SprocketsTypes.Components.Group.GroupProps} GroupProps
- *  @typedef {SprocketsTypes.Components.Group.GroupState} GroupState
- *  @typedef {SprocketsTypes.Components.Group.CheckAnswers.CheckAnswersProps} CheckAnswersProps
- *  @typedef {SprocketsTypes.Components.Group.CheckAnswers.CheckAnswersState} CheckAnswersState
+ *  @typedef {SprocketsTypes.Super.Components.Group.GroupProps} GroupProps
+ *  @typedef {SprocketsTypes.Super.Components.Group.GroupState} GroupState
+ *  @typedef {SprocketsTypes.Sprockets.CheckAnswers.Group.CheckAnswersProps} CheckAnswersProps
+ *  @typedef {SprocketsTypes.Sprockets.CheckAnswers.Group.CheckAnswersState} CheckAnswersState
  */
 
 /**
- * CheckAnswersGroup component
+ *  CheckAnswersGroup component
  */
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -16,7 +16,7 @@ import classnames from 'classnames'
 
 import debug from 'debug'
 
-import Group from '#sprockets/components/group'
+import Group from '#sprockets/super/components/group'
 
 import {
   getKey
@@ -34,9 +34,9 @@ const DEFAULT_CHECK_ANSWERS = []
 const log = debug('shinkansen-sprockets/components/group/check-answers')
 
 /**
- * @param {AnswerDefinitionType} answer
- * @param {number} index
- * @returns {React.JSX.Element}
+ *  @param {AnswerDefinitionType} answer
+ *  @param {number} index
+ *  @returns {React.JSX.Element}
  */
 function render ({ params: { answer, changeAnswer: { href, text, ...changeAnswer } } }, index) {
   log('render')

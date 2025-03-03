@@ -1,8 +1,8 @@
 declare module '#sprockets/sprockets/error-summary/group' {
-  import Group from '#sprockets/components/group'
+  import Group from '#sprockets/super/components/group'
 
-  export type ErrorSummaryProps = SprocketsTypes.Components.Group.ErrorSummary.ErrorSummaryProps
-  export type ErrorSummaryState = SprocketsTypes.Components.Group.ErrorSummary.ErrorSummaryState
+  export type ErrorSummaryProps = SprocketsTypes.Sprockets.ErrorSummary.Group.ErrorSummaryProps
+  export type ErrorSummaryState = SprocketsTypes.Sprockets.ErrorSummary.Group.ErrorSummaryState
 
   export default class ErrorSummaryGroup<P extends ErrorSummaryProps, S extends ErrorSummaryState> extends Group<P, S> {}
 }

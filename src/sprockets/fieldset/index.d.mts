@@ -3,7 +3,7 @@ declare module '#sprockets/sprockets/fieldset' {
 
   import Sprocket from '#sprockets/sprockets'
 
-  export type FieldsetProps = SprocketsTypes.Sprockets.Sprocket.Fieldset.FieldsetProps
+  export type FieldsetProps = SprocketsTypes.Sprockets.Fieldset.FieldsetProps
 
   export default class FieldsetSprocket<P extends FieldsetProps> extends Sprocket<P> {
     renderDescription (): React.JSX.Element | null

@@ -1,7 +1,7 @@
 declare module '#sprockets/sprockets/fieldset/title' {
-  import Title from '#sprockets/components/title'
+  import Title from '#sprockets/super/components/title'
 
-  export type FieldsetProps = SprocketsTypes.Components.Title.Fieldset.FieldsetProps
+  export type FieldsetProps = SprocketsTypes.Sprockets.Fieldset.Title.FieldsetProps
 
   export default class FieldsetTitle<P extends FieldsetProps> extends Title<P> {}
 }

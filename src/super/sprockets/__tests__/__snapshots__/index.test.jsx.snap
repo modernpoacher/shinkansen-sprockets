@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#sprockets/sprockets <Sprocket /> With additional props renders 1`] = `
+<div
+  className="sprocket"
+/>
+`;
+
+exports[`#sprockets/sprockets <Sprocket /> With required props renders 1`] = `
+<div
+  className="sprocket"
+/>
+`;

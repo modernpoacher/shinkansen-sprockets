@@ -1,8 +1,8 @@
 declare module '#sprockets/sprockets/fieldset/group' {
-  import Group from '#sprockets/components/group'
+  import Group from '#sprockets/super/components/group'
 
-  export type FieldsetProps = SprocketsTypes.Components.Group.Fieldset.FieldsetProps
-  export type FieldsetState = SprocketsTypes.Components.Group.Fieldset.FieldsetState
+  export type FieldsetProps = SprocketsTypes.Sprockets.Fieldset.Group.FieldsetProps
+  export type FieldsetState = SprocketsTypes.Sprockets.Fieldset.Group.FieldsetState
 
   export default class FieldsetGroup<P extends FieldsetProps, S extends FieldsetState> extends Group<P, S> {}
 }

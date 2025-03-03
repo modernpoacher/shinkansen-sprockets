@@ -40,7 +40,8 @@ const presets = [
 ]
 
 const plugins = [
-  '@babel/syntax-jsx'
+  '@babel/syntax-jsx',
+  '@babel/syntax-import-attributes'
 ]
 
 // @ts-ignore

@@ -1,15 +1,6 @@
 declare module '#sprockets/components/description' {
-  import React from 'react'
-
-  export type DescriptionProps = SprocketsTypes.Components.Description.DescriptionProps
-
-  export default class Description extends React.Component<DescriptionProps> {
-    static propTypes: object
-
-    getClassName (): string
-
-    shouldComponentUpdate (props: DescriptionProps): boolean
-  }
+  export { default } from '#sprockets/super/components/description'
+  export * from '#sprockets/super/components/description'
 }
 
 declare module 'shinkansen-sprockets/components/description' {

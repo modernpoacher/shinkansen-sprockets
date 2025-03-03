@@ -1,11 +1,11 @@
 /**
  *  @typedef {SprocketsTypes.ErrorDefinitionType} ErrorDefinitionType
- *  @typedef {SprocketsTypes.Sprockets.Sprocket.SprocketProps} SprocketProps
- *  @typedef {SprocketsTypes.Sprockets.Sprocket.ErrorSummary.ErrorSummaryProps} ErrorSummaryProps
+ *  @typedef {SprocketsTypes.Sprockets.SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Sprockets.ErrorSummary.ErrorSummaryProps} ErrorSummaryProps
  */
 
 /**
- * ErrorSummarySprocket component
+ *  ErrorSummarySprocket component
  */
 import React from 'react'
 import PropTypes from 'prop-types'

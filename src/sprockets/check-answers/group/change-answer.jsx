@@ -13,8 +13,8 @@ import VisuallyHiddenText from '#sprockets/components/common/visually-hidden-tex
 const log = debug('shinkansen-sprockets/sprockets/check-answers/group/change-answer')
 
 /**
- * @param {{ textContent?: string, visuallyHiddenText: string }} props
- * @returns {React.JSX.Element | null}
+ *  @param {{ textContent?: string, visuallyHiddenText: string }} props
+ *  @returns {React.JSX.Element | null}
  */
 function TextContentWithVisuallyHiddenText ({ textContent, visuallyHiddenText }) {
   return (
@@ -32,8 +32,8 @@ TextContentWithVisuallyHiddenText.propTypes = {
 }
 
 /**
- * @param {{ textContent?: string, visuallyHiddenText?: string }} props
- * @returns {React.JSX.Element | null}
+ *  @param {{ textContent?: string, visuallyHiddenText?: string }} props
+ *  @returns {React.JSX.Element | null}
  */
 function LinkText ({ textContent, visuallyHiddenText }) {
   if (textContent) {

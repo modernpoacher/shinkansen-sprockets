@@ -11,7 +11,10 @@ const log = debug('shinkansen-sprockets/components/common/text-content')
 log('`shinkansen` is awake')
 
 const {
-  default: component // @ts-ignore
+  default: TextContent // @ts-expect-error
 } = require('./index.jsx')
 
-module.exports = component
+/**
+ *  Exports only default
+ */
+module.exports = TextContent

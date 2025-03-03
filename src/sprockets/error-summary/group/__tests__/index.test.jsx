@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import classnames from 'classnames'
 
-import Super from '#sprockets/components/group'
+import Super from '#sprockets/super/components/group'
 import Group from '#sprockets/sprockets/error-summary/group'
 
 jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))

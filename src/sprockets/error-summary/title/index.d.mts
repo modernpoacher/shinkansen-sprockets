@@ -1,7 +1,7 @@
 declare module '#sprockets/sprockets/error-summary/title' {
-  import Title from '#sprockets/components/title'
+  import Title from '#sprockets/super/components/title'
 
-  export type ErrorSummaryProps = SprocketsTypes.Components.Title.ErrorSummary.ErrorSummaryProps
+  export type ErrorSummaryProps = SprocketsTypes.Sprockets.ErrorSummary.Title.ErrorSummaryProps
 
   export default class ErrorSummaryTitle<P extends ErrorSummaryProps> extends Title<P> {}
 }

@@ -11,7 +11,10 @@ const log = debug('shinkansen-sprockets/components/common/visually-hidden-text')
 log('`shinkansen` is awake')
 
 const {
-  default: component // @ts-ignore
+  default: VisuallyHiddenText // @ts-expect-error
 } = require('./index.jsx')
 
-module.exports = component
+/**
+ *  Exports only default
+ */
+module.exports = VisuallyHiddenText

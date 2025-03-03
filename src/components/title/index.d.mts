@@ -1,21 +1,6 @@
 declare module '#sprockets/components/title' {
-  import React from 'react'
-
-  export type TitleProps = SprocketsTypes.Components.Title.TitleProps
-
-  export default class Title<P extends TitleProps> extends React.Component<P> {
-    static propTypes: object
-
-    hasTextContent (): boolean
-
-    getTextContent (): string
-
-    getClassName (): string
-
-    shouldComponentUpdate (props: TitleProps): boolean
-
-    renderTextContent (): React.JSX.Element | null
-  }
+  export { default } from '#sprockets/super/components/title'
+  export * from '#sprockets/super/components/title'
 }
 
 declare module 'shinkansen-sprockets/components/title' {

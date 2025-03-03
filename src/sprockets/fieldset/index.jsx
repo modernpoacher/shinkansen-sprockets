@@ -1,10 +1,10 @@
 /**
- *  @typedef {SprocketsTypes.Sprockets.Sprocket.SprocketProps} SprocketProps
- *  @typedef {SprocketsTypes.Sprockets.Sprocket.Fieldset.FieldsetProps} FieldsetProps
+ *  @typedef {SprocketsTypes.Sprockets.SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Sprockets.Fieldset.FieldsetProps} FieldsetProps
  */
 
 /**
- * FieldsetSprocket component
+ *  FieldsetSprocket component
  */
 import React from 'react'
 import PropTypes from 'prop-types'

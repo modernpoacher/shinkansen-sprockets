@@ -1,13 +1,13 @@
 /**
  *  @typedef {SprocketsTypes.ErrorDefinitionType} ErrorDefinitionType
- *  @typedef {SprocketsTypes.Components.Group.GroupProps} GroupProps
- *  @typedef {SprocketsTypes.Components.Group.GroupState} GroupState
- *  @typedef {SprocketsTypes.Components.Group.ErrorSummary.ErrorSummaryProps} ErrorSummaryProps
- *  @typedef {SprocketsTypes.Components.Group.ErrorSummary.ErrorSummaryState} ErrorSummaryState
+ *  @typedef {SprocketsTypes.Super.Components.Group.GroupProps} GroupProps
+ *  @typedef {SprocketsTypes.Super.Components.Group.GroupState} GroupState
+ *  @typedef {SprocketsTypes.Sprockets.ErrorSummary.Group.ErrorSummaryProps} ErrorSummaryProps
+ *  @typedef {SprocketsTypes.Sprockets.ErrorSummary.Group.ErrorSummaryState} ErrorSummaryState
  */
 
 /**
- * ErrorSummaryGroup component
+ *  ErrorSummaryGroup component
  */
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -17,7 +17,7 @@ import classnames from 'classnames'
 
 import debug from 'debug'
 
-import Group from '#sprockets/components/group'
+import Group from '#sprockets/super/components/group'
 
 import transform from '#sprockets/transformers/error-summary'
 import {
@@ -34,9 +34,9 @@ const DEFAULT_ERROR_SUMMARY = []
 const log = debug('shinkansen-sprockets/sprockets/error-summary/group')
 
 /**
- * @param {ErrorDefinitionType} error
- * @param {number} index
- * @returns {React.JSX.Element}
+ *  @param {ErrorDefinitionType} error
+ *  @param {number} index
+ *  @returns {React.JSX.Element}
  */
 function render (error, index) {
   log('render')

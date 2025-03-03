@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#sprockets/super/components/group <Group /> With additional props renders 1`] = `
+<fieldset
+  className="group"
+>
+  MOCK CHILDREN
+</fieldset>
+`;
+
+exports[`#sprockets/super/components/group <Group /> With required props renders 1`] = `
+<fieldset
+  className="group"
+/>
+`;

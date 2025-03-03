@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#sprockets/super/components/title <Title /> With additional props renders 1`] = `
+<legend
+  className="title"
+>
+  MOCK TEXT CONTENT
+</legend>
+`;
+
+exports[`#sprockets/super/components/title <Title /> With required props renders 1`] = `null`;

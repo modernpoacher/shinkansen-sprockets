@@ -35,6 +35,46 @@ declare global {
       href: string
     }
 
+    export namespace Super {
+      export namespace Sprockets {
+        export interface SprocketProps extends React.PropsWithChildren {
+          title?: string
+          groupRe?: React.RefObject<any> // eslint-disable-line @typescript-eslint/no-explicit-any -- Simplicity
+        }
+      }
+      export namespace Components {
+        export namespace Description {
+          export interface DescriptionProps {
+            description?: string
+          }
+        }
+
+        export namespace ErrorMessage {
+          export interface ErrorMessageProps {
+            errorMessage?: ErrorDefinitionType[]
+          }
+
+          export interface ErrorMessageState {
+            errorMessage?: ErrorDefinitionType[]
+          }
+        }
+
+        export namespace Group {
+          export interface GroupProps extends React.PropsWithChildren {
+            groupRef?: React.RefObject<any> // eslint-disable-line @typescript-eslint/no-explicit-any -- Simplicity
+          }
+
+          export type GroupState = Record<PropertyKey, unknown>
+        }
+
+        export namespace Title {
+          export interface TitleProps {
+            title?: string
+          }
+        }
+      }
+    }
+
     export namespace Components {
       export namespace Common {
         export namespace TextContent {
@@ -51,97 +91,82 @@ declare global {
       }
 
       export namespace Description {
-        export interface DescriptionProps {
-          description?: string
-        }
+        export type DescriptionProps = Super.Components.Description.DescriptionProps
       }
 
       export namespace ErrorMessage {
-        export interface ErrorMessageProps {
-          errorMessage?: ErrorDefinitionType[]
-        }
+        export type ErrorMessageProps = Super.Components.ErrorMessage.ErrorMessageProps
 
-        export interface ErrorMessageState {
-          errorMessage?: ErrorDefinitionType[]
-        }
+        export type ErrorMessageState = Super.Components.ErrorMessage.ErrorMessageState
       }
 
       export namespace Group {
-        export interface GroupProps extends React.PropsWithChildren {
-          groupRef?: React.RefObject<any> // eslint-disable-line @typescript-eslint/no-explicit-any -- Simplicity
-        }
+        export type GroupProps = Super.Components.Group.GroupProps
 
-        export type GroupState = Record<PropertyKey, unknown>
-
-        export namespace CheckAnswers {
-          export interface CheckAnswersProps extends GroupProps {
-            checkAnswers?: AnswerDefinitionType[]
-          }
-
-          export interface CheckAnswersState extends GroupState {
-            checkAnswers?: AnswerDefinitionType[]
-          }
-        }
-
-        export namespace ErrorSummary {
-          export interface ErrorSummaryProps extends GroupProps {
-            errorSummary?: ErrorDefinitionType[]
-          }
-
-          export interface ErrorSummaryState extends GroupState {
-            errorSummary?: ErrorDefinitionType[]
-          }
-        }
-
-        export namespace Fieldset {
-          export type FieldsetProps = GroupProps
-          export type FieldsetState = GroupState
-        }
+        export type GroupState = Super.Components.Group.GroupState
       }
 
       export namespace Title {
-        export interface TitleProps {
-          title?: string
-        }
-
-        export namespace CheckAnswers {
-          export type CheckAnswersProps = TitleProps
-        }
-
-        export namespace ErrorSummary {
-          export type ErrorSummaryProps = TitleProps
-        }
-
-        export namespace Fieldset {
-          export type FieldsetProps = TitleProps
-        }
+        export type TitleProps = Super.Components.Title.TitleProps
       }
     }
 
     export namespace Sprockets {
-      export namespace Sprocket {
-        export interface SprocketProps extends React.PropsWithChildren {
-          title?: string
-          groupRe?: React.RefObject<any> // eslint-disable-line @typescript-eslint/no-explicit-any -- Simplicity
+      export type SprocketProps = Super.Sprockets.SprocketProps
+
+      export namespace CheckAnswers {
+        export interface CheckAnswersProps extends Super.Sprockets.SprocketProps {
+          checkAnswers?: AnswerDefinitionType[]
         }
 
-        export namespace CheckAnswers {
-          export interface CheckAnswersProps extends SprocketProps {
+        export namespace Group {
+          export interface CheckAnswersProps extends Super.Components.Group.GroupProps {
+            checkAnswers?: AnswerDefinitionType[]
+          }
+
+          export interface CheckAnswersState extends Super.Components.Group.GroupState {
             checkAnswers?: AnswerDefinitionType[]
           }
         }
 
-        export namespace ErrorSummary {
-          export interface ErrorSummaryProps extends SprocketProps {
+        export namespace Title {
+          export type CheckAnswersProps = Super.Components.Title.TitleProps
+        }
+      }
+
+      export namespace ErrorSummary {
+        export interface ErrorSummaryProps extends Super.Sprockets.SprocketProps {
+          errorSummary?: ErrorDefinitionType[]
+        }
+
+        export namespace Group {
+          export interface ErrorSummaryProps extends Super.Components.Group.GroupProps {
+            errorSummary?: ErrorDefinitionType[]
+          }
+
+          export interface ErrorSummaryState extends Super.Components.Group.GroupState {
             errorSummary?: ErrorDefinitionType[]
           }
         }
 
-        export namespace Fieldset {
-          export interface FieldsetProps extends SprocketProps {
-            description?: string
-            errorMessage?: ErrorDefinitionType[]
-          }
+        export namespace Title {
+          export type ErrorSummaryProps = Super.Components.Title.TitleProps
+        }
+      }
+
+      export namespace Fieldset {
+        export interface FieldsetProps extends Super.Sprockets.SprocketProps {
+          description?: string
+          errorMessage?: ErrorDefinitionType[]
+        }
+
+        export namespace Group {
+          export type FieldsetProps = Super.Components.Group.GroupProps
+          export type FieldsetState = Super.Components.Group.GroupState
+        }
+
+        export namespace Title {
+          export type FieldsetProps = Super.Components.Title.TitleProps
         }
       }
     }

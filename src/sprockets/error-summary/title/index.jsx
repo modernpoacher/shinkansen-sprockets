@@ -1,14 +1,15 @@
 /**
- *  @typedef {SprocketsTypes.Components.Title.TitleProps} TitleProps
- *  @typedef {SprocketsTypes.Components.Title.ErrorSummary.ErrorSummaryProps} ErrorSummaryProps
+ *  @typedef {SprocketsTypes.Super.Components.Title.TitleProps} TitleProps
+ *  @typedef {SprocketsTypes.Sprockets.ErrorSummary.Title.ErrorSummaryProps} ErrorSummaryProps
  */
 
 /**
- * ErrorSummaryTitle component
+ *  ErrorSummaryTitle component
  */
 import React from 'react'
 import classnames from 'classnames'
-import Title from '#sprockets/components/title'
+
+import Title from '#sprockets/super/components/title'
 
 /**
  *  @extends {Title<TitleProps & ErrorSummaryProps>}

@@ -1,11 +1,11 @@
 /**
  *  @typedef {SprocketsTypes.AnswerDefinitionType} AnswerDefinitionType
- *  @typedef {SprocketsTypes.Sprockets.Sprocket.SprocketProps} SprocketProps
- *  @typedef {SprocketsTypes.Sprockets.Sprocket.CheckAnswers.CheckAnswersProps} CheckAnswersProps
+ *  @typedef {SprocketsTypes.Sprockets.SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Sprockets.CheckAnswers.CheckAnswersProps} CheckAnswersProps
  */
 
 /**
- * CheckAnswersSprocket component
+ *  CheckAnswersSprocket component
  */
 import React from 'react'
 import PropTypes from 'prop-types'
