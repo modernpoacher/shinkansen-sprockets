@@ -1,13 +1,13 @@
-import {
-  expect
-} from 'chai'
+const {
+  expect // @ts-expect-error
+} = require('chai')
 
-import {
+const {
   Description,
   ErrorMessage,
   Group,
   Title
-} from '#sprockets/super/components'
+} = require('#sprockets/super/components')
 
 describe('#sprockets/super/components', () => {
   describe('`Description`', () => {
