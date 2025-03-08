@@ -11,37 +11,37 @@
     "baseUrl": ".",
     "paths": {
       "#sprockets": [
-        "src/index.cjs",
-        "src/index.mjs"
+        "src/js/index.cjs",
+        "src/js/index.mjs"
       ],
       "#sprockets/components": [
-        "src/components/index.cjs",
-        "src/components/index.mjs"
+        "src/js/components/index.cjs",
+        "src/js/components/index.mjs"
       ],
       "#sprockets/components/*": [
-        "src/components/*/index.cjs"
+        "src/js/components/*/index.cjs"
       ],
       "#sprockets/sprockets": [
-        "src/sprockets/index.cjs"
+        "src/js/sprockets/index.cjs"
       ],
       "#sprockets/sprockets/*": [
-        "src/sprockets/*/index.cjs"
+        "src/js/sprockets/*/index.cjs"
       ],
       "#sprockets/sprockets/check-answers/group/*": [
-        "src/sprockets/check-answers/group/*.cjs"
+        "src/js/sprockets/check-answers/group/*.cjs"
       ],
       "#sprockets/sprockets/error-summary/group/*": [
-        "src/sprockets/error-summary/group/*.cjs"
+        "src/js/sprockets/error-summary/group/*.cjs"
       ],
       "#sprockets/super/components": [
-        "src/super/components/index.cjs",
-        "src/super/components/index.mjs"
+        "src/js/super/components/index.cjs",
+        "src/js/super/components/index.mjs"
       ],
       "#sprockets/super/components/*": [
-        "src/super/components/*/index.cjs"
+        "src/js/super/components/*/index.cjs"
       ],
       "#sprockets/super/sprockets": [
-        "src/super/sprockets/index.cjs"
+        "src/js/super/sprockets/index.cjs"
       ],
       "#sprockets/transformers": [
         "src/transformers/index.mjs"
@@ -55,6 +55,7 @@
     "."
   ],
   "exclude": [
-    "**/__tests__/**/*"
+    "**/__tests__/**/*",
+    ".storybook/**/*"
   ]
 }

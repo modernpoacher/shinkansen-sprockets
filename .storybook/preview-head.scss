@@ -1,0 +1,30 @@
+@use "design-system/typography/text";
+@use "design-system/layouts";
+@use "sprockets";
+
+#storybook-root {
+  @include layouts.design-system;
+
+  // stylelint-disable-next-line no-duplicate-selectors
+  & {
+    margin: 0 auto;
+  }
+
+  .sprocket {
+    @include sprockets.sprockets;
+
+    .cog:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  > .sprocket.fieldset > fieldset > legend {
+    @include text.heading-l;
+
+    // stylelint-disable-next-line no-duplicate-selectors
+    & {
+      padding: 0;
+      margin: 0 0 1em 0; // EM
+    }
+  }
+}
