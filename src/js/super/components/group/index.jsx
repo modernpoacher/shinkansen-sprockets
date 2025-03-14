@@ -25,17 +25,24 @@ export default class Group extends Component {
 
   render () {
     const {
-      groupRef,
       children
     } = this.props
 
-    return (
-      <fieldset
-        className={this.getClassName()}
-        ref={groupRef}>
-        {children}
-      </fieldset>
-    )
+    if (children) {
+      const {
+        groupRef
+      } = this.props
+
+      return (
+        <fieldset
+          className={this.getClassName()}
+          ref={groupRef}>
+          {children}
+        </fieldset>
+      )
+    }
+
+    return null
   }
 }
 
@@ -47,6 +54,6 @@ Group.propTypes = {
     )
   ]),
   groupRef: PropTypes.shape({
-    current: PropTypes.shape({}).isRequired
+    current: PropTypes.shape({})
   })
 }

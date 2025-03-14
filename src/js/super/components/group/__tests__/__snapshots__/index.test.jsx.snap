@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#sprockets/super/components/group <Group /> With additional props renders 1`] = `
+exports[`#sprockets/super/components/group <Group /> With additional props matches the snapshot 1`] = `
 <fieldset
   className="group"
 >
@@ -8,8 +8,4 @@ exports[`#sprockets/super/components/group <Group /> With additional props rende
 </fieldset>
 `;
 
-exports[`#sprockets/super/components/group <Group /> With required props renders 1`] = `
-<fieldset
-  className="group"
-/>
-`;
+exports[`#sprockets/super/components/group <Group /> With required props matches the snapshot 1`] = `null`;

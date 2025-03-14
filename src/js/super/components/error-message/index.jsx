@@ -15,6 +15,9 @@ import transform from '#sprockets/transformers/error-message'
 
 import TextContent from '#sprockets/components/common/text-content'
 
+/**
+ *  @extends {Component<ErrorMessageProps, ErrorMessageState>}
+ */
 export default class ErrorMessage extends Component {
   /**
    *  @type {ErrorMessageState}
@@ -26,11 +29,15 @@ export default class ErrorMessage extends Component {
       errorMessage
     } = this.props
 
-    const {
-      text
-    } = transform(errorMessage)
+    if (errorMessage) {
+      const {
+        text
+      } = transform(errorMessage)
 
-    return !!text
+      return !!text
+    }
+
+    return false
   }
 
   getTextContent () {
@@ -38,11 +45,15 @@ export default class ErrorMessage extends Component {
       errorMessage
     } = this.props
 
-    const {
-      text
-    } = transform(errorMessage)
+    if (errorMessage) {
+      const {
+        text
+      } = transform(errorMessage)
 
-    return text
+      return text
+    }
+
+    return ''
   }
 
   getClassName () {

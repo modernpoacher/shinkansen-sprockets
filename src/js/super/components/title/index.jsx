@@ -10,23 +10,10 @@ import PropTypes from 'prop-types'
 
 import TextContent from '#sprockets/components/common/text-content'
 
+/**
+ *  @extends {Component<TitleProps>}
+ */
 export default class Title extends Component {
-  hasTextContent () {
-    const {
-      title
-    } = this.props
-
-    return !!title
-  }
-
-  getTextContent () {
-    const {
-      title
-    } = this.props
-
-    return title
-  }
-
   getClassName () {
     return 'title'
   }
@@ -41,25 +28,27 @@ export default class Title extends Component {
     )
   }
 
-  renderTextContent () {
-    if (this.hasTextContent()) {
-      const textContent = this.getTextContent()
-
-      return (
-        <TextContent
-          textContent={textContent}
-        />
-      )
-    }
-
-    return null
+  /**
+   * @param {string} textContent
+   * @returns {React.JSX.Element}
+   */
+  renderTextContent (textContent) {
+    return (
+      <TextContent
+        textContent={textContent}
+      />
+    )
   }
 
   render () {
-    if (this.hasTextContent()) {
+    const {
+      title
+    } = this.props
+
+    if (title) {
       return (
         <legend className={this.getClassName()}>
-          {this.renderTextContent()}
+          {this.renderTextContent(title)}
         </legend>
       )
     }

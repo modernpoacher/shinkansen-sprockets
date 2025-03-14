@@ -51,11 +51,11 @@ declare global {
 
         export namespace ErrorMessage {
           export interface ErrorMessageProps {
-            errorMessage?: ErrorDefinitionType[]
+            errorMessage?: ErrorDefinitionType
           }
 
           export interface ErrorMessageState {
-            errorMessage?: ErrorDefinitionType[]
+            errorMessage?: ErrorDefinitionType
           }
         }
 
@@ -157,7 +157,7 @@ declare global {
       export namespace Fieldset {
         export interface FieldsetProps extends Super.Sprockets.SprocketProps {
           description?: string
-          errorMessage?: ErrorDefinitionType[]
+          errorMessage?: ErrorDefinitionType
         }
 
         export namespace Group {
