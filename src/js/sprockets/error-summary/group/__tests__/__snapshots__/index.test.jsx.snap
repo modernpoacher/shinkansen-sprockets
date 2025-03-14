@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#sprockets/sprockets/error-summary/group <Group /> With additional props renders 1`] = `
+exports[`#sprockets/sprockets/error-summary/group <Group /> With additional props matches the snapshot 1`] = `
 <ul
   className="MOCK CLASSNAME"
 >
@@ -8,16 +8,18 @@ exports[`#sprockets/sprockets/error-summary/group <Group /> With additional prop
     className="error"
   >
     <a
-      href="#"
+      href="##/"
     >
-      <span
-        className="text-content"
-      >
-        Unknown
-      </span>
+      <TextContent>
+        <span
+          className="text-content"
+        >
+          Unknown
+        </span>
+      </TextContent>
     </a>
   </li>
 </ul>
 `;
 
-exports[`#sprockets/sprockets/error-summary/group <Group /> With required props renders 1`] = `null`;
+exports[`#sprockets/sprockets/error-summary/group <Group /> With required props matches the snapshot 1`] = `null`;

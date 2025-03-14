@@ -1,192 +1,914 @@
-import React from 'react'
-import renderer from 'react-test-renderer'
+/**
+ *  @typedef {SprocketsTypes.Super.Components.Group.GroupProps} GroupProps
+ *  @typedef {SprocketsTypes.Super.Components.Group.GroupState} GroupState
+ *  @typedef {SprocketsTypes.Sprockets.CheckAnswers.Group.CheckAnswersProps} CheckAnswersProps
+ *  @typedef {SprocketsTypes.Sprockets.CheckAnswers.Group.CheckAnswersState} CheckAnswersState
+ */
 
+import React from 'react'
+import PropTypes from 'prop-types'
+import snapshotOf from 'react-component-snapshot'
+import renderer from 'react-test-renderer'
 import classnames from 'classnames'
+
+import '@testing-library/jest-dom'
+
+import {
+  render
+} from '@testing-library/react'
+
+import getComponentInstanceFrom from 'react-component-instance/container'
 
 import Super from '#sprockets/super/components/group'
 import Group from '#sprockets/sprockets/check-answers/group'
 
-jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
-
-jest.mock('#sprockets/sprockets/check-answers/group/answer-title', () => () => 'MOCK ANSWER TITLE')
-jest.mock('#sprockets/sprockets/check-answers/group/answer-value', () => () => 'MOCK ANSWER VALUE')
-jest.mock('#sprockets/sprockets/check-answers/group/change-answer', () => () => 'MOCK CHANGE ANSWER')
-
-const MOCK_STRING_ANSWER = {
-  type: 'STRING',
-  params: {
-    answer: { title: 'MOCK STRING TITLE', value: 'MOCK STRING VALUE' },
-    changeAnswer: { href: '#mock-string-change-href', text: 'MOCK STRING CHANGE TEXT', visuallyHiddenText: 'MOCK STRING VISUALLY HIDDEN TEXT' }
-  }
-}
-
-const MOCK_NUMBER_ANSWER = {
-  type: 'NUMBER',
-  params: {
-    answer: { title: 'MOCK NUMBER TITLE', value: 'MOCK NUMBER VALUE' },
-    changeAnswer: { href: '#mock-number-change-href', text: 'MOCK NUMBER CHANGE TEXT', visuallyHiddenText: 'MOCK NUMBER VISUALLY HIDDEN TEXT' }
-  }
-}
-
-const MOCK_BOOLEAN_ANSWER = {
-  type: 'BOOLEAN',
-  params: {
-    answer: { title: 'MOCK BOOLEAN TITLE', value: 'MOCK BOOLEAN VALUE' },
-    changeAnswer: { href: '#mock-boolean-change-href', text: 'MOCK BOOLEAN CHANGE TEXT', visuallyHiddenText: 'MOCK BOOLEAN VISUALLY HIDDEN TEXT' }
-  }
-}
-
-const MOCK_NULL_ANSWER = {
-  type: 'NULL',
-  params: {
-    answer: { title: 'MOCK NULL TITLE', value: 'MOCK NULL VALUE' },
-    changeAnswer: { href: '#mock-null-change-href', text: 'MOCK NULL CHANGE TEXT', visuallyHiddenText: 'MOCK NULL VISUALLY HIDDEN TEXT' }
-  }
-}
-
-const MOCK_CHECK_ANSWERS = [
+import {
   MOCK_STRING_ANSWER,
   MOCK_NUMBER_ANSWER,
-  {
-    type: 'OBJECT',
-    params: {
-      answer: { title: 'MOCK OBJECT TITLE', value: 'MOCK OBJECT VALUE' },
-      changeAnswer: { href: '#mock-object-change-href', text: 'MOCK OBJECT CHANGE TEXT', visuallyHiddenText: 'MOCK OBJECT VISUALLY HIDDEN TEXT' }
-    }
-  },
-  {
-    type: 'ARRAY',
-    params: {
-      answer: { title: 'MOCK ARRAY TITLE', value: 'MOCK ARRAY VALUE' },
-      changeAnswer: { href: '#mock-array-change-href', text: 'MOCK ARRAY CHANGE TEXT', visuallyHiddenText: 'MOCK ARRAY VISUALLY HIDDEN TEXT' }
-    }
-  },
   MOCK_BOOLEAN_ANSWER,
-  MOCK_NULL_ANSWER
-]
+  MOCK_NULL_ANSWER,
+  MOCK_CHECK_ANSWERS,
+  MOCK_CHANGED_STRING_ANSWER,
+  MOCK_CHANGED_NUMBER_ANSWER,
+  MOCK_CHANGED_BOOLEAN_ANSWER,
+  MOCK_CHANGED_NULL_ANSWER,
+  MOCK_CHANGED_CHECK_ANSWERS
+} from './definitions.mjs'
+
+jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
+
+/**
+ *  @param {{
+ *    to: string | { pathname: string },
+ *    children: React.ReactNode | React.ReactNode[]
+ *  }} prop
+ *  @returns {React.JSX.Element}
+ */
+function MockLink ({ to, children }) {
+  if (typeof to === 'string') {
+    return (
+      <a href={to} className='mock-link'>
+        {children}
+      </a>
+    )
+  }
+
+  const {
+    pathname
+  } = to
+
+  return (
+    <a href={pathname} className='mock-link'>
+      {children}
+    </a>
+  )
+}
+
+MockLink.propTypes = {
+  to: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      pathname: PropTypes.string
+    })
+  ]),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(
+      PropTypes.node
+    )
+  ])
+}
+
+jest.mock('react-router', () => {
+  return {
+    __esModule: true,
+    Link: MockLink
+  }
+})
 
 describe('#sprockets/sprockets/check-answers/group', () => {
+  const MOCK_GROUP_REF = { current: null }
+
   describe('<Group />', () => {
     describe('With required props', () => {
-      const component = (
-        <Group />
-      )
-
       it('renders', () => {
-        return expect(renderer.create(component).toJSON())
+        const {
+          container: {
+            firstElementChild: group
+          }
+        } = render(
+          <Group />
+        )
+
+        expect(group)
+          .toBeNull()
+      })
+
+      describe('Always', () => {
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(Group.prototype, 'getClassName')
+
+          render(
+            <Group />
+          )
+
+          expect(getClassNameSpy)
+            .not.toHaveBeenCalled()
+        })
+      })
+
+      /**
+       *  Element is null
+       */
+      it('matches the snapshot', () => {
+        const {
+          container: {
+            firstElementChild: group
+          }
+        } = render(
+          <Group />
+        )
+
+        expect(snapshotOf(group))
           .toMatchSnapshot()
       })
 
-      describe('`getClassName`', () => {
-        it('is defined', () => {
-          return expect(Group.prototype.getClassName)
-            .toBeDefined()
-        })
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      xit('matches the snapshot', () => {
+        expect(renderer.create((
+          <Group />
+        )).toJSON())
+          .toMatchSnapshot()
       })
     })
 
     describe('With additional props', () => {
-      it('renders type `string` answers', () => {
-        const component = (
-          <Group
-            checkAnswers={[
-              MOCK_STRING_ANSWER
-            ]}
-          />
-        )
+      describe('`string` answers', () => {
+        it('renders', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_STRING_ANSWER
+              ]}
+            />
+          )
 
-        return expect(renderer.create(component).toJSON())
-          .toMatchSnapshot()
+          expect(group)
+            .toBeInstanceOf(HTMLDListElement)
+        })
+
+        it('matches the snapshot', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_STRING_ANSWER
+              ]}
+            />
+          )
+
+          expect(snapshotOf(group))
+            .toMatchSnapshot()
+        })
+
+        /**
+         *  @deprecated For migration toward Testing Library
+         */
+        xit('matches the snapshot', () => {
+          expect(renderer.create(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_STRING_ANSWER
+              ]}
+            />
+          ).toJSON())
+            .toMatchSnapshot()
+        })
       })
 
-      it('renders type `number` answers', () => {
-        const component = (
-          <Group
-            checkAnswers={[
-              MOCK_NUMBER_ANSWER
-            ]}
-          />
-        )
+      describe('`number` answers', () => {
+        it('renders', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_NUMBER_ANSWER
+              ]}
+            />
+          )
 
-        return expect(renderer.create(component).toJSON())
-          .toMatchSnapshot()
+          expect(group)
+            .toBeInstanceOf(HTMLDListElement)
+        })
+
+        it('matches the snapshot', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_NUMBER_ANSWER
+              ]}
+            />
+          )
+
+          expect(snapshotOf(group))
+            .toMatchSnapshot()
+        })
+
+        /**
+         *  @deprecated For migration toward Testing Library
+         */
+        xit('matches the snapshot', () => {
+          expect(renderer.create(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_NUMBER_ANSWER
+              ]}
+            />
+          ).toJSON())
+            .toMatchSnapshot()
+        })
       })
 
-      it('renders type `object` answers', () => {
-        const component = (
-          <Group
-            checkAnswers={MOCK_CHECK_ANSWERS}
-          />
-        )
+      describe('`array` answers', () => {
+        it('renders', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={MOCK_CHECK_ANSWERS}
+            />
+          )
 
-        return expect(renderer.create(component).toJSON())
-          .toMatchSnapshot()
+          expect(group)
+            .toBeInstanceOf(HTMLDListElement)
+        })
+
+        it('matches the snapshot', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={MOCK_CHECK_ANSWERS}
+            />
+          )
+
+          expect(snapshotOf(group))
+            .toMatchSnapshot()
+        })
+
+        /**
+         *  @deprecated For migration toward Testing Library
+         */
+        xit('matches the snapshot', () => {
+          expect(renderer.create(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={MOCK_CHECK_ANSWERS}
+            />
+          ).toJSON())
+            .toMatchSnapshot()
+        })
       })
 
-      it('renders type `array` answers', () => {
-        const component = (
-          <Group
-            checkAnswers={MOCK_CHECK_ANSWERS}
-          />
-        )
+      describe('`object` answers', () => {
+        it('renders', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={MOCK_CHECK_ANSWERS}
+            />
+          )
 
-        return expect(renderer.create(component).toJSON())
-          .toMatchSnapshot()
+          expect(group)
+            .toBeInstanceOf(HTMLDListElement)
+        })
+
+        it('matches the snapshot', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={MOCK_CHECK_ANSWERS}
+            />
+          )
+
+          expect(snapshotOf(group))
+            .toMatchSnapshot()
+        })
+
+        /**
+         *  @deprecated For migration toward Testing Library
+         */
+        xit('matches the snapshot', () => {
+          expect(renderer.create(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={MOCK_CHECK_ANSWERS}
+            />
+          ).toJSON())
+            .toMatchSnapshot()
+        })
       })
 
-      it('renders type `boolean` answers', () => {
-        const component = (
-          <Group
-            checkAnswers={[
-              MOCK_BOOLEAN_ANSWER
-            ]}
-          />
-        )
+      describe('`boolean` answers', () => {
+        it('renders', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_BOOLEAN_ANSWER
+              ]}
+            />
+          )
 
-        return expect(renderer.create(component).toJSON())
-          .toMatchSnapshot()
+          expect(group)
+            .toBeInstanceOf(HTMLDListElement)
+        })
+
+        it('matches the snapshot', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_BOOLEAN_ANSWER
+              ]}
+            />
+          )
+
+          expect(snapshotOf(group))
+            .toMatchSnapshot()
+        })
+
+        /**
+         *  @deprecated For migration toward Testing Library
+         */
+        xit('matches the snapshot', () => {
+          expect(renderer.create(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_BOOLEAN_ANSWER
+              ]}
+            />
+          ).toJSON())
+            .toMatchSnapshot()
+        })
       })
 
-      it('renders type `null` answers', () => {
-        const component = (
-          <Group
-            checkAnswers={[
-              MOCK_NULL_ANSWER
-            ]}
-          />
-        )
+      describe('`null` answers', () => {
+        it('renders', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_NULL_ANSWER
+              ]}
+            />
+          )
 
-        return expect(renderer.create(component).toJSON())
-          .toMatchSnapshot()
+          expect(group)
+            .toBeInstanceOf(HTMLDListElement)
+        })
+
+        it('matches the snapshot', () => {
+          const {
+            container: {
+              firstElementChild: group
+            }
+          } = render(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_NULL_ANSWER
+              ]}
+            />
+          )
+
+          expect(snapshotOf(group))
+            .toMatchSnapshot()
+        })
+
+        /**
+         *  @deprecated For migration toward Testing Library
+         */
+        xit('matches the snapshot', () => {
+          expect(renderer.create(
+            <Group
+              groupRef={MOCK_GROUP_REF}
+              checkAnswers={[
+                MOCK_NULL_ANSWER
+              ]}
+            />
+          ).toJSON())
+            .toMatchSnapshot()
+        })
+      })
+    })
+
+    describe('`shouldComponentUpdate()`', () => {
+      describe('`props` have changed', () => {
+        describe('Prop `checkAnswers` has changed', () => {
+          describe('`string` answers', () => {
+            it('returns true', () => {
+              const {
+                container
+              } = render(
+                <Group
+                  groupRef={MOCK_GROUP_REF}
+                  checkAnswers={[MOCK_STRING_ANSWER]}
+                />
+              )
+
+              /**
+               *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+               */
+              const instance = getComponentInstanceFrom(container)
+
+              const {
+                props,
+                state
+              } = instance
+
+              expect(instance.shouldComponentUpdate(
+                {
+                  ...props,
+                  checkAnswers: [MOCK_CHANGED_STRING_ANSWER]
+                },
+                {
+                  ...state,
+                  checkAnswers: [MOCK_CHANGED_STRING_ANSWER]
+                }
+              ))
+                .toBe(true)
+            })
+          })
+
+          describe('`number` answers', () => {
+            it('returns true', () => {
+              const {
+                container
+              } = render(
+                <Group
+                  groupRef={MOCK_GROUP_REF}
+                  checkAnswers={[MOCK_NUMBER_ANSWER]}
+                />
+              )
+
+              /**
+               *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+               */
+              const instance = getComponentInstanceFrom(container)
+
+              const {
+                props,
+                state
+              } = instance
+
+              expect(instance.shouldComponentUpdate(
+                {
+                  ...props,
+                  checkAnswers: [MOCK_CHANGED_NUMBER_ANSWER]
+                },
+                {
+                  ...state,
+                  checkAnswers: [MOCK_CHANGED_NUMBER_ANSWER]
+                }
+              ))
+                .toBe(true)
+            })
+          })
+
+          describe('`array` answers', () => {
+            it('returns true', () => {
+              const {
+                container
+              } = render(
+                <Group
+                  groupRef={MOCK_GROUP_REF}
+                  checkAnswers={MOCK_CHECK_ANSWERS}
+                />
+              )
+
+              /**
+               *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+               */
+              const instance = getComponentInstanceFrom(container)
+
+              const {
+                props,
+                state
+              } = instance
+
+              expect(instance.shouldComponentUpdate(
+                {
+                  ...props,
+                  checkAnswers: MOCK_CHANGED_CHECK_ANSWERS
+                },
+                {
+                  ...state,
+                  checkAnswers: MOCK_CHANGED_CHECK_ANSWERS
+                }
+              ))
+                .toBe(true)
+            })
+          })
+
+          describe('`object` answers', () => {
+            it('returns true', () => {
+              const {
+                container
+              } = render(
+                <Group
+                  groupRef={MOCK_GROUP_REF}
+                  checkAnswers={MOCK_CHECK_ANSWERS}
+                />
+              )
+
+              /**
+               *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+               */
+              const instance = getComponentInstanceFrom(container)
+
+              const {
+                props,
+                state
+              } = instance
+
+              expect(instance.shouldComponentUpdate(
+                {
+                  ...props,
+                  checkAnswers: MOCK_CHANGED_CHECK_ANSWERS
+                },
+                {
+                  ...state,
+                  checkAnswers: MOCK_CHANGED_CHECK_ANSWERS
+                }
+              ))
+                .toBe(true)
+            })
+          })
+
+          describe('`boolean` answers', () => {
+            it('returns true', () => {
+              const {
+                container
+              } = render(
+                <Group
+                  groupRef={MOCK_GROUP_REF}
+                  checkAnswers={[MOCK_BOOLEAN_ANSWER]}
+                />
+              )
+
+              /**
+               *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+               */
+              const instance = getComponentInstanceFrom(container)
+
+              const {
+                props,
+                state
+              } = instance
+
+              expect(instance.shouldComponentUpdate(
+                {
+                  ...props,
+                  checkAnswers: [MOCK_CHANGED_BOOLEAN_ANSWER]
+                },
+                {
+                  ...state,
+                  checkAnswers: [MOCK_CHANGED_BOOLEAN_ANSWER]
+                }
+              ))
+                .toBe(true)
+            })
+          })
+
+          describe('`null` answers', () => {
+            it('returns true', () => {
+              const {
+                container
+              } = render(
+                <Group
+                  groupRef={MOCK_GROUP_REF}
+                  checkAnswers={[MOCK_NULL_ANSWER]}
+                />
+              )
+
+              /**
+               *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+               */
+              const instance = getComponentInstanceFrom(container)
+
+              const {
+                props,
+                state
+              } = instance
+
+              expect(instance.shouldComponentUpdate(
+                {
+                  ...props,
+                  checkAnswers: [MOCK_CHANGED_NULL_ANSWER]
+                },
+                {
+                  ...state,
+                  checkAnswers: [MOCK_CHANGED_NULL_ANSWER]
+                }
+              ))
+                .toBe(true)
+            })
+          })
+        })
+      })
+
+      describe('`props` have not changed', () => {
+        describe('`string` answers', () => {
+          it('returns false', () => {
+            const {
+              container
+            } = render(
+              <Group
+                groupRef={MOCK_GROUP_REF}
+                checkAnswers={[MOCK_STRING_ANSWER]}
+              />
+            )
+
+            /**
+             *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+             */
+            const instance = getComponentInstanceFrom(container)
+
+            const {
+              props,
+              state
+            } = instance
+
+            expect(instance.shouldComponentUpdate(
+              {
+                ...props,
+                checkAnswers: [MOCK_STRING_ANSWER]
+              },
+              {
+                ...state,
+                checkAnswers: [MOCK_STRING_ANSWER]
+              }
+            ))
+              .toBe(false)
+          })
+        })
+
+        describe('`number` answers', () => {
+          it('returns false', () => {
+            const {
+              container
+            } = render(
+              <Group
+                groupRef={MOCK_GROUP_REF}
+                checkAnswers={[MOCK_NUMBER_ANSWER]}
+              />
+            )
+
+            /**
+             *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+             */
+            const instance = getComponentInstanceFrom(container)
+
+            const {
+              props,
+              state
+            } = instance
+
+            expect(instance.shouldComponentUpdate(
+              {
+                ...props,
+                checkAnswers: [MOCK_NUMBER_ANSWER]
+              },
+              {
+                ...state,
+                checkAnswers: [MOCK_NUMBER_ANSWER]
+              }
+            ))
+              .toBe(false)
+          })
+        })
+
+        describe('`array` answers', () => {
+          it('returns false', () => {
+            const {
+              container
+            } = render(
+              <Group
+                groupRef={MOCK_GROUP_REF}
+                checkAnswers={MOCK_CHECK_ANSWERS}
+              />
+            )
+
+            /**
+             *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+             */
+            const instance = getComponentInstanceFrom(container)
+
+            const {
+              props,
+              state
+            } = instance
+
+            expect(instance.shouldComponentUpdate(
+              {
+                ...props,
+                checkAnswers: MOCK_CHECK_ANSWERS
+              },
+              {
+                ...state,
+                checkAnswers: MOCK_CHECK_ANSWERS
+              }
+            ))
+              .toBe(false)
+          })
+        })
+
+        describe('`object` answers', () => {
+          it('returns false', () => {
+            const {
+              container
+            } = render(
+              <Group
+                groupRef={MOCK_GROUP_REF}
+                checkAnswers={MOCK_CHECK_ANSWERS}
+              />
+            )
+
+            /**
+             *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+             */
+            const instance = getComponentInstanceFrom(container)
+
+            const {
+              props,
+              state
+            } = instance
+
+            expect(instance.shouldComponentUpdate(
+              {
+                ...props,
+                checkAnswers: MOCK_CHECK_ANSWERS
+              },
+              {
+                ...state,
+                checkAnswers: MOCK_CHECK_ANSWERS
+              }
+            ))
+              .toBe(false)
+          })
+        })
+
+        describe('`boolean` answers', () => {
+          it('returns false', () => {
+            const {
+              container
+            } = render(
+              <Group
+                groupRef={MOCK_GROUP_REF}
+                checkAnswers={[MOCK_BOOLEAN_ANSWER]}
+              />
+            )
+
+            /**
+             *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+             */
+            const instance = getComponentInstanceFrom(container)
+
+            const {
+              props,
+              state
+            } = instance
+
+            expect(instance.shouldComponentUpdate(
+              {
+                ...props,
+                checkAnswers: [MOCK_BOOLEAN_ANSWER]
+              },
+              {
+                ...state,
+                checkAnswers: [MOCK_BOOLEAN_ANSWER]
+              }
+            ))
+              .toBe(false)
+          })
+        })
+
+        describe('`null` answers', () => {
+          it('returns false', () => {
+            const {
+              container
+            } = render(
+              <Group
+                groupRef={MOCK_GROUP_REF}
+                checkAnswers={[MOCK_NULL_ANSWER]}
+              />
+            )
+
+            /**
+             *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
+             */
+            const instance = getComponentInstanceFrom(container)
+
+            const {
+              props,
+              state
+            } = instance
+
+            expect(instance.shouldComponentUpdate(
+              {
+                ...props,
+                checkAnswers: [MOCK_NULL_ANSWER]
+              },
+              {
+                ...state,
+                checkAnswers: [MOCK_NULL_ANSWER]
+              }
+            ))
+              .toBe(false)
+          })
+        })
       })
     })
 
     describe('`getClassName()`', () => {
-      let returnValue
+      it('invokes `classnames`', () => {
+        /**
+         *  Ensure `super.getClassName()` returns a value
+         */
+        const getClassNameSpy = jest.spyOn(Super.prototype, 'getClassName').mockReturnValue('MOCK CLASSNAME')
 
-      beforeEach(() => {
-        jest.spyOn(Super.prototype, 'getClassName').mockReturnValue('MOCK GETCLASSNAME')
-
-        const component = (
+        const {
+          container
+        } = render(
           <Group />
         )
 
-        const instance = (
-          renderer.create(component)
-            .getInstance()
-        )
+        const instance = getComponentInstanceFrom(container)
 
-        returnValue = instance.getClassName()
-      })
+        /**
+         *  Ensure it is reset after render
+         */
+        classnames.mockClear()
 
-      it('invokes `classnames`', () => {
-        return expect(classnames)
-          .toBeCalledWith('MOCK GETCLASSNAME', 'check-answers')
-      })
+        /**
+         *  Ensure it is reset after render
+         */
+        getClassNameSpy.mockClear()
 
-      it('returns the classname', () => {
-        return expect(returnValue)
-          .toBe('MOCK CLASSNAME')
+        instance.getClassName()
+
+        expect(classnames)
+          .toHaveBeenCalledWith('MOCK CLASSNAME', 'check-answers')
       })
     })
   })

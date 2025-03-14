@@ -1,5 +1,331 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#sprockets/sprockets/check-answers <Sprocket /> With additional props matches the snapshot 1`] = `
+<div
+  className="MOCK CLASSNAME"
+>
+  <CheckAnswersTitle>
+    <h2
+      className="MOCK CLASSNAME"
+    >
+      <TextContent>
+        <span
+          className="text-content"
+        >
+          MOCK TITLE
+        </span>
+      </TextContent>
+    </h2>
+  </CheckAnswersTitle>
+  <CheckAnswersGroup>
+    <dl
+      className="MOCK CLASSNAME"
+    >
+      <div
+        className="answer"
+      >
+        <AnswerTitle>
+          <dt
+            className="answer-title"
+          >
+            MOCK STRING TITLE
+          </dt>
+        </AnswerTitle>
+        <AnswerValue>
+          <dd
+            className="answer-value"
+          >
+            MOCK STRING VALUE
+          </dd>
+        </AnswerValue>
+        <ChangeAnswer>
+          <dd
+            className="change-answer"
+          >
+            <MockLink>
+              <a
+                className="mock-link"
+                href="#mock-string-change-href"
+              >
+                <LinkText>
+                  <TextContentWithVisuallyHiddenText>
+                    <TextContent>
+                      <span
+                        className="text-content"
+                      >
+                        MOCK STRING CHANGE TEXT
+                      </span>
+                    </TextContent>
+                     
+                    <VisuallyHiddenText>
+                      <span
+                        className="visually-hidden-text"
+                      >
+                        mock string visually hidden text
+                      </span>
+                    </VisuallyHiddenText>
+                  </TextContentWithVisuallyHiddenText>
+                </LinkText>
+              </a>
+            </MockLink>
+          </dd>
+        </ChangeAnswer>
+      </div>
+      <div
+        className="answer"
+      >
+        <AnswerTitle>
+          <dt
+            className="answer-title"
+          >
+            MOCK NUMBER TITLE
+          </dt>
+        </AnswerTitle>
+        <AnswerValue>
+          <dd
+            className="answer-value"
+          >
+            MOCK NUMBER VALUE
+          </dd>
+        </AnswerValue>
+        <ChangeAnswer>
+          <dd
+            className="change-answer"
+          >
+            <MockLink>
+              <a
+                className="mock-link"
+                href="#mock-number-change-href"
+              >
+                <LinkText>
+                  <TextContentWithVisuallyHiddenText>
+                    <TextContent>
+                      <span
+                        className="text-content"
+                      >
+                        MOCK NUMBER CHANGE TEXT
+                      </span>
+                    </TextContent>
+                     
+                    <VisuallyHiddenText>
+                      <span
+                        className="visually-hidden-text"
+                      >
+                        mock number visually hidden text
+                      </span>
+                    </VisuallyHiddenText>
+                  </TextContentWithVisuallyHiddenText>
+                </LinkText>
+              </a>
+            </MockLink>
+          </dd>
+        </ChangeAnswer>
+      </div>
+      <div
+        className="answer"
+      >
+        <AnswerTitle>
+          <dt
+            className="answer-title"
+          >
+            MOCK OBJECT TITLE
+          </dt>
+        </AnswerTitle>
+        <AnswerValue>
+          <dd
+            className="answer-value"
+          >
+            MOCK OBJECT VALUE
+          </dd>
+        </AnswerValue>
+        <ChangeAnswer>
+          <dd
+            className="change-answer"
+          >
+            <MockLink>
+              <a
+                className="mock-link"
+                href="#mock-object-change-href"
+              >
+                <LinkText>
+                  <TextContentWithVisuallyHiddenText>
+                    <TextContent>
+                      <span
+                        className="text-content"
+                      >
+                        MOCK OBJECT CHANGE TEXT
+                      </span>
+                    </TextContent>
+                     
+                    <VisuallyHiddenText>
+                      <span
+                        className="visually-hidden-text"
+                      >
+                        mock object visually hidden text
+                      </span>
+                    </VisuallyHiddenText>
+                  </TextContentWithVisuallyHiddenText>
+                </LinkText>
+              </a>
+            </MockLink>
+          </dd>
+        </ChangeAnswer>
+      </div>
+      <div
+        className="answer"
+      >
+        <AnswerTitle>
+          <dt
+            className="answer-title"
+          >
+            MOCK ARRAY TITLE
+          </dt>
+        </AnswerTitle>
+        <AnswerValue>
+          <dd
+            className="answer-value"
+          >
+            MOCK ARRAY VALUE
+          </dd>
+        </AnswerValue>
+        <ChangeAnswer>
+          <dd
+            className="change-answer"
+          >
+            <MockLink>
+              <a
+                className="mock-link"
+                href="#mock-array-change-href"
+              >
+                <LinkText>
+                  <TextContentWithVisuallyHiddenText>
+                    <TextContent>
+                      <span
+                        className="text-content"
+                      >
+                        MOCK ARRAY CHANGE TEXT
+                      </span>
+                    </TextContent>
+                     
+                    <VisuallyHiddenText>
+                      <span
+                        className="visually-hidden-text"
+                      >
+                        mock array visually hidden text
+                      </span>
+                    </VisuallyHiddenText>
+                  </TextContentWithVisuallyHiddenText>
+                </LinkText>
+              </a>
+            </MockLink>
+          </dd>
+        </ChangeAnswer>
+      </div>
+      <div
+        className="answer"
+      >
+        <AnswerTitle>
+          <dt
+            className="answer-title"
+          >
+            MOCK BOOLEAN TITLE
+          </dt>
+        </AnswerTitle>
+        <AnswerValue>
+          <dd
+            className="answer-value"
+          >
+            MOCK BOOLEAN VALUE
+          </dd>
+        </AnswerValue>
+        <ChangeAnswer>
+          <dd
+            className="change-answer"
+          >
+            <MockLink>
+              <a
+                className="mock-link"
+                href="#mock-boolean-change-href"
+              >
+                <LinkText>
+                  <TextContentWithVisuallyHiddenText>
+                    <TextContent>
+                      <span
+                        className="text-content"
+                      >
+                        MOCK BOOLEAN CHANGE TEXT
+                      </span>
+                    </TextContent>
+                     
+                    <VisuallyHiddenText>
+                      <span
+                        className="visually-hidden-text"
+                      >
+                        mock boolean visually hidden text
+                      </span>
+                    </VisuallyHiddenText>
+                  </TextContentWithVisuallyHiddenText>
+                </LinkText>
+              </a>
+            </MockLink>
+          </dd>
+        </ChangeAnswer>
+      </div>
+      <div
+        className="answer"
+      >
+        <AnswerTitle>
+          <dt
+            className="answer-title"
+          >
+            MOCK NULL TITLE
+          </dt>
+        </AnswerTitle>
+        <AnswerValue>
+          <dd
+            className="answer-value"
+          >
+            MOCK NULL VALUE
+          </dd>
+        </AnswerValue>
+        <ChangeAnswer>
+          <dd
+            className="change-answer"
+          >
+            <MockLink>
+              <a
+                className="mock-link"
+                href="#mock-null-change-href"
+              >
+                <LinkText>
+                  <TextContentWithVisuallyHiddenText>
+                    <TextContent>
+                      <span
+                        className="text-content"
+                      >
+                        MOCK NULL CHANGE TEXT
+                      </span>
+                    </TextContent>
+                     
+                    <VisuallyHiddenText>
+                      <span
+                        className="visually-hidden-text"
+                      >
+                        mock null visually hidden text
+                      </span>
+                    </VisuallyHiddenText>
+                  </TextContentWithVisuallyHiddenText>
+                </LinkText>
+              </a>
+            </MockLink>
+          </dd>
+        </ChangeAnswer>
+      </div>
+    </dl>
+  </CheckAnswersGroup>
+</div>
+`;
+
 exports[`#sprockets/sprockets/check-answers <Sprocket /> With additional props renders 1`] = `
 <div
   className="MOCK CLASSNAME"
@@ -8,4 +334,4 @@ exports[`#sprockets/sprockets/check-answers <Sprocket /> With additional props r
 </div>
 `;
 
-exports[`#sprockets/sprockets/check-answers <Sprocket /> With required props renders 1`] = `null`;
+exports[`#sprockets/sprockets/check-answers <Sprocket /> With required props matches the snapshot 1`] = `null`;

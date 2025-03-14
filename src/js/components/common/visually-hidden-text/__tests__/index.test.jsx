@@ -8,37 +8,37 @@ import {
   render
 } from '@testing-library/react'
 
-import TextContent from '#sprockets/components/common/text-content'
+import VisuallyHiddenText from '#sprockets/components/common/visually-hidden-text'
 
-describe('#sprockets/components/common/text-content', () => {
-  describe('<TextContent />', () => {
+describe('#sprockets/components/common/visually-hidden-text', () => {
+  describe('<VisuallyHiddenText />', () => {
     it('renders', () => {
       const {
         container: {
-          firstElementChild: textContent
+          firstElementChild: visuallyHiddenText
         }
       } = render(
-        <TextContent
-          textContent='MOCK TEXT CONTENT'
+        <VisuallyHiddenText
+          visuallyHiddenText='MOCK VISUALLY HIDDEN TEXT'
         />
       )
 
-      expect(textContent)
+      expect(visuallyHiddenText)
         .toBeInstanceOf(HTMLSpanElement)
     })
 
     it('matches the snapshot', () => {
       const {
         container: {
-          firstElementChild: textContent
+          firstElementChild: visuallyHiddenText
         }
       } = render(
-        <TextContent
-          textContent='MOCK TEXT CONTENT'
+        <VisuallyHiddenText
+          visuallyHiddenText='MOCK VISUALLY HIDDEN TEXT'
         />
       )
 
-      expect(snapshotOf(textContent))
+      expect(snapshotOf(visuallyHiddenText))
         .toMatchSnapshot()
     })
 
@@ -46,7 +46,7 @@ describe('#sprockets/components/common/text-content', () => {
      *  @deprecated For migration toward Testing Library
      */
     xit('matches the snapshot', () => {
-      expect(renderer.create(<TextContent textContent='MOCK TEXT CONTENT' />).toJSON())
+      expect(renderer.create(<VisuallyHiddenText visuallyHiddenText='MOCK VISUALLY HIDDEN TEXT' />).toJSON())
         .toMatchSnapshot()
     })
   })

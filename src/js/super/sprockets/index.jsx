@@ -74,6 +74,6 @@ Sprocket.propTypes = {
     )
   ]),
   groupRef: PropTypes.shape({
-    current: PropTypes.shape({}).isRequired
+    current: PropTypes.shape({})
   })
 }

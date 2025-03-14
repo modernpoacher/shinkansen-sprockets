@@ -52,7 +52,7 @@ module.exports = (api) => {
     presets,
     plugins,
     ignore: [
-      /node_modules\/(?!shinkansen|@modernpoacher)/
+      /node_modules\/(?!shinkansen|@modernpoacher|react-component-instance|react-component-snapshot)/
     ]
   }
 }

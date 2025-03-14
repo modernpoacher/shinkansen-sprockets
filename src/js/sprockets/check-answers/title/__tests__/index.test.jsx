@@ -1,76 +1,165 @@
 import React from 'react'
+import snapshotOf from 'react-component-snapshot'
 import renderer from 'react-test-renderer'
-
 import classnames from 'classnames'
+
+import '@testing-library/jest-dom'
+
+import {
+  render
+} from '@testing-library/react'
+
+import getComponentInstanceFrom from 'react-component-instance/container'
 
 import Super from '#sprockets/super/components/title'
 import Title from '#sprockets/sprockets/check-answers/title'
 
-jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
+jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
 describe('#sprockets/sprockets/check-answers/title', () => {
   describe('<Title />', () => {
     describe('With required props', () => {
-      const component = (
-        <Title />
-      )
-
       it('renders', () => {
-        return expect(renderer.create(component).toJSON())
+        const {
+          container: {
+            firstElementChild: title
+          }
+        } = render(
+          <Title />
+        )
+
+        expect(title)
+          .toBeNull()
+      })
+
+      describe('Always', () => {
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(Title.prototype, 'getClassName')
+
+          render(
+            <Title />
+          )
+
+          expect(getClassNameSpy)
+            .not.toHaveBeenCalled()
+        })
+      })
+
+      /**
+       *  Element is null
+       */
+      it('matches the snapshot', () => {
+        const {
+          container: {
+            firstElementChild: title
+          }
+        } = render(
+          <Title />
+        )
+
+        expect(snapshotOf(title))
           .toMatchSnapshot()
       })
 
-      describe('`getClassName`', () => {
-        it('is defined', () => {
-          return expect(Title.prototype.getClassName)
-            .toBeDefined()
-        })
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      xit('matches the snapshot', () => {
+        expect(renderer.create((
+          <Title />
+        )).toJSON())
+          .toMatchSnapshot()
       })
     })
 
     describe('With additional props', () => {
       it('renders', () => {
-        jest.spyOn(Title.prototype, 'hasTextContent').mockReturnValue(true)
-        jest.spyOn(Title.prototype, 'getTextContent')
-        jest.spyOn(Title.prototype, 'renderTextContent').mockReturnValue('MOCK RENDER CONTENT')
-
-        const component = (
+        const {
+          container: {
+            firstElementChild: title
+          }
+        } = render(
           <Title
             title='MOCK TITLE'
           />
         )
 
-        return expect(renderer.create(component).toJSON())
+        expect(title)
+          .toBeInstanceOf(HTMLHeadingElement)
+      })
+
+      describe('Always', () => {
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(Title.prototype, 'getClassName')
+
+          render(
+            <Title
+              title='MOCK TITLE'
+            />
+          )
+
+          expect(getClassNameSpy)
+            .toHaveBeenCalled()
+        })
+      })
+
+      it('matches the snapshot', () => {
+        const {
+          container: {
+            firstElementChild: title
+          }
+        } = render(
+          <Title
+            title='MOCK TITLE'
+          />
+        )
+
+        expect(snapshotOf(title))
+          .toMatchSnapshot()
+      })
+
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      xit('matches the snapshot', () => {
+        expect(renderer.create((
+          <Title
+            title='MOCK TITLE'
+          />
+        )).toJSON())
           .toMatchSnapshot()
       })
     })
 
     describe('`getClassName()`', () => {
-      let returnValue
+      it('invokes `classnames`', () => {
+        /**
+         *  Ensure `super.getClassName()` returns a value
+         */
+        const getClassNameSpy = jest.spyOn(Super.prototype, 'getClassName').mockReturnValue('MOCK CLASSNAME')
 
-      beforeEach(() => {
-        jest.spyOn(Super.prototype, 'getClassName').mockReturnValue('MOCK GETCLASSNAME')
-
-        const component = (
+        const {
+          container
+        } = render(
           <Title />
         )
 
-        const instance = (
-          renderer.create(component)
-            .getInstance()
-        )
+        const instance = getComponentInstanceFrom(container)
 
-        returnValue = instance.getClassName()
-      })
+        /**
+         *  Ensure it is reset after render
+         */
+        classnames.mockClear()
 
-      it('invokes `classnames`', () => {
-        return expect(classnames)
-          .toBeCalledWith('MOCK GETCLASSNAME', 'check-answers')
-      })
+        /**
+         *  Ensure it is reset after render
+         */
+        getClassNameSpy.mockClear()
 
-      it('returns the classname', () => {
-        return expect(returnValue)
-          .toBe('MOCK CLASSNAME')
+        instance.getClassName()
+
+        expect(classnames)
+          .toHaveBeenCalledWith('MOCK CLASSNAME', 'check-answers')
       })
     })
   })

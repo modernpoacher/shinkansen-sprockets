@@ -78,14 +78,14 @@ export default class CheckAnswersGroup extends Group {
    *  @param {CheckAnswersState} state   Current state
    *  @returns {CheckAnswersState}
    */
-  static getDerivedStateFromProps ({ checkAnswers }, { checkAnswers: C }) {
+  static getDerivedStateFromProps ({ checkAnswers: c }, { checkAnswers: C }) {
     return {
-      checkAnswers: equal(checkAnswers, C) ? C : checkAnswers
+      checkAnswers: (c === C || equal(c, C)) ? C : c
     }
   }
 
   /**
-   * Compare latest 'props' with 'state' for changes to 'checkAnswers'
+   *  Compare latest 'props' with 'state' for changes to 'checkAnswers'
    *
    *  @param {CheckAnswersProps} props   Latest props
    *  @param {CheckAnswersState} state   Current state
@@ -94,13 +94,13 @@ export default class CheckAnswersGroup extends Group {
   shouldComponentUpdate (props, state) {
     const {
       checkAnswers: c = DEFAULT_CHECK_ANSWERS
-    } = state
+    } = this.state
 
     const {
       checkAnswers: C = DEFAULT_CHECK_ANSWERS
-    } = this.state
+    } = state
 
-    return (c !== C)
+    return !(c === C || equal(c, C))
   }
 
   render () {

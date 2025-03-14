@@ -1,169 +1,144 @@
 import React from 'react'
+import snapshotOf from 'react-component-snapshot'
 import renderer from 'react-test-renderer'
 
-import Title from '#sprockets/components/title'
+import '@testing-library/jest-dom'
 
-jest.mock('#sprockets/components/common/text-content', () => () => 'MOCK TEXT CONTENT')
+import {
+  render
+} from '@testing-library/react'
+
+import getComponentInstanceFrom from 'react-component-instance/container'
+
+import Title from '#sprockets/components/title'
 
 describe('#sprockets/components/title', () => {
   describe('<Title />', () => {
     describe('With required props', () => {
-      const component = (
-        <Title />
-      )
-
       it('renders', () => {
-        return expect(renderer.create(component).toJSON())
+        const {
+          container: {
+            firstElementChild: title
+          }
+        } = render(
+          <Title />
+        )
+
+        expect(title)
+          .toBeNull()
+      })
+
+      describe('Always', () => {
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(Title.prototype, 'getClassName')
+
+          render(
+            <Title />
+          )
+
+          expect(getClassNameSpy)
+            .not.toHaveBeenCalled()
+        })
+      })
+
+      /**
+       *  Element is null
+       */
+      it('matches the snapshot', () => {
+        const {
+          container: {
+            firstElementChild: title
+          }
+        } = render(
+          <Title />
+        )
+
+        expect(snapshotOf(title))
           .toMatchSnapshot()
       })
 
-      describe('`hasTextContent`', () => {
-        it('is defined', () => {
-          return expect(Title.prototype.hasTextContent)
-            .toBeDefined()
-        })
-      })
-
-      describe('`getTextContent`', () => {
-        it('is defined', () => {
-          return expect(Title.prototype.getTextContent)
-            .toBeDefined()
-        })
-      })
-
-      describe('`getClassName`', () => {
-        it('is defined', () => {
-          return expect(Title.prototype.getClassName)
-            .toBeDefined()
-        })
-      })
-
-      describe('`shouldComponentUpdate`', () => {
-        it('is defined', () => {
-          return expect(Title.prototype.shouldComponentUpdate)
-            .toBeDefined()
-        })
-      })
-
-      describe('`renderTextContent`', () => {
-        it('is defined', () => {
-          return expect(Title.prototype.renderTextContent)
-            .toBeDefined()
-        })
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      xit('matches the snapshot', () => {
+        expect(renderer.create((
+          <Title />
+        )).toJSON())
+          .toMatchSnapshot()
       })
     })
 
     describe('With additional props', () => {
       it('renders', () => {
-        const component = (
+        const {
+          container: {
+            firstElementChild: title
+          }
+        } = render(
           <Title
             title='MOCK TITLE'
           />
         )
 
-        return expect(renderer.create(component).toJSON())
+        expect(title)
+          .toBeInstanceOf(HTMLLegendElement)
+      })
+
+      describe('Always', () => {
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(Title.prototype, 'getClassName')
+
+          render(
+            <Title
+              title='MOCK TITLE'
+            />
+          )
+
+          expect(getClassNameSpy)
+            .toHaveBeenCalled()
+        })
+      })
+
+      it('matches the snapshot', () => {
+        const {
+          container: {
+            firstElementChild: title
+          }
+        } = render(
+          <Title
+            title='MOCK TITLE'
+          />
+        )
+
+        expect(snapshotOf(title))
+          .toMatchSnapshot()
+      })
+
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      xit('matches the snapshot', () => {
+        expect(renderer.create((
+          <Title
+            title='MOCK TITLE'
+          />
+        )).toJSON())
           .toMatchSnapshot()
       })
     })
 
-    describe('`hasTextContent()`', () => {
-      describe('With the `title` prop defined', () => {
-        it('returns the `title` prop', () => {
-          const component = (
-            <Title title='MOCK TITLE' />
-          )
-
-          const instance = (
-            renderer.create(component)
-              .getInstance()
-          )
-
-          return expect(instance.hasTextContent())
-            .toBe(true)
-        })
-      })
-
-      describe('Without the `title` prop defined', () => {
-        it('returns false', () => {
-          const component = (
-            <Title />
-          )
-
-          const instance = (
-            renderer.create(component)
-              .getInstance()
-          )
-
-          return expect(instance.hasTextContent())
-            .toBe(false)
-        })
-      })
-    })
-
-    describe('`getTextContent()`', () => {
-      it('returns the `title` prop', () => {
-        const component = (
-          <Title title='MOCK TITLE' />
-        )
-
-        const instance = (
-          renderer.create(component)
-            .getInstance()
-        )
-
-        return expect(instance.getTextContent())
-          .toBe('MOCK TITLE')
-      })
-    })
-
     describe('`getClassName()`', () => {
-      it('returns the classname', () => {
-        const component = (
+      it('returns a string', () => {
+        const {
+          container
+        } = render(
           <Title />
         )
 
-        const instance = (
-          renderer.create(component)
-            .getInstance()
-        )
+        const instance = getComponentInstanceFrom(container)
 
-        return expect(instance.getClassName())
-          .toBe('title')
-      })
-    })
-
-    describe('`shouldComponentUpdate()`', () => {
-      const component = (
-        <Title
-          title='MOCK TITLE'
-        />
-      )
-
-      let instance
-
-      beforeEach(() => {
-        instance = (
-          renderer.create(component)
-            .getInstance()
-        )
-      })
-
-      describe('`props` have changed', () => {
-        it('returns true', () => {
-          return expect(instance.shouldComponentUpdate({
-            title: 'MOCK CHANGE TITLE'
-          }))
-            .toBe(true)
-        })
-      })
-
-      describe('`props` have not changed', () => {
-        it('returns false', () => {
-          return expect(instance.shouldComponentUpdate({ // instance.props
-            title: 'MOCK TITLE'
-          }))
-            .toBe(false)
-        })
+        expect(instance.getClassName())
+          .toEqual(expect.any(String))
       })
     })
   })

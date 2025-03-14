@@ -1,6 +1,7 @@
 import React from 'react'
 import snapshotOf from 'react-component-snapshot'
 import renderer from 'react-test-renderer'
+import classnames from 'classnames'
 
 import '@testing-library/jest-dom'
 
@@ -10,32 +11,33 @@ import {
 
 import getComponentInstanceFrom from 'react-component-instance/container'
 
-import Group from '#sprockets/components/group'
+import Super from '#sprockets/super/components/description'
+import Description from '#sprockets/sprockets/fieldset/description'
 
-describe('#sprockets/components/group', () => {
-  const MOCK_GROUP_REF = { current: null }
+jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
-  describe('<Group />', () => {
+describe('#sprockets/sprockets/fieldset/description', () => {
+  describe('<Description />', () => {
     describe('With required props', () => {
       it('renders', () => {
         const {
           container: {
-            firstElementChild: group
+            firstElementChild: description
           }
         } = render(
-          <Group />
+          <Description />
         )
 
-        expect(group)
+        expect(description)
           .toBeNull()
       })
 
       describe('Always', () => {
         it('invokes `getClassName`', () => {
-          const getClassNameSpy = jest.spyOn(Group.prototype, 'getClassName')
+          const getClassNameSpy = jest.spyOn(Description.prototype, 'getClassName')
 
           render(
-            <Group />
+            <Description />
           )
 
           expect(getClassNameSpy)
@@ -49,13 +51,13 @@ describe('#sprockets/components/group', () => {
       it('matches the snapshot', () => {
         const {
           container: {
-            firstElementChild: group
+            firstElementChild: description
           }
         } = render(
-          <Group />
+          <Description />
         )
 
-        expect(snapshotOf(group))
+        expect(snapshotOf(description))
           .toMatchSnapshot()
       })
 
@@ -64,7 +66,7 @@ describe('#sprockets/components/group', () => {
        */
       xit('matches the snapshot', () => {
         expect(renderer.create((
-          <Group />
+          <Description />
         )).toJSON())
           .toMatchSnapshot()
       })
@@ -74,28 +76,26 @@ describe('#sprockets/components/group', () => {
       it('renders', () => {
         const {
           container: {
-            firstElementChild: group
+            firstElementChild: description
           }
         } = render(
-          <Group
-            groupRef={MOCK_GROUP_REF}>
-            MOCK CHILDREN
-          </Group>
+          <Description
+            description='MOCK DESCRIPTION'
+          />
         )
 
-        expect(group)
-          .toBeInstanceOf(HTMLFieldSetElement)
+        expect(description)
+          .toBeInstanceOf(HTMLSpanElement)
       })
 
       describe('Always', () => {
         it('invokes `getClassName`', () => {
-          const getClassNameSpy = jest.spyOn(Group.prototype, 'getClassName')
+          const getClassNameSpy = jest.spyOn(Description.prototype, 'getClassName')
 
           render(
-            <Group
-              groupRef={MOCK_GROUP_REF}>
-              MOCK CHILDREN
-            </Group>
+            <Description
+              description='MOCK DESCRIPTION'
+            />
           )
 
           expect(getClassNameSpy)
@@ -106,16 +106,15 @@ describe('#sprockets/components/group', () => {
       it('matches the snapshot', () => {
         const {
           container: {
-            firstElementChild: group
+            firstElementChild: description
           }
         } = render(
-          <Group
-            groupRef={MOCK_GROUP_REF}>
-            MOCK CHILDREN
-          </Group>
+          <Description
+            description='MOCK DESCRIPTION'
+          />
         )
 
-        expect(snapshotOf(group))
+        expect(snapshotOf(description))
           .toMatchSnapshot()
       })
 
@@ -124,27 +123,43 @@ describe('#sprockets/components/group', () => {
        */
       xit('matches the snapshot', () => {
         expect(renderer.create((
-          <Group
-            groupRef={MOCK_GROUP_REF}>
-            MOCK CHILDREN
-          </Group>
+          <Description
+            description='MOCK DESCRIPTION'
+          />
         )).toJSON())
           .toMatchSnapshot()
       })
     })
 
     describe('`getClassName()`', () => {
-      it('returns a string', () => {
+      it('invokes `classnames`', () => {
+        /**
+         *  Ensure `super.getClassName()` returns a value
+         */
+        const getClassNameSpy = jest.spyOn(Super.prototype, 'getClassName').mockReturnValue('MOCK CLASSNAME')
+
         const {
           container
         } = render(
-          <Group />
+          <Description />
         )
 
         const instance = getComponentInstanceFrom(container)
 
-        expect(instance.getClassName())
-          .toEqual(expect.any(String))
+        /**
+         *  Ensure it is reset after render
+         */
+        classnames.mockClear()
+
+        /**
+         *  Ensure it is reset after render
+         */
+        getClassNameSpy.mockClear()
+
+        instance.getClassName()
+
+        expect(classnames)
+          .toHaveBeenCalledWith('MOCK CLASSNAME', 'fieldset')
       })
     })
   })

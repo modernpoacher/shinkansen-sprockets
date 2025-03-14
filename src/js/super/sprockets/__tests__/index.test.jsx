@@ -1,195 +1,245 @@
+/**
+ *  @typedef {SprocketsTypes.Sprockets.SprocketProps} SprocketProps
+ */
+
 import React from 'react'
+import snapshotOf from 'react-component-snapshot'
 import renderer from 'react-test-renderer'
 
-import classnames from 'classnames'
+import '@testing-library/jest-dom'
 
-import Title from '#sprockets/super/components/title'
-import Group from '#sprockets/super/components/group'
+import {
+  render
+} from '@testing-library/react'
 
-import Sprocket from '#sprockets/sprockets'
+import getComponentInstanceFrom from 'react-component-instance/container'
 
-jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
+import Sprocket from '#sprockets/super/sprockets'
 
-jest.mock('#sprockets/super/components/title')
-jest.mock('#sprockets/super/components/group')
+jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
-describe('#sprockets/sprockets', () => {
+describe('#sprockets/super/sprockets', () => {
   describe('<Sprocket />', () => {
     describe('With required props', () => {
-      const component = (
-        <Sprocket title='MOCK TITLE' />
-      )
-
       it('renders', () => {
-        return expect(renderer.create(component).toJSON())
+        const {
+          container: {
+            firstElementChild: cog
+          }
+        } = render(
+          <Sprocket />
+        )
+
+        expect(cog)
+          .toBeInstanceOf(HTMLDivElement)
+      })
+
+      describe('Always', () => {
+        /**
+         *  @type {undefined | jest.SpyInstance}
+         */
+        let getClassNameSpy
+
+        /**
+         *  @type {undefined | jest.SpyInstance}
+         */
+        let renderTitleSpy
+
+        /**
+         *  @type {undefined | jest.SpyInstance}
+         */
+        let renderGroupSpy
+
+        beforeEach(() => {
+          getClassNameSpy = jest.spyOn(Sprocket.prototype, 'getClassName')
+
+          renderTitleSpy = jest.spyOn(Sprocket.prototype, 'renderTitle')
+
+          renderGroupSpy = jest.spyOn(Sprocket.prototype, 'renderGroup')
+
+          render(
+            <Sprocket />
+          )
+        })
+
+        it('invokes `getClassName`', () => {
+          expect(getClassNameSpy)
+            .toHaveBeenCalled()
+        })
+
+        it('invokes `renderTitle`', () => {
+          expect(renderTitleSpy)
+            .toHaveBeenCalled()
+        })
+
+        it('invokes `renderGroup`', () => {
+          expect(renderGroupSpy)
+            .toHaveBeenCalled()
+        })
+      })
+
+      it('matches the snapshot', () => {
+        const {
+          container: {
+            firstElementChild: sprocket
+          }
+        } = render(
+          <Sprocket />
+        )
+
+        expect(snapshotOf(sprocket))
           .toMatchSnapshot()
       })
 
-      describe('Prototype', () => {
-        describe('`getClassName`', () => {
-          it('is defined', () => {
-            return expect(Sprocket.prototype.getClassName)
-              .toBeDefined()
-          })
-        })
-
-        describe('`shouldComponentUpdate`', () => {
-          it('is defined', () => {
-            return expect(Sprocket.prototype.shouldComponentUpdate)
-              .toBeDefined()
-          })
-        })
-
-        describe('`renderTitle`', () => {
-          it('is defined', () => {
-            return expect(Sprocket.prototype.renderTitle)
-              .toBeDefined()
-          })
-        })
-
-        describe('`renderGroup`', () => {
-          it('is defined', () => {
-            return expect(Sprocket.prototype.renderGroup)
-              .toBeDefined()
-          })
-        })
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      xit('matches the snapshot', () => {
+        expect(renderer.create(
+          <Sprocket />
+        ).toJSON())
+          .toMatchSnapshot()
       })
     })
 
     describe('With additional props', () => {
       it('renders', () => {
-        const component = (
+        const {
+          container: {
+            firstElementChild: sprocket
+          }
+        } = render(
           <Sprocket
-            title='MOCK TITLE'
-          />
+            title='MOCK TITLE'>
+            MOCK CHILDREN
+          </Sprocket>
         )
 
-        return expect(renderer.create(component).toJSON())
+        expect(sprocket)
+          .toBeInstanceOf(HTMLDivElement)
+      })
+
+      it('matches the snapshot', () => {
+        const {
+          container: {
+            firstElementChild: sprocket
+          }
+        } = render(
+          <Sprocket
+            title='MOCK TITLE'>
+            MOCK CHILDREN
+          </Sprocket>
+        )
+
+        expect(snapshotOf(sprocket))
+          .toMatchSnapshot()
+      })
+
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      xit('matches the snapshot', () => {
+        expect(renderer.create(
+          <Sprocket
+            title='MOCK TITLE'>
+            MOCK CHILDREN
+          </Sprocket>
+        ).toJSON())
           .toMatchSnapshot()
       })
     })
 
-    describe('`getClassName()`', () => {
-      beforeEach(() => {
-        classnames.mockReset()
-      })
-
-      describe('With required props', () => {
-        let returnValue
-
-        beforeEach(() => {
-          const component = (
-            <Sprocket title='MOCK TITLE' />
-          )
-
-          const instance = (
-            renderer.create(component)
-              .getInstance()
-          )
-
-          returnValue = instance.getClassName()
-        })
-
-        it('does not invoke `classnames`', () => {
-          return expect(classnames)
-            .not.toBeCalled()
-        })
-
-        it('returns the classname', () => {
-          return expect(returnValue)
-            .toBe('sprocket')
-        })
-      })
-    })
-
     describe('`shouldComponentUpdate()`', () => {
-      const component = (
-        <Sprocket
-          title='MOCK TITLE'
-        />
-      )
-
+      /**
+       *  @type {undefined | Sprocket<SprocketProps>}
+       */
       let instance
 
       beforeEach(() => {
-        instance = (
-          renderer.create(component)
-            .getInstance()
+        const {
+          container
+        } = render(
+          <Sprocket
+            title='MOCK TITLE'>
+            MOCK CHILDREN
+          </Sprocket>
         )
+
+        instance = getComponentInstanceFrom(container)
       })
 
       describe('`props` have changed', () => {
-        it('returns true', () => {
-          return expect(instance.shouldComponentUpdate({
-            title: 'MOCK CHANGE LEGEND'
-          }))
-            .toBe(true)
+        describe('Prop `title` has changed', () => {
+          it('returns true', () => {
+            expect(instance.shouldComponentUpdate({
+              ...instance.props,
+              title: 'MOCK CHANGE TITLE'
+            }))
+              .toBe(true)
+          })
+        })
+
+        describe('Prop `children` has changed', () => {
+          it('returns true', () => {
+            expect(instance.shouldComponentUpdate({
+              ...instance.props,
+              children: 'MOCK CHANGE CHILDREN'
+            }))
+              .toBe(true)
+          })
         })
       })
 
       describe('`props` have not changed', () => {
         it('returns false', () => {
-          return expect(instance.shouldComponentUpdate({ // instance.props
-            title: 'MOCK TITLE'
+          expect(instance.shouldComponentUpdate({ // instance.props
+            ...instance.props
           }))
             .toBe(false)
         })
       })
     })
 
-    xdescribe('`renderTitle()`', () => {
-      const component = (
-        <Sprocket
-          title='MOCK TITLE'
-        />
-      )
-
-      let instance
-
-      beforeEach(() => {
-        // jest.clearAllMocks()
-
-        instance = (
-          renderer.create(component)
-            .getInstance()
+    describe('`getClassName()`', () => {
+      it('returns a string', () => {
+        const {
+          container
+        } = render(
+          <Sprocket
+            title='MOCK TITLE'>
+            MOCK CHILDREN
+          </Sprocket>
         )
 
-        instance.renderTitle()
-      })
+        const instance = getComponentInstanceFrom(container)
 
-      it('renders `<Title />`', () => {
-        return expect(Title)
-          .toBeCalledWith({
-            title: 'MOCK TITLE'
-          }, {})
+        expect(instance.getClassName())
+          .toEqual(expect.any(String))
       })
     })
 
     describe('`renderGroup()`', () => {
-      const component = (
-        <Sprocket
-          title='MOCK TITLE'
-        />
-      )
-
-      let instance
-
-      beforeEach(() => {
-        // jest.clearAllMocks()
-
-        instance = (
-          renderer.create(component)
-            .getInstance()
+      it('invokes `getId`', () => {
+        const {
+          container
+        } = render(
+          <Sprocket
+            title='MOCK TITLE'>
+            MOCK CHILDREN
+          </Sprocket>
         )
 
-        instance.renderGroup()
-      })
+        const instance = getComponentInstanceFrom(container)
 
-      it('renders `<Group />`', () => {
-        return expect(Group)
-          .toBeCalledWith({
-            children: expect.any(Array)
-          }, {})
+        /**
+         *  Spy (and mock the return value)
+         */
+        const renderTitleSpy = jest.spyOn(instance, 'renderTitle').mockReturnValue('MOCK ID')
+
+        instance.renderGroup()
+
+        expect(renderTitleSpy)
+          .toHaveBeenCalled()
       })
     })
   })

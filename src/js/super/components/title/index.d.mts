@@ -6,15 +6,11 @@ declare module '#sprockets/super/components/title' {
   export default class Title<P extends TitleProps> extends React.Component<P> {
     static propTypes: object
 
-    hasTextContent (): boolean
-
-    getTextContent (): string
-
     getClassName (): string
 
     shouldComponentUpdate (props: TitleProps): boolean
 
-    renderTextContent (): React.JSX.Element | null
+    renderTextContent (textContent: string): React.JSX.Element
   }
 }
 

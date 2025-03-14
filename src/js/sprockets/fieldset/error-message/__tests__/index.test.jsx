@@ -11,41 +11,58 @@ import {
 
 import getComponentInstanceFrom from 'react-component-instance/container'
 
-import Super from '#sprockets/sprockets'
-import Sprocket from '#sprockets/sprockets/error-summary'
-
-import {
-  MOCK_ERROR_SUMMARY
-} from './definitions.mjs'
+import Super from '#sprockets/super/components/error-message'
+import ErrorMessage from '#sprockets/sprockets/fieldset/error-message'
 
 jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
-describe('#sprockets/sprockets/error-summary', () => {
-  describe('<Sprocket />', () => {
+const MOCK_ERROR_MESSAGE = {
+  type: 'UNKNOWN',
+  params: {
+    expectedType: 'string'
+  },
+  uri: '#/'
+}
+
+describe('#sprockets/sprockets/fieldset/error-message', () => {
+  describe('<ErrorMessage />', () => {
     describe('With required props', () => {
       it('renders', () => {
         const {
           container: {
-            firstElementChild: sprocket
+            firstElementChild: errorMessage
           }
         } = render(
-          <Sprocket />
+          <ErrorMessage />
         )
 
-        expect(sprocket)
+        expect(errorMessage)
           .toBeNull()
       })
 
+      /**
+       *  Element is null
+       */
       it('matches the snapshot', () => {
         const {
           container: {
-            firstElementChild: sprocket
+            firstElementChild: errorMessage
           }
         } = render(
-          <Sprocket />
+          <ErrorMessage />
         )
 
-        expect(snapshotOf(sprocket))
+        expect(snapshotOf(errorMessage))
+          .toMatchSnapshot()
+      })
+
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      xit('matches the snapshot', () => {
+        expect(renderer.create((
+          <ErrorMessage />
+        )).toJSON())
           .toMatchSnapshot()
       })
     })
@@ -54,62 +71,29 @@ describe('#sprockets/sprockets/error-summary', () => {
       it('renders', () => {
         const {
           container: {
-            firstElementChild: sprocket
+            firstElementChild: errorMessage
           }
         } = render(
-          <Sprocket
-            title='MOCK TITLE'
-            errorSummary={MOCK_ERROR_SUMMARY}
+          <ErrorMessage
+            errorMessage={MOCK_ERROR_MESSAGE}
           />
         )
 
-        expect(sprocket)
-          .toBeInstanceOf(HTMLDivElement)
+        expect(errorMessage)
+          .toBeInstanceOf(HTMLSpanElement)
       })
 
       describe('Always', () => {
-        /**
-         *  @type {undefined | jest.SpyInstance}
-         */
-        let getClassNameSpy
-
-        /**
-         *  @type {undefined | jest.SpyInstance}
-         */
-        let renderTitleSpy
-
-        /**
-         *  @type {undefined | jest.SpyInstance}
-         */
-        let renderGroupSpy
-
-        beforeEach(() => {
-          getClassNameSpy = jest.spyOn(Sprocket.prototype, 'getClassName')
-
-          renderTitleSpy = jest.spyOn(Sprocket.prototype, 'renderTitle')
-
-          renderGroupSpy = jest.spyOn(Sprocket.prototype, 'renderGroup')
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(ErrorMessage.prototype, 'getClassName')
 
           render(
-            <Sprocket
-              title='MOCK TITLE'
-              errorSummary={MOCK_ERROR_SUMMARY}
+            <ErrorMessage
+              errorMessage={MOCK_ERROR_MESSAGE}
             />
           )
-        })
 
-        it('invokes `getClassName`', () => {
           expect(getClassNameSpy)
-            .toHaveBeenCalled()
-        })
-
-        it('invokes `renderTitle`', () => {
-          expect(renderTitleSpy)
-            .toHaveBeenCalled()
-        })
-
-        it('invokes `renderGroup`', () => {
-          expect(renderGroupSpy)
             .toHaveBeenCalled()
         })
       })
@@ -117,16 +101,15 @@ describe('#sprockets/sprockets/error-summary', () => {
       it('matches the snapshot', () => {
         const {
           container: {
-            firstElementChild: sprocket
+            firstElementChild: errorMessage
           }
         } = render(
-          <Sprocket
-            title='MOCK TITLE'
-            errorSummary={MOCK_ERROR_SUMMARY}
+          <ErrorMessage
+            errorMessage={MOCK_ERROR_MESSAGE}
           />
         )
 
-        expect(snapshotOf(sprocket))
+        expect(snapshotOf(errorMessage))
           .toMatchSnapshot()
       })
 
@@ -134,14 +117,11 @@ describe('#sprockets/sprockets/error-summary', () => {
        *  @deprecated For migration toward Testing Library
        */
       xit('matches the snapshot', () => {
-        const component = (
-          <Sprocket
-            title='MOCK TITLE'
-            errorSummary={MOCK_ERROR_SUMMARY}
+        expect(renderer.create((
+          <ErrorMessage
+            errorMessage={MOCK_ERROR_MESSAGE}
           />
-        )
-
-        expect(renderer.create(component).toJSON())
+        )).toJSON())
           .toMatchSnapshot()
       })
     })
@@ -156,7 +136,7 @@ describe('#sprockets/sprockets/error-summary', () => {
         const {
           container
         } = render(
-          <Sprocket />
+          <ErrorMessage />
         )
 
         const instance = getComponentInstanceFrom(container)
@@ -174,7 +154,7 @@ describe('#sprockets/sprockets/error-summary', () => {
         instance.getClassName()
 
         expect(classnames)
-          .toHaveBeenCalledWith('MOCK CLASSNAME', 'error-summary')
+          .toHaveBeenCalledWith('MOCK CLASSNAME', 'fieldset')
       })
     })
   })

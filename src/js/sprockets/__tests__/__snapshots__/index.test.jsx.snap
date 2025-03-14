@@ -1,13 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#sprockets/sprockets <Sprocket /> With additional props renders 1`] = `
+exports[`#sprockets/sprockets <Sprocket /> With additional props matches the snapshot 1`] = `
 <div
   className="sprocket"
-/>
+>
+  <Group>
+    <fieldset
+      className="group"
+    >
+      <Title>
+        <legend
+          className="title"
+        >
+          <TextContent>
+            <span
+              className="text-content"
+            >
+              MOCK TITLE
+            </span>
+          </TextContent>
+        </legend>
+      </Title>
+      MOCK CHILDREN
+    </fieldset>
+  </Group>
+</div>
 `;
 
-exports[`#sprockets/sprockets <Sprocket /> With required props renders 1`] = `
+exports[`#sprockets/sprockets <Sprocket /> With required props matches the snapshot 1`] = `
 <div
   className="sprocket"
-/>
+>
+  <Group>
+    <fieldset
+      className="group"
+    >
+      <Title />
+    </fieldset>
+  </Group>
+</div>
 `;
