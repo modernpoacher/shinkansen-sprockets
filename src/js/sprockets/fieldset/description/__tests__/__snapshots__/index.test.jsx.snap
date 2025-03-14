@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#sprockets/sprockets/fieldset/description <Description /> With additional props matches the snapshot 1`] = `
+<span
+  className="MOCK CLASSNAME"
+>
+  <span
+    className="text-content"
+  >
+    MOCK DESCRIPTION
+  </span>
+</span>
+`;
+
+exports[`#sprockets/sprockets/fieldset/description <Description /> With required props matches the snapshot 1`] = `null`;

@@ -6,7 +6,7 @@ import classnames from 'classnames'
 import Super from '#sprockets/sprockets'
 import Sprocket from '#sprockets/sprockets/fieldset'
 
-jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
+jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
 jest.mock('#sprockets/sprockets/fieldset/title')
 jest.mock('#sprockets/sprockets/fieldset/group')

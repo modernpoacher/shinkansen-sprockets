@@ -1,96 +1,121 @@
+/**
+ *  @typedef {SprocketsTypes.Super.Components.Group.GroupProps} GroupProps
+ */
+
 import React from 'react'
 import renderer from 'react-test-renderer'
+
+import '@testing-library/jest-dom'
+
+import {
+  render
+} from '@testing-library/react'
+
+import getInstanceFrom from 'react-component-instance/container'
 
 import Group from '#sprockets/components/group'
 
 describe('#sprockets/components/group', () => {
+  const MOCK_GROUP_REF = { current: null }
+
   describe('<Group />', () => {
     describe('With required props', () => {
-      const component = (
-        <Group />
-      )
-
       it('renders', () => {
-        return expect(renderer.create(component).toJSON())
+        const {
+          container: {
+            firstElementChild: group
+          }
+        } = render(
+          <Group />
+        )
+
+        expect(group)
+          .toBeNull()
+      })
+
+      describe('Always', () => {
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(Group.prototype, 'getClassName')
+
+          render(
+            <Group />
+          )
+
+          expect(getClassNameSpy)
+            .not.toHaveBeenCalled()
+        })
+      })
+
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      it('matches the snapshot', () => {
+        expect(renderer.create((
+          <Group />
+        )).toJSON())
           .toMatchSnapshot()
-      })
-
-      describe('`getClassName`', () => {
-        it('is defined', () => {
-          return expect(Group.prototype.getClassName)
-            .toBeDefined()
-        })
-      })
-
-      describe('`shouldComponentUpdate`', () => {
-        it('is defined', () => {
-          return expect(Group.prototype.shouldComponentUpdate)
-            .toBeDefined()
-        })
       })
     })
 
     describe('With additional props', () => {
       it('renders', () => {
-        const component = (
-          <Group>
+        const {
+          container: {
+            firstElementChild: group
+          }
+        } = render(
+          <Group
+            groupRef={MOCK_GROUP_REF}>
             MOCK CHILDREN
           </Group>
         )
 
-        return expect(renderer.create(component).toJSON())
+        expect(group)
+          .toBeInstanceOf(HTMLFieldSetElement)
+      })
+
+      describe('Always', () => {
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(Group.prototype, 'getClassName')
+
+          render(
+            <Group
+              groupRef={MOCK_GROUP_REF}>
+              MOCK CHILDREN
+            </Group>
+          )
+
+          expect(getClassNameSpy)
+            .toHaveBeenCalled()
+        })
+      })
+
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      it('matches the snapshot', () => {
+        expect(renderer.create((
+          <Group
+            groupRef={MOCK_GROUP_REF}>
+            MOCK CHILDREN
+          </Group>
+        )).toJSON())
           .toMatchSnapshot()
       })
     })
 
     describe('`getClassName()`', () => {
-      it('returns the classname', () => {
-        const component = (
+      it('returns a string', () => {
+        const {
+          container
+        } = render(
           <Group />
         )
 
-        const instance = (
-          renderer.create(component)
-            .getInstance()
-        )
+        const instance = getInstanceFrom(container)
 
-        return expect(instance.getClassName())
-          .toBe('group')
-      })
-    })
-
-    describe('`shouldComponentUpdate()`', () => {
-      const component = (
-        <Group>
-          MOCK CHILDREN
-        </Group>
-      )
-
-      let instance
-
-      beforeEach(() => {
-        instance = (
-          renderer.create(component)
-            .getInstance()
-        )
-      })
-
-      describe('`props` have changed', () => {
-        it('returns true', () => {
-          return expect(instance.shouldComponentUpdate({
-            children: null
-          }))
-            .toBe(true)
-        })
-      })
-
-      describe('`props` have not changed', () => {
-        it('returns false', () => {
-          return expect(instance.shouldComponentUpdate({ // instance.props
-            children: 'MOCK CHILDREN'
-          }))
-            .toBe(false)
-        })
+        expect(instance.getClassName())
+          .toEqual(expect.any(String))
       })
     })
   })

@@ -11,7 +11,6 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import equal from 'fast-deep-equal'
 import classnames from 'classnames'
 
@@ -75,9 +74,9 @@ export default class ErrorSummaryGroup extends Group {
    *  @param {ErrorSummaryState} state   Current state
    *  @returns {ErrorSummaryState}
    */
-  static getDerivedStateFromProps ({ errorSummary }, { errorSummary: E }) {
+  static getDerivedStateFromProps ({ errorSummary: e }, { errorSummary: E }) {
     return {
-      errorSummary: equal(errorSummary, E) ? E : errorSummary
+      errorSummary: (e === E || equal(e, E)) ? E : e
     }
   }
 
@@ -91,13 +90,13 @@ export default class ErrorSummaryGroup extends Group {
   shouldComponentUpdate (props, state) {
     const {
       errorSummary: e = DEFAULT_ERROR_SUMMARY
-    } = state
+    } = this.state
 
     const {
       errorSummary: E = DEFAULT_ERROR_SUMMARY
-    } = this.state
+    } = state
 
-    return !equal(e, E)
+    return !(e === E || equal(e, E))
   }
 
   render () {

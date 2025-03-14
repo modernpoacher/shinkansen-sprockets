@@ -10,6 +10,9 @@ import PropTypes from 'prop-types'
 
 import TextContent from '#sprockets/components/common/text-content'
 
+/**
+ *  @extends {Component<DescriptionProps>}
+ */
 export default class Description extends Component {
   getClassName () {
     return 'description'

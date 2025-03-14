@@ -20,10 +20,14 @@ export default class CheckAnswersTitle extends Title {
   }
 
   render () {
-    if (this.hasTextContent()) {
+    const {
+      title
+    } = this.props
+
+    if (title) {
       return (
         <h2 className={this.getClassName()}>
-          {this.renderTextContent()}
+          {this.renderTextContent(title)}
         </h2>
       )
     }
