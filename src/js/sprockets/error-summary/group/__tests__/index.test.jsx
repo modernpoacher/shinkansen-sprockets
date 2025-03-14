@@ -1,72 +1,133 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-
 import classnames from 'classnames'
+
+import '@testing-library/jest-dom'
+
+import {
+  render
+} from '@testing-library/react'
+
+import getInstanceFrom from 'react-component-instance/container'
 
 import Super from '#sprockets/super/components/group'
 import Group from '#sprockets/sprockets/error-summary/group'
 
-jest.mock('classnames', () => jest.fn(() => 'MOCK CLASSNAME'))
+jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
 describe('#sprockets/sprockets/error-summary/group', () => {
   describe('<Group />', () => {
     describe('With required props', () => {
-      const component = (
-        <Group />
-      )
-
       it('renders', () => {
-        return expect(renderer.create(component).toJSON())
-          .toMatchSnapshot()
+        const {
+          container: {
+            firstElementChild: group
+          }
+        } = render(
+          <Group />
+        )
+
+        expect(group)
+          .toBeNull()
       })
 
-      describe('`getClassName`', () => {
-        it('is defined', () => {
-          return expect(Group.prototype.getClassName)
-            .toBeDefined()
+      describe('Always', () => {
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(Group.prototype, 'getClassName')
+
+          render(
+            <Group />
+          )
+
+          expect(getClassNameSpy)
+            .not.toHaveBeenCalled()
         })
+      })
+
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      it('matches the snapshot', () => {
+        expect(renderer.create((
+          <Group />
+        )).toJSON())
+          .toMatchSnapshot()
       })
     })
 
     describe('With additional props', () => {
       it('renders', () => {
-        const component = (
+        const {
+          container: {
+            firstElementChild: group
+          }
+        } = render(
           <Group
             errorSummary={[{ type: 'UNKNOWN', params: {} }]}
           />
         )
 
-        return expect(renderer.create(component).toJSON())
+        expect(group)
+          .toBeInstanceOf(HTMLUListElement)
+      })
+
+      describe('Always', () => {
+        it('invokes `getClassName`', () => {
+          const getClassNameSpy = jest.spyOn(Group.prototype, 'getClassName')
+
+          render(
+            <Group
+              errorSummary={[{ type: 'UNKNOWN', params: {} }]}
+            />
+          )
+
+          expect(getClassNameSpy)
+            .toHaveBeenCalled()
+        })
+      })
+
+      /**
+       *  @deprecated For migration toward Testing Library
+       */
+      it('matches the snapshot', () => {
+        expect(renderer.create((
+          <Group
+            errorSummary={[{ type: 'UNKNOWN', params: {} }]}
+          />
+        )).toJSON())
           .toMatchSnapshot()
       })
     })
 
     describe('`getClassName()`', () => {
-      let returnValue
+      it('invokes `classnames`', () => {
+        /**
+         *  Ensure `super.getClassName()` returns a value
+         */
+        const getClassNameSpy = jest.spyOn(Super.prototype, 'getClassName').mockReturnValue('MOCK CLASSNAME')
 
-      beforeEach(() => {
-        jest.spyOn(Super.prototype, 'getClassName').mockReturnValue('MOCK GETCLASSNAME')
-
-        const component = (
+        const {
+          container
+        } = render(
           <Group />
         )
 
-        const instance = (
-          renderer.create(component)
-            .getInstance()
-        )
+        const instance = getInstanceFrom(container)
 
-        returnValue = instance.getClassName()
-      })
+        /**
+         *  Ensure it is reset after render
+         */
+        classnames.mockClear()
 
-      it('invokes `classnames`', () => {
-        return expect(classnames)
-          .toBeCalledWith('MOCK GETCLASSNAME', 'error-summary')
-      })
+        /**
+         *  Ensure it is reset after render
+         */
+        getClassNameSpy.mockClear()
 
-      it('returns the classname', () => {
-        return expect(returnValue)
-          .toBe('MOCK CLASSNAME')
+        instance.getClassName()
+
+        expect(classnames)
+          .toHaveBeenCalledWith('MOCK CLASSNAME', 'error-summary')
       })
     })
   })

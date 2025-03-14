@@ -10,33 +10,33 @@ import {
 
 import getInstanceFrom from 'react-component-instance/container'
 
-import Super from '#sprockets/super/components/title'
-import Title from '#sprockets/sprockets/error-summary/title'
+import Super from '#sprockets/super/components/description'
+import Description from '#sprockets/sprockets/fieldset/description'
 
 jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
-describe('#sprockets/sprockets/error-summary/title', () => {
-  describe('<Title />', () => {
+describe('#sprockets/sprockets/fieldset/description', () => {
+  describe('<Description />', () => {
     describe('With required props', () => {
       it('renders', () => {
         const {
           container: {
-            firstElementChild: title
+            firstElementChild: description
           }
         } = render(
-          <Title />
+          <Description />
         )
 
-        expect(title)
+        expect(description)
           .toBeNull()
       })
 
       describe('Always', () => {
         it('invokes `getClassName`', () => {
-          const getClassNameSpy = jest.spyOn(Title.prototype, 'getClassName')
+          const getClassNameSpy = jest.spyOn(Description.prototype, 'getClassName')
 
           render(
-            <Title />
+            <Description />
           )
 
           expect(getClassNameSpy)
@@ -49,7 +49,7 @@ describe('#sprockets/sprockets/error-summary/title', () => {
        */
       it('matches the snapshot', () => {
         expect(renderer.create((
-          <Title />
+          <Description />
         )).toJSON())
           .toMatchSnapshot()
       })
@@ -59,25 +59,25 @@ describe('#sprockets/sprockets/error-summary/title', () => {
       it('renders', () => {
         const {
           container: {
-            firstElementChild: title
+            firstElementChild: description
           }
         } = render(
-          <Title
-            title='MOCK TITLE'
+          <Description
+            description='MOCK DESCRIPTION'
           />
         )
 
-        expect(title)
-          .toBeInstanceOf(HTMLHeadingElement)
+        expect(description)
+          .toBeInstanceOf(HTMLSpanElement)
       })
 
       describe('Always', () => {
         it('invokes `getClassName`', () => {
-          const getClassNameSpy = jest.spyOn(Title.prototype, 'getClassName')
+          const getClassNameSpy = jest.spyOn(Description.prototype, 'getClassName')
 
           render(
-            <Title
-              title='MOCK TITLE'
+            <Description
+              description='MOCK DESCRIPTION'
             />
           )
 
@@ -91,8 +91,8 @@ describe('#sprockets/sprockets/error-summary/title', () => {
        */
       it('matches the snapshot', () => {
         expect(renderer.create((
-          <Title
-            title='MOCK TITLE'
+          <Description
+            description='MOCK DESCRIPTION'
           />
         )).toJSON())
           .toMatchSnapshot()
@@ -109,7 +109,7 @@ describe('#sprockets/sprockets/error-summary/title', () => {
         const {
           container
         } = render(
-          <Title />
+          <Description />
         )
 
         const instance = getInstanceFrom(container)
@@ -127,7 +127,7 @@ describe('#sprockets/sprockets/error-summary/title', () => {
         instance.getClassName()
 
         expect(classnames)
-          .toHaveBeenCalledWith('MOCK CLASSNAME', 'error-summary')
+          .toHaveBeenCalledWith('MOCK CLASSNAME', 'fieldset')
       })
     })
   })

@@ -1,11 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#sprockets/super/components/title <Title /> With additional props renders 1`] = `
+exports[`#sprockets/super/components/title <Title /> With additional props matches the snapshot 1`] = `
 <legend
   className="title"
 >
-  MOCK TEXT CONTENT
+  <span
+    className="text-content"
+  >
+    MOCK TITLE
+  </span>
 </legend>
 `;
 
-exports[`#sprockets/super/components/title <Title /> With required props renders 1`] = `null`;
+exports[`#sprockets/super/components/title <Title /> With required props matches the snapshot 1`] = `null`;

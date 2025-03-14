@@ -10,38 +10,33 @@ import {
 
 import getInstanceFrom from 'react-component-instance/container'
 
-import Super from '#sprockets/super/components/title'
-import Title from '#sprockets/sprockets/error-summary/title'
+import Super from '#sprockets/super/components/error-message'
+import ErrorMessage from '#sprockets/sprockets/fieldset/error-message'
 
 jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
-describe('#sprockets/sprockets/error-summary/title', () => {
-  describe('<Title />', () => {
+const MOCK_ERROR_MESSAGE = {
+  type: 'UNKNOWN',
+  params: {
+    expectedType: 'string'
+  },
+  uri: '#/'
+}
+
+describe('#sprockets/sprockets/fieldset/error-message', () => {
+  describe('<ErrorMessage />', () => {
     describe('With required props', () => {
       it('renders', () => {
         const {
           container: {
-            firstElementChild: title
+            firstElementChild: errorMessage
           }
         } = render(
-          <Title />
+          <ErrorMessage />
         )
 
-        expect(title)
+        expect(errorMessage)
           .toBeNull()
-      })
-
-      describe('Always', () => {
-        it('invokes `getClassName`', () => {
-          const getClassNameSpy = jest.spyOn(Title.prototype, 'getClassName')
-
-          render(
-            <Title />
-          )
-
-          expect(getClassNameSpy)
-            .not.toHaveBeenCalled()
-        })
       })
 
       /**
@@ -49,7 +44,7 @@ describe('#sprockets/sprockets/error-summary/title', () => {
        */
       it('matches the snapshot', () => {
         expect(renderer.create((
-          <Title />
+          <ErrorMessage />
         )).toJSON())
           .toMatchSnapshot()
       })
@@ -59,25 +54,25 @@ describe('#sprockets/sprockets/error-summary/title', () => {
       it('renders', () => {
         const {
           container: {
-            firstElementChild: title
+            firstElementChild: errorMessage
           }
         } = render(
-          <Title
-            title='MOCK TITLE'
+          <ErrorMessage
+            errorMessage={MOCK_ERROR_MESSAGE}
           />
         )
 
-        expect(title)
-          .toBeInstanceOf(HTMLHeadingElement)
+        expect(errorMessage)
+          .toBeInstanceOf(HTMLSpanElement)
       })
 
       describe('Always', () => {
         it('invokes `getClassName`', () => {
-          const getClassNameSpy = jest.spyOn(Title.prototype, 'getClassName')
+          const getClassNameSpy = jest.spyOn(ErrorMessage.prototype, 'getClassName')
 
           render(
-            <Title
-              title='MOCK TITLE'
+            <ErrorMessage
+              errorMessage={MOCK_ERROR_MESSAGE}
             />
           )
 
@@ -91,8 +86,8 @@ describe('#sprockets/sprockets/error-summary/title', () => {
        */
       it('matches the snapshot', () => {
         expect(renderer.create((
-          <Title
-            title='MOCK TITLE'
+          <ErrorMessage
+            errorMessage={MOCK_ERROR_MESSAGE}
           />
         )).toJSON())
           .toMatchSnapshot()
@@ -109,7 +104,7 @@ describe('#sprockets/sprockets/error-summary/title', () => {
         const {
           container
         } = render(
-          <Title />
+          <ErrorMessage />
         )
 
         const instance = getInstanceFrom(container)
@@ -127,7 +122,7 @@ describe('#sprockets/sprockets/error-summary/title', () => {
         instance.getClassName()
 
         expect(classnames)
-          .toHaveBeenCalledWith('MOCK CLASSNAME', 'error-summary')
+          .toHaveBeenCalledWith('MOCK CLASSNAME', 'fieldset')
       })
     })
   })
