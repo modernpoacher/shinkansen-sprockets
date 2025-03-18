@@ -1,6 +1,5 @@
 import React from 'react'
 import snapshotOf from 'react-component-snapshot'
-import renderer from 'react-test-renderer'
 
 import '@testing-library/jest-dom'
 
@@ -86,16 +85,6 @@ describe('#sprockets/sprockets', () => {
         expect(snapshotOf(sprocket))
           .toMatchSnapshot()
       })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        expect(renderer.create(
-          <Sprocket />
-        ).toJSON())
-          .toMatchSnapshot()
-      })
     })
 
     describe('With additional props', () => {
@@ -128,19 +117,6 @@ describe('#sprockets/sprockets', () => {
         )
 
         expect(snapshotOf(sprocket))
-          .toMatchSnapshot()
-      })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        expect(renderer.create(
-          <Sprocket
-            title='MOCK TITLE'>
-            MOCK CHILDREN
-          </Sprocket>
-        ).toJSON())
           .toMatchSnapshot()
       })
     })

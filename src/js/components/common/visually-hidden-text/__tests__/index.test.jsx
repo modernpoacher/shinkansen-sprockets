@@ -1,6 +1,5 @@
 import React from 'react'
 import snapshotOf from 'react-component-snapshot'
-import renderer from 'react-test-renderer'
 
 import '@testing-library/jest-dom'
 
@@ -39,14 +38,6 @@ describe('#sprockets/components/common/visually-hidden-text', () => {
       )
 
       expect(snapshotOf(visuallyHiddenText))
-        .toMatchSnapshot()
-    })
-
-    /**
-     *  @deprecated For migration toward Testing Library
-     */
-    xit('matches the snapshot', () => {
-      expect(renderer.create(<VisuallyHiddenText visuallyHiddenText='MOCK VISUALLY HIDDEN TEXT' />).toJSON())
         .toMatchSnapshot()
     })
   })

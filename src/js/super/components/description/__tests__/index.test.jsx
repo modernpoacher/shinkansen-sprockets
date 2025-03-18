@@ -4,7 +4,6 @@
 
 import React from 'react'
 import snapshotOf from 'react-component-snapshot'
-import renderer from 'react-test-renderer'
 
 import '@testing-library/jest-dom'
 
@@ -60,16 +59,6 @@ describe('#sprockets/super/components/description', () => {
         expect(snapshotOf(description))
           .toMatchSnapshot()
       })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        expect(renderer.create((
-          <Description />
-        )).toJSON())
-          .toMatchSnapshot()
-      })
     })
 
     describe('With additional props', () => {
@@ -115,18 +104,6 @@ describe('#sprockets/super/components/description', () => {
         )
 
         expect(snapshotOf(description))
-          .toMatchSnapshot()
-      })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        expect(renderer.create((
-          <Description
-            description='MOCK DESCRIPTION'
-          />
-        )).toJSON())
           .toMatchSnapshot()
       })
     })

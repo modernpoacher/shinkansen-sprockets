@@ -8,7 +8,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import snapshotOf from 'react-component-snapshot'
-import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import '@testing-library/jest-dom'
@@ -132,16 +131,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
         expect(snapshotOf(group))
           .toMatchSnapshot()
       })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        expect(renderer.create((
-          <Group />
-        )).toJSON())
-          .toMatchSnapshot()
-      })
     })
 
     describe('With additional props', () => {
@@ -179,21 +168,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
           )
 
           expect(snapshotOf(group))
-            .toMatchSnapshot()
-        })
-
-        /**
-         *  @deprecated For migration toward Testing Library
-         */
-        xit('matches the snapshot', () => {
-          expect(renderer.create(
-            <Group
-              groupRef={MOCK_GROUP_REF}
-              checkAnswers={[
-                MOCK_STRING_ANSWER
-              ]}
-            />
-          ).toJSON())
             .toMatchSnapshot()
         })
       })
@@ -234,21 +208,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
           expect(snapshotOf(group))
             .toMatchSnapshot()
         })
-
-        /**
-         *  @deprecated For migration toward Testing Library
-         */
-        xit('matches the snapshot', () => {
-          expect(renderer.create(
-            <Group
-              groupRef={MOCK_GROUP_REF}
-              checkAnswers={[
-                MOCK_NUMBER_ANSWER
-              ]}
-            />
-          ).toJSON())
-            .toMatchSnapshot()
-        })
       })
 
       describe('`array` answers', () => {
@@ -283,19 +242,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
           expect(snapshotOf(group))
             .toMatchSnapshot()
         })
-
-        /**
-         *  @deprecated For migration toward Testing Library
-         */
-        xit('matches the snapshot', () => {
-          expect(renderer.create(
-            <Group
-              groupRef={MOCK_GROUP_REF}
-              checkAnswers={MOCK_CHECK_ANSWERS}
-            />
-          ).toJSON())
-            .toMatchSnapshot()
-        })
       })
 
       describe('`object` answers', () => {
@@ -328,19 +274,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
           )
 
           expect(snapshotOf(group))
-            .toMatchSnapshot()
-        })
-
-        /**
-         *  @deprecated For migration toward Testing Library
-         */
-        xit('matches the snapshot', () => {
-          expect(renderer.create(
-            <Group
-              groupRef={MOCK_GROUP_REF}
-              checkAnswers={MOCK_CHECK_ANSWERS}
-            />
-          ).toJSON())
             .toMatchSnapshot()
         })
       })
@@ -381,21 +314,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
           expect(snapshotOf(group))
             .toMatchSnapshot()
         })
-
-        /**
-         *  @deprecated For migration toward Testing Library
-         */
-        xit('matches the snapshot', () => {
-          expect(renderer.create(
-            <Group
-              groupRef={MOCK_GROUP_REF}
-              checkAnswers={[
-                MOCK_BOOLEAN_ANSWER
-              ]}
-            />
-          ).toJSON())
-            .toMatchSnapshot()
-        })
       })
 
       describe('`null` answers', () => {
@@ -432,21 +350,6 @@ describe('#sprockets/sprockets/check-answers/group', () => {
           )
 
           expect(snapshotOf(group))
-            .toMatchSnapshot()
-        })
-
-        /**
-         *  @deprecated For migration toward Testing Library
-         */
-        xit('matches the snapshot', () => {
-          expect(renderer.create(
-            <Group
-              groupRef={MOCK_GROUP_REF}
-              checkAnswers={[
-                MOCK_NULL_ANSWER
-              ]}
-            />
-          ).toJSON())
             .toMatchSnapshot()
         })
       })

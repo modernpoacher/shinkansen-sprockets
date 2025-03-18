@@ -1,6 +1,5 @@
 import React from 'react'
 import snapshotOf from 'react-component-snapshot'
-import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import '@testing-library/jest-dom'
@@ -127,21 +126,6 @@ describe('#sprockets/sprockets/error-summary', () => {
         )
 
         expect(snapshotOf(sprocket))
-          .toMatchSnapshot()
-      })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        const component = (
-          <Sprocket
-            title='MOCK TITLE'
-            errorSummary={MOCK_ERROR_SUMMARY}
-          />
-        )
-
-        expect(renderer.create(component).toJSON())
           .toMatchSnapshot()
       })
     })

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import snapshotOf from 'react-component-snapshot'
-import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import '@testing-library/jest-dom'
@@ -177,21 +176,6 @@ describe('#sprockets/sprockets/check-answers', () => {
         )
 
         expect(snapshotOf(sprocket))
-          .toMatchSnapshot()
-      })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        const component = (
-          <Sprocket
-            title='MOCK TITLE'
-            checkAnswers={MOCK_CHECK_ANSWERS}
-          />
-        )
-
-        expect(renderer.create(component).toJSON())
           .toMatchSnapshot()
       })
     })

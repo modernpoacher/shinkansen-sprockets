@@ -11,8 +11,8 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import equal from 'fast-deep-equal'
 import classnames from 'classnames'
+import equal from 'fast-deep-equal'
 
 import debug from 'debug'
 

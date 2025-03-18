@@ -1,6 +1,5 @@
 import React from 'react'
 import snapshotOf from 'react-component-snapshot'
-import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import '@testing-library/jest-dom'
@@ -62,16 +61,6 @@ describe('#sprockets/sprockets/fieldset/group', () => {
         expect(snapshotOf(group))
           .toMatchSnapshot()
       })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        expect(renderer.create((
-          <Group />
-        )).toJSON())
-          .toMatchSnapshot()
-      })
     })
 
     describe('With additional props', () => {
@@ -123,19 +112,6 @@ describe('#sprockets/sprockets/fieldset/group', () => {
         )
 
         expect(snapshotOf(group))
-          .toMatchSnapshot()
-      })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        expect(renderer.create((
-          <Group
-            groupRef={MOCK_GROUP_REF}>
-            MOCK CHILDREN
-          </Group>
-        )).toJSON())
           .toMatchSnapshot()
       })
     })

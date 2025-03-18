@@ -1,6 +1,5 @@
 import React from 'react'
 import snapshotOf from 'react-component-snapshot'
-import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import '@testing-library/jest-dom'
@@ -67,16 +66,6 @@ describe('#sprockets/sprockets/error-summary/group', () => {
         expect(snapshotOf(group))
           .toMatchSnapshot()
       })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        expect(renderer.create((
-          <Group />
-        )).toJSON())
-          .toMatchSnapshot()
-      })
     })
 
     describe('With additional props', () => {
@@ -122,18 +111,6 @@ describe('#sprockets/sprockets/error-summary/group', () => {
         )
 
         expect(snapshotOf(group))
-          .toMatchSnapshot()
-      })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        expect(renderer.create((
-          <Group
-            errorSummary={MOCK_ERROR_SUMMARY}
-          />
-        )).toJSON())
           .toMatchSnapshot()
       })
     })

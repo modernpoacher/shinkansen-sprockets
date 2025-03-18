@@ -1,6 +1,5 @@
 import React from 'react'
 import snapshotOf from 'react-component-snapshot'
-import renderer from 'react-test-renderer'
 import classnames from 'classnames'
 
 import '@testing-library/jest-dom'
@@ -122,21 +121,6 @@ describe('#sprockets/sprockets/fieldset', () => {
         )
 
         expect(snapshotOf(sprocket))
-          .toMatchSnapshot()
-      })
-
-      /**
-       *  @deprecated For migration toward Testing Library
-       */
-      xit('matches the snapshot', () => {
-        const component = (
-          <Sprocket
-            title='MOCK TITLE'>
-            MOCK CHILDREN
-          </Sprocket>
-        )
-
-        expect(renderer.create(component).toJSON())
           .toMatchSnapshot()
       })
     })
