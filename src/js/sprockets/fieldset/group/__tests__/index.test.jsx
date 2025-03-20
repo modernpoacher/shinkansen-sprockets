@@ -10,7 +10,9 @@ import {
   render
 } from '@testing-library/react'
 
-import getComponentInstanceFrom from 'react-component-instance/container'
+import {
+  getInstanceFromContainerElement
+} from 'react-component-instance'
 
 import Super from '#sprockets/super/components/group'
 import Group from '#sprockets/sprockets/fieldset/group'
@@ -131,7 +133,7 @@ describe('#sprockets/sprockets/fieldset/group', () => {
           <Group />
         )
 
-        const instance = getComponentInstanceFrom(container)
+        const instance = getInstanceFromContainerElement(container)
 
         /**
          *  Ensure it is reset after render

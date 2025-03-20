@@ -3,17 +3,20 @@
  */
 
 import React from 'react'
+
 import {
   snapshotOf
 } from 'react-component-snapshot'
+
+import {
+  getInstanceFromContainerElement
+} from 'react-component-instance'
 
 import '@testing-library/jest-dom'
 
 import {
   render
 } from '@testing-library/react'
-
-import getComponentInstanceFrom from 'react-component-instance/container'
 
 import Group from '#sprockets/super/components/group'
 
@@ -131,7 +134,7 @@ describe('#sprockets/super/components/group', () => {
           </Group>
         )
 
-        instance = getComponentInstanceFrom(container)
+        instance = getInstanceFromContainerElement(container)
       })
 
       describe('`props` have changed', () => {
@@ -164,7 +167,7 @@ describe('#sprockets/super/components/group', () => {
           <Group />
         )
 
-        const instance = getComponentInstanceFrom(container)
+        const instance = getInstanceFromContainerElement(container)
 
         expect(instance.getClassName())
           .toEqual(expect.any(String))

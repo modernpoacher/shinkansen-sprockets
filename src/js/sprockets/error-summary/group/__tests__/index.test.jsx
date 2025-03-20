@@ -10,7 +10,9 @@ import {
   render
 } from '@testing-library/react'
 
-import getComponentInstanceFrom from 'react-component-instance/container'
+import {
+  getInstanceFromContainerElement
+} from 'react-component-instance'
 
 import Super from '#sprockets/super/components/group'
 import Group from '#sprockets/sprockets/error-summary/group'
@@ -133,7 +135,7 @@ describe('#sprockets/sprockets/error-summary/group', () => {
             /**
              *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
              */
-            const instance = getComponentInstanceFrom(container)
+            const instance = getInstanceFromContainerElement(container)
 
             const {
               props,
@@ -169,7 +171,7 @@ describe('#sprockets/sprockets/error-summary/group', () => {
           /**
            *  @type {undefined | Group<GroupProps & CheckAnswersProps, GroupState & CheckAnswersState>}
            */
-          const instance = getComponentInstanceFrom(container)
+          const instance = getInstanceFromContainerElement(container)
 
           const {
             props,
@@ -204,7 +206,7 @@ describe('#sprockets/sprockets/error-summary/group', () => {
           <Group />
         )
 
-        const instance = getComponentInstanceFrom(container)
+        const instance = getInstanceFromContainerElement(container)
 
         /**
          *  Ensure it is reset after render

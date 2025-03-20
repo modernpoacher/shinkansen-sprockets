@@ -3,17 +3,20 @@
  */
 
 import React from 'react'
+
 import {
   snapshotOf
 } from 'react-component-snapshot'
+
+import {
+  getInstanceFromContainerElement
+} from 'react-component-instance'
 
 import '@testing-library/jest-dom'
 
 import {
   render
 } from '@testing-library/react'
-
-import getComponentInstanceFrom from 'react-component-instance/container'
 
 import Description from '#sprockets/super/components/description'
 
@@ -125,7 +128,7 @@ describe('#sprockets/super/components/description', () => {
           />
         )
 
-        instance = getComponentInstanceFrom(container)
+        instance = getInstanceFromContainerElement(container)
       })
 
       describe('`props` have changed', () => {
@@ -160,7 +163,7 @@ describe('#sprockets/super/components/description', () => {
           />
         )
 
-        const instance = getComponentInstanceFrom(container)
+        const instance = getInstanceFromContainerElement(container)
 
         expect(instance.getClassName())
           .toEqual(expect.any(String))

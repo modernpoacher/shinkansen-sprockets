@@ -10,7 +10,9 @@ import {
   render
 } from '@testing-library/react'
 
-import getComponentInstanceFrom from 'react-component-instance/container'
+import {
+  getInstanceFromContainerElement
+} from 'react-component-instance'
 
 import Super from '#sprockets/super/components/error-message'
 import ErrorMessage from '#sprockets/sprockets/fieldset/error-message'
@@ -118,7 +120,7 @@ describe('#sprockets/sprockets/fieldset/error-message', () => {
           <ErrorMessage />
         )
 
-        const instance = getComponentInstanceFrom(container)
+        const instance = getInstanceFromContainerElement(container)
 
         /**
          *  Ensure it is reset after render

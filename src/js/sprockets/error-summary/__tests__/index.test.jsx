@@ -10,7 +10,9 @@ import {
   render
 } from '@testing-library/react'
 
-import getComponentInstanceFrom from 'react-component-instance/container'
+import {
+  getInstanceFromContainerElement
+} from 'react-component-instance'
 
 import Super from '#sprockets/sprockets'
 import Sprocket from '#sprockets/sprockets/error-summary'
@@ -145,7 +147,7 @@ describe('#sprockets/sprockets/error-summary', () => {
           <Sprocket />
         )
 
-        const instance = getComponentInstanceFrom(container)
+        const instance = getInstanceFromContainerElement(container)
 
         /**
          *  Ensure it is reset after render

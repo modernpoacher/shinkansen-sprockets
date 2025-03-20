@@ -10,7 +10,9 @@ import {
   render
 } from '@testing-library/react'
 
-import getComponentInstanceFrom from 'react-component-instance/container'
+import {
+  getInstanceFromContainerElement
+} from 'react-component-instance'
 
 import Super from '#sprockets/super/components/title'
 import Title from '#sprockets/sprockets/fieldset/title'
@@ -123,7 +125,7 @@ describe('#sprockets/sprockets/fieldset/title', () => {
           <Title />
         )
 
-        const instance = getComponentInstanceFrom(container)
+        const instance = getInstanceFromContainerElement(container)
 
         /**
          *  Ensure it is reset after render
