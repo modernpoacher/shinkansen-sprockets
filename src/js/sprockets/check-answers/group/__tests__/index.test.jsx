@@ -7,7 +7,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import snapshotOf from 'react-component-snapshot'
+import {
+  snapshotOf
+} from 'react-component-snapshot'
 import classnames from 'classnames'
 
 import '@testing-library/jest-dom'
