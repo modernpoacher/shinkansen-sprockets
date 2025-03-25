@@ -1,5 +1,5 @@
 /**
- *  @typedef {SprocketsTypes.Sprockets.SprocketProps} SprocketProps
+ *  @typedef {SprocketsTypes.Super.Sprockets.SprocketProps} SprocketProps
  */
 
 /**

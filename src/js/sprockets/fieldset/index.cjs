@@ -11,7 +11,7 @@ const log = debug('shinkansen-sprockets/sprockets/fieldset')
 log('`shinkansen` is awake')
 
 const {
-  default: Fieldset // @ts-expect-error
+  default: Fieldset
 } = require('./index.jsx')
 
 /**

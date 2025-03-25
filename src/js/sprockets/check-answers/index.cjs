@@ -11,7 +11,7 @@ const log = debug('shinkansen-sprockets/sprockets/check-answers')
 log('`shinkansen` is awake')
 
 const {
-  default: CheckAnswers // @ts-expect-error
+  default: CheckAnswers
 } = require('./index.jsx')
 
 /**

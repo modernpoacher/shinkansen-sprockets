@@ -1,7 +1,7 @@
 declare module '#sprockets/super/sprockets' {
   import React from 'react'
 
-  export type SprocketProps = SprocketsTypes.Sprockets.SprocketProps
+  export type SprocketProps = SprocketsTypes.Super.Sprockets.SprocketProps
 
   export default class Sprocket<P extends SprocketProps> extends React.Component<P> {
     static propTypes: object

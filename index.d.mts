@@ -42,6 +42,7 @@ declare global {
           groupRe?: React.RefObject<any> // eslint-disable-line @typescript-eslint/no-explicit-any -- Simplicity
         }
       }
+
       export namespace Components {
         export namespace Description {
           export interface DescriptionProps {
