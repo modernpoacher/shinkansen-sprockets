@@ -27,7 +27,7 @@ describe('#sprockets/super/components', () => {
   describe('`Group`', () => {
     it('is a function', () => {
       expect(Group)
-        .to.be.an('function')
+        .to.be.a('function')
     })
   })
 
