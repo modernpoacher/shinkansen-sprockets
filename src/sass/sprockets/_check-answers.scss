@@ -27,8 +27,7 @@
     .answer-title {
       @include typography.heading-s;
 
-      // stylelint-disable-next-line no-duplicate-selectors
-      & {
+      & /* stylelint-disable-line no-duplicate-selectors */ {
         width: 30%;
         padding-right: 1rem;
       }

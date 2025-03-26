@@ -37,14 +37,14 @@ export default {
 }
 
 /**
- *  @param {FieldsetProps} props
+ *  @param {FieldsetProps} args
  *  @returns {React.JSX.Element}
  */
-export function Default (props) {
+export function Default (args) {
   return (
     <form>
       <FieldsetSprocket
-        {...props}
+        {...args}
         errorMessage={undefined}
       />
     </form>
@@ -52,14 +52,14 @@ export function Default (props) {
 }
 
 /**
- *  @param {FieldsetProps} props
+ *  @param {FieldsetProps} args
  *  @returns {React.JSX.Element}
  */
-export function WithError ({ errorMessage, ...props }) {
+export function WithError ({ errorMessage, ...args }) {
   return (
     <form>
       <FieldsetSprocket
-        {...props}
+        {...args}
         errorMessage={errorMessage}
       />
     </form>

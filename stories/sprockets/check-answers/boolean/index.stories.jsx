@@ -64,7 +64,7 @@ export default {
 }
 
 /**
- *  @param {CheckAnswersProps} props
+ *  @param {CheckAnswersProps} args
  *  @returns {React.JSX.Element}
  */
 export function Default ({ checkAnswers = [], ...args }) {

@@ -38,7 +38,7 @@ const log = debug('shinkansen-sprockets/components/group/check-answers')
  *  @param {number} index
  *  @returns {React.JSX.Element}
  */
-function render ({ params: { answer, changeAnswer: { href, text, ...changeAnswer } } }, index) {
+function render ({ params: { answer, changeAnswer: { href, text, visuallyHiddenText } } }, index) {
   log('render')
 
   return (
@@ -52,7 +52,7 @@ function render ({ params: { answer, changeAnswer: { href, text, ...changeAnswer
       />
 
       <ChangeAnswer
-        changeAnswer={{ ...changeAnswer, href, text }}
+        changeAnswer={{ href, text, visuallyHiddenText }}
       />
     </div>
   )

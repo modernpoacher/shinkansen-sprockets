@@ -5,8 +5,7 @@
 #storybook-root {
   @include layouts.design-system;
 
-  // stylelint-disable-next-line no-duplicate-selectors
-  & {
+  & /* stylelint-disable-line no-duplicate-selectors */ {
     margin: 0 auto;
   }
 
@@ -21,8 +20,7 @@
   > .sprocket.fieldset > fieldset > legend {
     @include text.heading-l;
 
-    // stylelint-disable-next-line no-duplicate-selectors
-    & {
+    & /* stylelint-disable-line no-duplicate-selectors */ {
       padding: 0;
       margin: 0 0 1em 0; // EM
     }

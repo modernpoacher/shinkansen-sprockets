@@ -53,7 +53,7 @@ LinkText.propTypes = {
 }
 
 /**
- *  @param {{ changeAnswer: { href: string, text: string, visuallyHiddenText?: string } }}  answer
+ *  @param {{ changeAnswer: { href: string, text: string, visuallyHiddenText?: string } }} props
  *  @returns {React.JSX.Element}
  */
 export default function ChangeAnswer ({ changeAnswer: { href, text, visuallyHiddenText } }) {

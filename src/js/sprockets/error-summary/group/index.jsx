@@ -48,7 +48,9 @@ function render (error, index) {
   return (
     <li key={getKey(href, text, index)} className='error'>
       <a href={href}>
-        <TextContent textContent={text} />
+        <TextContent
+          textContent={text}
+        />
       </a>
     </li>
   )

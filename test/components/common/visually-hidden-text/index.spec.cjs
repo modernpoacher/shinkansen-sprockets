@@ -1,5 +1,5 @@
 const {
-  expect // @ts-expect-error
+  expect
 } = require('chai')
 
 const VisuallyHiddenText = require('#sprockets/components/common/visually-hidden-text')

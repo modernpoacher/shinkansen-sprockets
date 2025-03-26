@@ -38,9 +38,10 @@ declare global {
     export namespace Super {
       export namespace Sprockets {
         export interface SprocketProps extends React.PropsWithChildren {
-          title?: string
-          groupRe?: React.RefObject<any> // eslint-disable-line @typescript-eslint/no-explicit-any -- Simplicity
+          groupRef?: React.RefObject<any> // eslint-disable-line @typescript-eslint/no-explicit-any -- Simplicity
         }
+
+        export type SprocketState = Record<PropertyKey, unknown>
       }
 
       export namespace Components {
@@ -61,11 +62,9 @@ declare global {
         }
 
         export namespace Group {
-          export interface GroupProps extends React.PropsWithChildren {
-            groupRef?: React.RefObject<any> // eslint-disable-line @typescript-eslint/no-explicit-any -- Simplicity
-          }
+          export type GroupProps = Sprockets.SprocketProps
 
-          export type GroupState = Record<PropertyKey, unknown>
+          export type GroupState = Sprockets.SprocketState
         }
 
         export namespace Title {
@@ -115,8 +114,10 @@ declare global {
     export namespace Sprockets {
       export type SprocketProps = Super.Sprockets.SprocketProps
 
+      export type SprocketState = Super.Sprockets.SprocketState
+
       export namespace CheckAnswers {
-        export interface CheckAnswersProps extends Super.Sprockets.SprocketProps {
+        export interface CheckAnswersProps extends SprocketProps {
           checkAnswers?: AnswerDefinitionType[]
         }
 
@@ -136,7 +137,7 @@ declare global {
       }
 
       export namespace ErrorSummary {
-        export interface ErrorSummaryProps extends Super.Sprockets.SprocketProps {
+        export interface ErrorSummaryProps extends SprocketProps {
           errorSummary?: ErrorDefinitionType[]
         }
 
@@ -156,13 +157,13 @@ declare global {
       }
 
       export namespace Fieldset {
-        export interface FieldsetProps extends Super.Sprockets.SprocketProps {
-          description?: string
-          errorMessage?: ErrorDefinitionType
-        }
+        export type FieldsetProps = SprocketProps
+
+        export type FieldsetState = SprocketState
 
         export namespace Group {
           export type FieldsetProps = Super.Components.Group.GroupProps
+
           export type FieldsetState = Super.Components.Group.GroupState
         }
 

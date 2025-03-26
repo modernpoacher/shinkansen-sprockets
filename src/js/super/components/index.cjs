@@ -10,7 +10,23 @@ const log = debug('shinkansen-sprockets/super/components')
 
 log('`shinkansen` is awake')
 
-module.exports.Description = require('./description/index.cjs')
-module.exports.ErrorMessage = require('./error-message/index.cjs')
-module.exports.Group = require('./group/index.cjs')
-module.exports.Title = require('./title/index.cjs')
+const {
+  default: Description
+} = require('./description/index.jsx')
+
+const {
+  default: ErrorMessage
+} = require('./error-message/index.jsx')
+
+const {
+  default: Group
+} = require('./group/index.jsx')
+
+const {
+  default: Title
+} = require('./title/index.jsx')
+
+module.exports.Description = Description
+module.exports.ErrorMessage = ErrorMessage
+module.exports.Group = Group
+module.exports.Title = Title

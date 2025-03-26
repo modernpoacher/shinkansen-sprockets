@@ -42,7 +42,7 @@ function getAnswerValue (value) {
 }
 
 /**
- *  @param {{ answer: { value: string | string[] } }} answer
+ *  @param {{ answer: { value: string | string[] } }} props
  *  @returns {React.JSX.Element}
  */
 export default function AnswerValue ({ answer: { value } }) {
