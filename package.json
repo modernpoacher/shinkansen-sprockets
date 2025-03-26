@@ -71,6 +71,7 @@
     "@storybook/manager-api": "^8.6.9",
     "@storybook/react": "^8.6.9",
     "@storybook/react-webpack5": "^8.6.9",
+    "@storybook/test": "^8.6.9",
     "@storybook/theming": "^8.6.9",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -135,16 +136,20 @@
     "#sprockets/sprockets/*": "./src/js/sprockets/*/index.cjs",
     "#sprockets/sprockets/check-answers/group/*": "./src/js/sprockets/check-answers/group/*.cjs",
     "#sprockets/sprockets/error-summary/group/*": "./src/js/sprockets/error-summary/group/*.cjs",
+    "#sprockets/super": {
+      "require": "./src/js/super/index.cjs",
+      "import": "./src/js/super/index.mjs"
+    },
     "#sprockets/super/components": {
       "require": "./src/js/super/components/index.cjs",
       "import": "./src/js/super/components/index.mjs"
     },
     "#sprockets/super/components/*": "./src/js/super/components/*/index.cjs",
     "#sprockets/super/sprockets": "./src/js/super/sprockets/index.cjs",
+    "#sprockets/super/sprockets/*": "./src/js/super/sprockets/*/index.cjs",
     "#sprockets/transformers": "./src/js/transformers/index.mjs",
     "#sprockets/transformers/*": "./src/js/transformers/*/index.mjs",
     "#stories/definitions/*": "./stories/definitions/*.json",
-    "#stories/errors": "./stories/errors.mjs",
     "#stories/sprockets/*": "./stories/sprockets/*/index.stories.jsx"
   },
   "exports": {
@@ -161,12 +166,17 @@
     "./sprockets/*": "./src/js/sprockets/*/index.cjs",
     "./sprockets/check-answers/group/*": "./src/js/sprockets/check-answers/group/*.cjs",
     "./sprockets/error-summary/group/*": "./src/js/sprockets/error-summary/group/*.cjs",
+    "./super": {
+      "require": "./src/js/super/index.cjs",
+      "import": "./src/js/super/index.mjs"
+    },
     "./super/components": {
       "require": "./src/js/super/components/index.cjs",
       "import": "./src/js/super/components/index.mjs"
     },
     "./super/components/*": "./src/js/super/components/*/index.cjs",
     "./super/sprockets": "./src/js/super/sprockets/index.cjs",
+    "./super/sprockets/*": "./src/js/super/sprockets/*/index.cjs",
     "./transformers": "./src/js/transformers/index.mjs",
     "./transformers/*": "./src/js/transformers/*/index.mjs"
   }

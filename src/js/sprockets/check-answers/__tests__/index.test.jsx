@@ -75,7 +75,7 @@ jest.mock('react-router', () => {
 
 describe('#sprockets/sprockets/check-answers', () => {
   describe('<Sprocket />', () => {
-    describe.only('With required props', () => {
+    describe('With required props', () => {
       it('renders', () => {
         const {
           container: {

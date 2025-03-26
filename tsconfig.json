@@ -33,6 +33,10 @@
       "#sprockets/sprockets/error-summary/group/*": [
         "src/js/sprockets/error-summary/group/*.cjs"
       ],
+      "#sprockets/super": [
+        "src/js/super/index.cjs",
+        "src/js/super/index.mjs"
+      ],
       "#sprockets/super/components": [
         "src/js/super/components/index.cjs",
         "src/js/super/components/index.mjs"
@@ -43,11 +47,14 @@
       "#sprockets/super/sprockets": [
         "src/js/super/sprockets/index.cjs"
       ],
+      "#sprockets/super/sprockets/*": [
+        "src/js/super/sprockets/*/index.cjs"
+      ],
       "#sprockets/transformers": [
-        "src/transformers/index.mjs"
+        "src/js/transformers/index.mjs"
       ],
       "#sprockets/transformers/*": [
-        "src/transformers/*/index.mjs"
+        "src/js/transformers/*/index.mjs"
       ]
     }
   },

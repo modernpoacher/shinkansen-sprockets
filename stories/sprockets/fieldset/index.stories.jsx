@@ -6,7 +6,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import FieldsetSprocket from '#sprockets/sprockets/fieldset'
-import errors from '#stories/errors'
+
+import definitions from './definitions.mjs'
 
 export default {
   title: 'Stories/Sprockets/Fieldset',
@@ -18,8 +19,8 @@ export default {
   },
   argTypes: {
     errorMessage: {
-      options: Object.keys(errors),
-      mapping: errors,
+      options: Object.keys(definitions),
+      mapping: definitions,
       control: {
         type: 'radio',
         labels: {
@@ -36,8 +37,8 @@ export default {
 }
 
 /**
- * @param {FieldsetProps} props
- * @returns {React.JSX.Element}
+ *  @param {FieldsetProps} props
+ *  @returns {React.JSX.Element}
  */
 export function Default (props) {
   return (
@@ -51,8 +52,8 @@ export function Default (props) {
 }
 
 /**
- * @param {FieldsetProps} props
- * @returns {React.JSX.Element}
+ *  @param {FieldsetProps} props
+ *  @returns {React.JSX.Element}
  */
 export function WithError ({ errorMessage, ...props }) {
   return (
@@ -66,9 +67,5 @@ export function WithError ({ errorMessage, ...props }) {
 }
 
 WithError.propTypes = {
-  errorMessage: PropTypes.shape({
-    type: PropTypes.string.isRequired,
-    params: PropTypes.shape({}).isRequired,
-    uri: PropTypes.string.isRequired
-  })
+  errorMessage: PropTypes.string
 }

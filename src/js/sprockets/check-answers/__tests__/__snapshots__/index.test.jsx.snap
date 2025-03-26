@@ -326,12 +326,4 @@ exports[`#sprockets/sprockets/check-answers <Sprocket /> With additional props m
 </div>
 `;
 
-exports[`#sprockets/sprockets/check-answers <Sprocket /> With additional props renders 1`] = `
-<div
-  className="MOCK CLASSNAME"
->
-  MOCK CHECK ANSWERS GROUP
-</div>
-`;
-
 exports[`#sprockets/sprockets/check-answers <Sprocket /> With required props matches the snapshot 1`] = `null`;
