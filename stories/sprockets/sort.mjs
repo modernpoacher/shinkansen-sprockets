@@ -75,11 +75,9 @@ export default function sort ({
    *  Different Sprocket
    */
   if (a !== o) {
-    if (a === STRING) {
-      if (o !== STRING) {
-        return UP
-      }
-    }
+    if (a === STRING) return UP
+
+    if (a === NULL) return DOWN
 
     if (a === NUMBER) {
       if (o === STRING) {
@@ -120,12 +118,6 @@ export default function sort ({
         }
       }
     }
-
-    if (a === NULL) {
-      if (o !== NULL) {
-        return DOWN
-      }
-    }
   }
 
   /**
@@ -136,9 +128,9 @@ export default function sort ({
       const a = getType(alpha)
 
       if (hasType(omega)) {
-        if (a === ENUM) { // && hasType(omega)) {
-          return UP
-        }
+        if (a === ENUM) return UP
+
+        if (a === ALL_OF) return DOWN
 
         const o = getType(omega)
 
@@ -168,10 +160,6 @@ export default function sort ({
           if (o === ALL_OF) {
             return UP
           }
-        }
-
-        if (a === ALL_OF) { // && hasType(omega)) {
-          return DOWN
         }
       }
 
