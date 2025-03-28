@@ -2,7 +2,7 @@
   "type": "BOOLEAN",
   "params": {
     "answer": {
-      "title": "Boolean",
+      "title": "Boolean (All Of)",
       "value": "false"
     },
     "changeAnswer": {

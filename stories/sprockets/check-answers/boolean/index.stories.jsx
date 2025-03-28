@@ -10,6 +10,8 @@ import {
 
 import CheckAnswersSprocket from '#sprockets/sprockets/check-answers'
 
+import sort from '#stories/sprockets/sort'
+
 import {
   BOOLEAN_BOOLEAN,
   BOOLEAN_BOOLEAN_ENUM,
@@ -71,7 +73,7 @@ export function Default ({ checkAnswers = [], ...args }) {
   return (
     <CheckAnswersSprocket
       {...args}
-      checkAnswers={checkAnswers.flat()}
+      checkAnswers={checkAnswers.flat().sort(sort)}
     />
   )
 }

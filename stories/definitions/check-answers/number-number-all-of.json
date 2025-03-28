@@ -2,7 +2,7 @@
   "type": "NUMBER",
   "params": {
     "answer": {
-      "title": "Number",
+      "title": "Number (All Of)",
       "value": "3"
     },
     "changeAnswer": {

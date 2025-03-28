@@ -150,7 +150,8 @@
     "#sprockets/transformers": "./src/js/transformers/index.mjs",
     "#sprockets/transformers/*": "./src/js/transformers/*/index.mjs",
     "#stories/definitions/*": "./stories/definitions/*.json",
-    "#stories/sprockets/*": "./stories/sprockets/*/index.stories.jsx"
+    "#stories/sprockets/*": "./stories/sprockets/*/index.stories.jsx",
+    "#stories/sprockets/sort": "./stories/sprockets/sort.mjs"
   },
   "exports": {
     ".": {
