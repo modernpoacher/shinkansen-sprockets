@@ -11,28 +11,28 @@ import {
 
 describe('#sprockets/transformers', () => {
   describe('`checkAnswers`', () => {
-    it('is a function', () => {
+    it('is an object', () => {
       expect(checkAnswers)
         .to.be.an('object')
     })
   })
 
   describe('`common`', () => {
-    it('is a function', () => {
+    it('is an object', () => {
       expect(common)
         .to.be.an('object')
     })
   })
 
   describe('`errorMessage`', () => {
-    it('is a function', () => {
+    it('is an object', () => {
       expect(errorMessage)
         .to.be.an('object')
     })
   })
 
   describe('`errorSummary`', () => {
-    it('is a function', () => {
+    it('is an object', () => {
       expect(errorSummary)
         .to.be.an('object')
     })
