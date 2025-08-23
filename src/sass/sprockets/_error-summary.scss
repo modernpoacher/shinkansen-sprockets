@@ -10,7 +10,7 @@
   padding: 1rem;
   line-height: 2rem;
 
-  & > h2:first-child {
+  & > h2:first-child /* stylelint-disable-line nesting-selector-no-missing-scoping-root */ {
     margin-top: 0;
   }
 
@@ -45,7 +45,7 @@
     }
   }
 
-  &:focus {
+  &:focus /* stylelint-disable-line nesting-selector-no-missing-scoping-root */ {
     outline: 3px solid palette.$outline;
     outline-offset: 0;
     border-color: palette.$black;

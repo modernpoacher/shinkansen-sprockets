@@ -4,7 +4,7 @@
 @use "design-system/typography";
 
 @mixin sprocket-check-answers {
-  & > h2:first-child {
+  & > h2:first-child /* stylelint-disable-line nesting-selector-no-missing-scoping-root */ {
     margin-top: 0;
   }
 

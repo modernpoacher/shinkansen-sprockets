@@ -9,25 +9,25 @@
   padding: 0;
   margin: 1rem 0;
 
-  &:first-child {
+  &:first-child /* stylelint-disable-line nesting-selector-no-missing-scoping-root */ {
     margin-top: 0;
   }
 
-  &:last-child {
+  &:last-child /* stylelint-disable-line nesting-selector-no-missing-scoping-root */ {
     margin-bottom: 0;
   }
 
   line-height: 1.375rem;
 
-  &.error-summary {
+  &.error-summary /* stylelint-disable-line nesting-selector-no-missing-scoping-root */ {
     @include error-summary.sprocket-error-summary;
   }
 
-  &.check-answers {
+  &.check-answers /* stylelint-disable-line nesting-selector-no-missing-scoping-root */ {
     @include check-answers.sprocket-check-answers;
   }
 
-  &.fieldset {
+  &.fieldset /* stylelint-disable-line nesting-selector-no-missing-scoping-root */ {
     legend {
       @include typography.heading-m;
 
