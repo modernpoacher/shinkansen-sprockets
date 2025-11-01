@@ -39,6 +39,7 @@ declare global {
       export namespace Sprockets {
         export interface SprocketProps extends React.PropsWithChildren {
           groupRef?: React.RefObject<any> // eslint-disable-line @typescript-eslint/no-explicit-any -- Simplicity
+          title?: string
         }
 
         export type SprocketState = Record<PropertyKey, unknown>

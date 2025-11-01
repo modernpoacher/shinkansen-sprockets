@@ -7,6 +7,7 @@
     "noEmit": true,
     "strict": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
@@ -62,7 +63,12 @@
     "."
   ],
   "exclude": [
-    ".storybook/**/*",
-    "**/__tests__/**/*"
+    ".circleci",
+    ".github",
+    ".husky",
+    ".storybook",
+    "**/__tests__",
+    "coverage",
+    "node_modules"
   ]
 }
