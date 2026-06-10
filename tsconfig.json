@@ -8,54 +8,57 @@
     "strict": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "types": [
+      "jest",
+      "node"
+    ],
     "jsx": "react",
-    "baseUrl": ".",
     "paths": {
       "#sprockets": [
-        "src/js/index.cjs",
-        "src/js/index.mjs"
+        "./src/js/index.cjs",
+        "./src/js/index.mjs"
       ],
       "#sprockets/components": [
-        "src/js/components/index.cjs",
-        "src/js/components/index.mjs"
+        "./src/js/components/index.cjs",
+        "./src/js/components/index.mjs"
       ],
       "#sprockets/components/*": [
-        "src/js/components/*/index.cjs"
+        "./src/js/components/*/index.cjs"
       ],
       "#sprockets/sprockets": [
-        "src/js/sprockets/index.cjs"
+        "./src/js/sprockets/index.cjs"
       ],
       "#sprockets/sprockets/*": [
-        "src/js/sprockets/*/index.cjs"
+        "./src/js/sprockets/*/index.cjs"
       ],
       "#sprockets/sprockets/check-answers/group/*": [
-        "src/js/sprockets/check-answers/group/*.cjs"
+        "./src/js/sprockets/check-answers/group/*.cjs"
       ],
       "#sprockets/sprockets/error-summary/group/*": [
-        "src/js/sprockets/error-summary/group/*.cjs"
+        "./src/js/sprockets/error-summary/group/*.cjs"
       ],
       "#sprockets/super": [
-        "src/js/super/index.cjs",
-        "src/js/super/index.mjs"
+        "./src/js/super/index.cjs",
+        "./src/js/super/index.mjs"
       ],
       "#sprockets/super/components": [
-        "src/js/super/components/index.cjs",
-        "src/js/super/components/index.mjs"
+        "./src/js/super/components/index.cjs",
+        "./src/js/super/components/index.mjs"
       ],
       "#sprockets/super/components/*": [
-        "src/js/super/components/*/index.cjs"
+        "./src/js/super/components/*/index.cjs"
       ],
       "#sprockets/super/sprockets": [
-        "src/js/super/sprockets/index.cjs"
+        "./src/js/super/sprockets/index.cjs"
       ],
       "#sprockets/super/sprockets/*": [
-        "src/js/super/sprockets/*/index.cjs"
+        "./src/js/super/sprockets/*/index.cjs"
       ],
       "#sprockets/transformers": [
-        "src/js/transformers/index.mjs"
+        "./src/js/transformers/index.mjs"
       ],
       "#sprockets/transformers/*": [
-        "src/js/transformers/*/index.mjs"
+        "./src/js/transformers/*/index.mjs"
       ]
     }
   },
