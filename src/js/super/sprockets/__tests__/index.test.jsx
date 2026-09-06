@@ -23,6 +23,14 @@ import Sprocket from '#sprockets/super/sprockets'
 jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
 describe('#sprockets/super/sprockets', () => {
+  beforeAll(() => {
+    jest.useFakeTimers()
+  })
+
+  afterAll(() => {
+    jest.useRealTimers()
+  })
+
   describe('<Sprocket />', () => {
     describe('With required props', () => {
       it('renders', () => {
