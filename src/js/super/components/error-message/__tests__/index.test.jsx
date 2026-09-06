@@ -38,14 +38,6 @@ const MOCK_CHANGED_ERROR_MESSAGE = {
 }
 
 describe('#sprockets/super/components/error-message', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   describe('<ErrorMessage />', () => {
     describe('With required props', () => {
       it('renders', () => {

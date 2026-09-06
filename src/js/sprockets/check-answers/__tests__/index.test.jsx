@@ -74,14 +74,6 @@ jest.mock('react-router', () => {
 })
 
 describe('#sprockets/sprockets/check-answers', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   describe('<Sprocket />', () => {
     describe('With required props', () => {
       it('renders', () => {

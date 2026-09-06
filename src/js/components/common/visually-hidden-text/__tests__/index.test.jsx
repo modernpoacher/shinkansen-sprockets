@@ -12,14 +12,6 @@ import {
 import VisuallyHiddenText from '#sprockets/components/common/visually-hidden-text'
 
 describe('#sprockets/components/common/visually-hidden-text', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   describe('<VisuallyHiddenText />', () => {
     it('renders', () => {
       const {

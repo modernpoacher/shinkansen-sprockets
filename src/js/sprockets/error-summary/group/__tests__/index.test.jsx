@@ -25,14 +25,6 @@ import {
 jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
 describe('#sprockets/sprockets/error-summary/group', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   const MOCK_GROUP_REF = { current: null }
 
   describe('<Group />', () => {

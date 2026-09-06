@@ -20,14 +20,6 @@ import Title from '#sprockets/sprockets/fieldset/title'
 jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
 describe('#sprockets/sprockets/fieldset/title', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   describe('<Title />', () => {
     describe('With required props', () => {
       it('renders', () => {

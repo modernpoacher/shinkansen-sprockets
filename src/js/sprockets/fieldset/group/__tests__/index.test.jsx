@@ -20,14 +20,6 @@ import Group from '#sprockets/sprockets/fieldset/group'
 jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
 describe('#sprockets/sprockets/fieldset/group', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   const MOCK_GROUP_REF = { current: null }
 
   describe('<Group />', () => {

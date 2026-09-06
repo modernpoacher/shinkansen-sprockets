@@ -90,14 +90,6 @@ jest.mock('react-router', () => {
 })
 
 describe('#sprockets/sprockets/check-answers/group', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   const MOCK_GROUP_REF = { current: null }
 
   describe('<Group />', () => {

@@ -20,14 +20,6 @@ import Description from '#sprockets/sprockets/fieldset/description'
 jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
 describe('#sprockets/sprockets/fieldset/description', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   describe('<Description />', () => {
     describe('With required props', () => {
       it('renders', () => {

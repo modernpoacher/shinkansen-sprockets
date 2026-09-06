@@ -12,14 +12,6 @@ import {
 import TextContent from '#sprockets/components/common/text-content'
 
 describe('#sprockets/components/common/text-content', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   describe('<TextContent />', () => {
     it('renders', () => {
       const {

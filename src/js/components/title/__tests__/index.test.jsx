@@ -17,14 +17,6 @@ import {
 import Title from '#sprockets/components/title'
 
 describe('#sprockets/components/title', () => {
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   describe('<Title />', () => {
     describe('With required props', () => {
       it('renders', () => {
