@@ -21,6 +21,14 @@ import {
 import Description from '#sprockets/super/components/description'
 
 describe('#sprockets/super/components/description', () => {
+  beforeAll(() => {
+    jest.useFakeTimers()
+  })
+
+  afterAll(() => {
+    jest.useRealTimers()
+  })
+
   describe('<Description />', () => {
     describe('With required props', () => {
       it('renders', () => {

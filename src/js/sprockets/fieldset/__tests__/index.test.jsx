@@ -20,6 +20,14 @@ import Sprocket from '#sprockets/sprockets/fieldset'
 jest.mock('classnames', () => jest.fn().mockReturnValue('MOCK CLASSNAME'))
 
 describe('#sprockets/sprockets/fieldset', () => {
+  beforeAll(() => {
+    jest.useFakeTimers()
+  })
+
+  afterAll(() => {
+    jest.useRealTimers()
+  })
+
   describe('<Sprocket />', () => {
     describe('With required props', () => {
       it('renders', () => {

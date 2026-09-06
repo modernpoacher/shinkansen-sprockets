@@ -17,6 +17,14 @@ import {
 import Group from '#sprockets/components/group'
 
 describe('#sprockets/components/group', () => {
+  beforeAll(() => {
+    jest.useFakeTimers()
+  })
+
+  afterAll(() => {
+    jest.useRealTimers()
+  })
+
   const MOCK_GROUP_REF = { current: null }
 
   describe('<Group />', () => {
